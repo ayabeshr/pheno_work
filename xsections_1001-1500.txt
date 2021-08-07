@@ -1,0 +1,1002 @@
+Xsc for Point nb : [1001] is : #  Integrated weight (pb)  :       2.3463e-11
+
+Xsc for Point nb : [1002] is : #  Integrated weight (pb)  :       2.1473e-11
+
+Xsc for Point nb : [1003] is : #  Integrated weight (pb)  :       2.3266e-11
+
+Xsc for Point nb : [1004] is : #  Integrated weight (pb)  :       2.1797e-10
+
+Xsc for Point nb : [1005] is : #  Integrated weight (pb)  :       3.7854e-10
+
+Xsc for Point nb : [1006] is : #  Integrated weight (pb)  :       1.1279e-10
+
+Xsc for Point nb : [1007] is : #  Integrated weight (pb)  :       4.9592e-11
+
+Xsc for Point nb : [1008] is : #  Integrated weight (pb)  :       2.8764e-16
+
+Xsc for Point nb : [1009] is : #  Integrated weight (pb)  :       3.2736e-10
+
+Xsc for Point nb : [1010] is : #  Integrated weight (pb)  :       1.6876e-11
+
+Xsc for Point nb : [1011] is : #  Integrated weight (pb)  :       3.1362e-10
+
+Xsc for Point nb : [1012] is : #  Integrated weight (pb)  :       4.6502e-11
+
+Xsc for Point nb : [1013] is : #  Integrated weight (pb)  :       3.7917e-10
+
+Xsc for Point nb : [1014] is : #  Integrated weight (pb)  :       1.4742e-10
+
+Xsc for Point nb : [1015] is : #  Integrated weight (pb)  :       1.664e-10
+
+Xsc for Point nb : [1016] is : #  Integrated weight (pb)  :       2.7477e-10
+
+Xsc for Point nb : [1017] is : #  Integrated weight (pb)  :       1.6411e-10
+
+Xsc for Point nb : [1018] is : #  Integrated weight (pb)  :       1.8343e-10
+
+Xsc for Point nb : [1019] is : #  Integrated weight (pb)  :       8.442e-11
+
+Xsc for Point nb : [1020] is : #  Integrated weight (pb)  :       4.1489e-10
+
+Xsc for Point nb : [1021] is : #  Integrated weight (pb)  :       1.2358e-10
+
+Xsc for Point nb : [1022] is : #  Integrated weight (pb)  :       3.6991e-10
+
+Xsc for Point nb : [1023] is : #  Integrated weight (pb)  :       2.8272e-11
+
+Xsc for Point nb : [1024] is : #  Integrated weight (pb)  :       3.96e-10
+
+Xsc for Point nb : [1025] is : #  Integrated weight (pb)  :       8.7657e-11
+
+Xsc for Point nb : [1026] is : #  Integrated weight (pb)  :       2.1009e-10
+
+Xsc for Point nb : [1027] is : #  Integrated weight (pb)  :       5.2932e-12
+
+Xsc for Point nb : [1028] is : #  Integrated weight (pb)  :       3.0857e-11
+
+Xsc for Point nb : [1029] is : #  Integrated weight (pb)  :       3.2349e-10
+
+Xsc for Point nb : [1030] is : #  Integrated weight (pb)  :       2.8136e-11
+
+Xsc for Point nb : [1031] is : #  Integrated weight (pb)  :       4.2216e-10
+
+Xsc for Point nb : [1032] is : #  Integrated weight (pb)  :       3.0641e-11
+
+Xsc for Point nb : [1033] is : #  Integrated weight (pb)  :       1.9556e-10
+
+Xsc for Point nb : [1034] is : #  Integrated weight (pb)  :       2.3061e-11
+
+Xsc for Point nb : [1035] is : #  Integrated weight (pb)  :       2.7333e-11
+
+Xsc for Point nb : [1036] is : #  Integrated weight (pb)  :       1.555906e-10
+
+Xsc for Point nb : [1037] is : #  Integrated weight (pb)  :       3.3358e-11
+
+Xsc for Point nb : [1038] is : #  Integrated weight (pb)  :       1.7638e-10
+
+Xsc for Point nb : [1039] is : #  Integrated weight (pb)  :       4.5516e-11
+
+Xsc for Point nb : [1040] is : #  Integrated weight (pb)  :       4.9163e-11
+
+Xsc for Point nb : [1041] is : #  Integrated weight (pb)  :       5.8813e-11
+
+Xsc for Point nb : [1042] is : #  Integrated weight (pb)  :       3.8557e-10
+
+Xsc for Point nb : [1043] is : #  Integrated weight (pb)  :       7.5324e-11
+
+Xsc for Point nb : [1044] is : #  Integrated weight (pb)  :       1.063e-10
+
+Xsc for Point nb : [1045] is : #  Integrated weight (pb)  :       4.2588e-11
+
+Xsc for Point nb : [1046] is : #  Integrated weight (pb)  :       3.1247e-10
+
+Xsc for Point nb : [1047] is : #  Integrated weight (pb)  :       3.4234e-10
+
+Xsc for Point nb : [1048] is : #  Integrated weight (pb)  :       8.3638e-11
+
+Xsc for Point nb : [1049] is : #  Integrated weight (pb)  :       2.0817e-10
+
+Xsc for Point nb : [1050] is : #  Integrated weight (pb)  :       1.3828e-10
+
+Xsc for Point nb : [1051] is : #  Integrated weight (pb)  :       2.9533e-10
+
+Xsc for Point nb : [1052] is : #  Integrated weight (pb)  :       2.7044e-10
+
+Xsc for Point nb : [1053] is : #  Integrated weight (pb)  :       1.0428e-10
+
+Xsc for Point nb : [1054] is : #  Integrated weight (pb)  :       3.3372e-10
+
+Xsc for Point nb : [1055] is : #  Integrated weight (pb)  :       1.7975e-10
+
+Xsc for Point nb : [1056] is : #  Integrated weight (pb)  :       4.1145e-10
+
+Xsc for Point nb : [1057] is : #  Integrated weight (pb)  :       5.8465e-11
+
+Xsc for Point nb : [1058] is : #  Integrated weight (pb)  :       3.7544e-10
+
+Xsc for Point nb : [1059] is : #  Integrated weight (pb)  :       3.0971e-10
+
+Xsc for Point nb : [1060] is : #  Integrated weight (pb)  :       3.0892e-10
+
+Xsc for Point nb : [1061] is : #  Integrated weight (pb)  :       3.7458e-10
+
+Xsc for Point nb : [1062] is : #  Integrated weight (pb)  :       1.3469e-10
+
+Xsc for Point nb : [1063] is : #  Integrated weight (pb)  :       1.0274e-10
+
+Xsc for Point nb : [1064] is : #  Integrated weight (pb)  :       9.605e-11
+
+Xsc for Point nb : [1065] is : #  Integrated weight (pb)  :       3.786e-10
+
+Xsc for Point nb : [1066] is : #  Integrated weight (pb)  :       3.4816e-10
+
+Xsc for Point nb : [1067] is : #  Integrated weight (pb)  :       3.55487e-11
+
+Xsc for Point nb : [1068] is : #  Integrated weight (pb)  :       1.9626e-10
+
+Xsc for Point nb : [1069] is : #  Integrated weight (pb)  :       8.6014e-11
+
+Xsc for Point nb : [1070] is : #  Integrated weight (pb)  :       1.7697e-11
+
+Xsc for Point nb : [1071] is : #  Integrated weight (pb)  :       3.4263e-11
+
+Xsc for Point nb : [1072] is : #  Integrated weight (pb)  :       4.2045e-11
+
+Xsc for Point nb : [1073] is : #  Integrated weight (pb)  :       2.2259e-10
+
+Xsc for Point nb : [1074] is : #  Integrated weight (pb)  :       1.2833e-10
+
+Xsc for Point nb : [1075] is : #  Integrated weight (pb)  :       1.5337e-10
+
+Xsc for Point nb : [1076] is : #  Integrated weight (pb)  :       1.8451e-10
+
+Xsc for Point nb : [1077] is : #  Integrated weight (pb)  :       1.1177e-10
+
+Xsc for Point nb : [1078] is : #  Integrated weight (pb)  :       2.7854e-10
+
+Xsc for Point nb : [1079] is : #  Integrated weight (pb)  :       7.04276e-13
+
+Xsc for Point nb : [1080] is : #  Integrated weight (pb)  :       4.2176e-10
+
+Xsc for Point nb : [1081] is : #  Integrated weight (pb)  :       3.9995e-11
+
+Xsc for Point nb : [1082] is : #  Integrated weight (pb)  :       3.123098e-12
+
+Xsc for Point nb : [1083] is : #  Integrated weight (pb)  :       6.277e-11
+
+Xsc for Point nb : [1084] is : #  Integrated weight (pb)  :       2.8352e-11
+
+Xsc for Point nb : [1085] is : #  Integrated weight (pb)  :       1.0836e-10
+
+Xsc for Point nb : [1086] is : #  Integrated weight (pb)  :       1.0946e-10
+
+Xsc for Point nb : [1087] is : #  Integrated weight (pb)  :       1.7352e-10
+
+Xsc for Point nb : [1088] is : #  Integrated weight (pb)  :       3.3207e-10
+
+Xsc for Point nb : [1089] is : #  Integrated weight (pb)  :       3.6649e-10
+
+Xsc for Point nb : [1090] is : #  Integrated weight (pb)  :       3.164e-10
+
+Xsc for Point nb : [1091] is : #  Integrated weight (pb)  :       4.375101e-12
+
+Xsc for Point nb : [1092] is : #  Integrated weight (pb)  :       2.5717e-11
+
+Xsc for Point nb : [1093] is : #  Integrated weight (pb)  :       4.779e-11
+
+Xsc for Point nb : [1094] is : #  Integrated weight (pb)  :       4.0579e-10
+
+Xsc for Point nb : [1095] is : #  Integrated weight (pb)  :       3.9224e-10
+
+Xsc for Point nb : [1096] is : #  Integrated weight (pb)  :       1.3825804e-10
+
+Xsc for Point nb : [1097] is : #  Integrated weight (pb)  :       9.286e-11
+
+Xsc for Point nb : [1098] is : #  Integrated weight (pb)  :       3.2984e-11
+
+Xsc for Point nb : [1099] is : #  Integrated weight (pb)  :       4.0224e-11
+
+Xsc for Point nb : [1100] is : #  Integrated weight (pb)  :       4.6322e-11
+
+Xsc for Point nb : [1101] is : #  Integrated weight (pb)  :       3.1345e-16
+
+Xsc for Point nb : [1102] is : #  Integrated weight (pb)  :       2.1625e-10
+
+Xsc for Point nb : [1103] is : #  Integrated weight (pb)  :       7.0533e-11
+
+Xsc for Point nb : [1104] is : #  Integrated weight (pb)  :       1.9162e-10
+
+Xsc for Point nb : [1105] is : #  Integrated weight (pb)  :       3.9998e-10
+
+Xsc for Point nb : [1106] is : #  Integrated weight (pb)  :       3.0252e-10
+
+Xsc for Point nb : [1107] is : #  Integrated weight (pb)  :       1.9285e-11
+
+Xsc for Point nb : [1108] is : #  Integrated weight (pb)  :       1.129e-10
+
+Xsc for Point nb : [1109] is : #  Integrated weight (pb)  :       8.0685e-11
+
+Xsc for Point nb : [1110] is : #  Integrated weight (pb)  :       1.8354e-11
+
+Xsc for Point nb : [1111] is : #  Integrated weight (pb)  :       2.7528e-11
+
+Xsc for Point nb : [1112] is : #  Integrated weight (pb)  :       4.0663e-10
+
+Xsc for Point nb : [1113] is : #  Integrated weight (pb)  :       2.4286e-10
+
+Xsc for Point nb : [1114] is : #  Integrated weight (pb)  :       6.5545e-11
+
+Xsc for Point nb : [1115] is : #  Integrated weight (pb)  :       3.9768e-11
+
+Xsc for Point nb : [1116] is : #  Integrated weight (pb)  :       2.6888e-10
+
+Xsc for Point nb : [1117] is : #  Integrated weight (pb)  :       7.8395e-11
+
+Xsc for Point nb : [1118] is : #  Integrated weight (pb)  :       3.1578e-10
+
+Xsc for Point nb : [1119] is : #  Integrated weight (pb)  :       8.7397e-11
+
+Xsc for Point nb : [1120] is : #  Integrated weight (pb)  :       4.0771e-10
+
+Xsc for Point nb : [1121] is : #  Integrated weight (pb)  :       2.4653866e-11
+
+Xsc for Point nb : [1122] is : #  Integrated weight (pb)  :       9.5302e-11
+
+Xsc for Point nb : [1123] is : #  Integrated weight (pb)  :       2.7706e-11
+
+Xsc for Point nb : [1124] is : #  Integrated weight (pb)  :       1.0388e-10
+
+Xsc for Point nb : [1125] is : #  Integrated weight (pb)  :       1.455307e-12
+
+Xsc for Point nb : [1126] is : #  Integrated weight (pb)  :       4.1983e-10
+
+Xsc for Point nb : [1127] is : #  Integrated weight (pb)  :       3.3745e-10
+
+Xsc for Point nb : [1128] is : #  Integrated weight (pb)  :       2.1249e-10
+
+Xsc for Point nb : [1129] is : #  Integrated weight (pb)  :       2.5745e-11
+
+Xsc for Point nb : [1130] is : #  Integrated weight (pb)  :       2.8121e-11
+
+Xsc for Point nb : [1131] is : #  Integrated weight (pb)  :       3.5975e-10
+
+Xsc for Point nb : [1132] is : #  Integrated weight (pb)  :       1.0048e-10
+
+Xsc for Point nb : [1133] is : #  Integrated weight (pb)  :       4.2001e-10
+
+Xsc for Point nb : [1134] is : #  Integrated weight (pb)  :       1.306862e-11
+
+Xsc for Point nb : [1135] is : #  Integrated weight (pb)  :       2.3263e-10
+
+Xsc for Point nb : [1136] is : #  Integrated weight (pb)  :       3.3485e-11
+
+Xsc for Point nb : [1137] is : #  Integrated weight (pb)  :       3.5431e-11
+
+Xsc for Point nb : [1138] is : #  Integrated weight (pb)  :       1.5818e-10
+
+Xsc for Point nb : [1139] is : #  Integrated weight (pb)  :       1.0801e-10
+
+Xsc for Point nb : [1140] is : #  Integrated weight (pb)  :       1.3427e-11
+
+Xsc for Point nb : [1141] is : #  Integrated weight (pb)  :       3.6614e-10
+
+Xsc for Point nb : [1142] is : #  Integrated weight (pb)  :       2.1732e-10
+
+Xsc for Point nb : [1143] is : #  Integrated weight (pb)  :       5.4893e-11
+
+Xsc for Point nb : [1144] is : #  Integrated weight (pb)  :       1.355978e-10
+
+Xsc for Point nb : [1145] is : #  Integrated weight (pb)  :       1.2745e-10
+
+Xsc for Point nb : [1146] is : #  Integrated weight (pb)  :       1.2756e-10
+
+Xsc for Point nb : [1147] is : #  Integrated weight (pb)  :       1.7418e-10
+
+Xsc for Point nb : [1148] is : #  Integrated weight (pb)  :       3.697438e-11
+
+Xsc for Point nb : [1149] is : #  Integrated weight (pb)  :       3.1084e-10
+
+Xsc for Point nb : [1150] is : #  Integrated weight (pb)  :       2.7824e-11
+
+Xsc for Point nb : [1151] is : #  Integrated weight (pb)  :       3.9926e-10
+
+Xsc for Point nb : [1152] is : #  Integrated weight (pb)  :       1.877e-10
+
+Xsc for Point nb : [1153] is : #  Integrated weight (pb)  :       5.7575e-11
+
+Xsc for Point nb : [1154] is : #  Integrated weight (pb)  :       2.0499e-10
+
+Xsc for Point nb : [1155] is : #  Integrated weight (pb)  :       2.4651e-10
+
+Xsc for Point nb : [1156] is : #  Integrated weight (pb)  :       2.9999e-10
+
+Xsc for Point nb : [1157] is : #  Integrated weight (pb)  :       3.438e-11
+
+Xsc for Point nb : [1158] is : #  Integrated weight (pb)  :       2.8435e-10
+
+Xsc for Point nb : [1159] is : #  Integrated weight (pb)  :       2.6172e-11
+
+Xsc for Point nb : [1160] is : #  Integrated weight (pb)  :       4.878e-11
+
+Xsc for Point nb : [1161] is : #  Integrated weight (pb)  :       1.281065e-10
+
+Xsc for Point nb : [1162] is : #  Integrated weight (pb)  :       1.5649e-11
+
+Xsc for Point nb : [1163] is : #  Integrated weight (pb)  :       4.2577e-11
+
+Xsc for Point nb : [1164] is : #  Integrated weight (pb)  :       4.3205e-11
+
+Xsc for Point nb : [1165] is : #  Integrated weight (pb)  :       2.1822e-10
+
+Xsc for Point nb : [1166] is : #  Integrated weight (pb)  :       3.6072e-11
+
+Xsc for Point nb : [1167] is : #  Integrated weight (pb)  :       3.8315e-10
+
+Xsc for Point nb : [1168] is : #  Integrated weight (pb)  :       6.3292e-11
+
+Xsc for Point nb : [1169] is : #  Integrated weight (pb)  :       3.8119e-10
+
+Xsc for Point nb : [1170] is : #  Integrated weight (pb)  :       4.2097e-11
+
+Xsc for Point nb : [1171] is : #  Integrated weight (pb)  :       2.7176e-11
+
+Xsc for Point nb : [1172] is : #  Integrated weight (pb)  :       3.96e-11
+
+Xsc for Point nb : [1173] is : #  Integrated weight (pb)  :       3.0168e-10
+
+Xsc for Point nb : [1174] is : #  Integrated weight (pb)  :       9.3364e-11
+
+Xsc for Point nb : [1175] is : #  Integrated weight (pb)  :       9.8294e-11
+
+Xsc for Point nb : [1176] is : #  Integrated weight (pb)  :       2.8378e-11
+
+Xsc for Point nb : [1177] is : #  Integrated weight (pb)  :       6.9478e-11
+
+Xsc for Point nb : [1178] is : #  Integrated weight (pb)  :       2.651237e-11
+
+Xsc for Point nb : [1179] is : #  Integrated weight (pb)  :       7.4594e-11
+
+Xsc for Point nb : [1180] is : #  Integrated weight (pb)  :       3.2869e-11
+
+Xsc for Point nb : [1181] is : #  Integrated weight (pb)  :       1.0066e-10
+
+Xsc for Point nb : [1182] is : #  Integrated weight (pb)  :       3.4443e-10
+
+Xsc for Point nb : [1183] is : #  Integrated weight (pb)  :       3.2728e-11
+
+Xsc for Point nb : [1184] is : #  Integrated weight (pb)  :       6.1336e-11
+
+Xsc for Point nb : [1185] is : #  Integrated weight (pb)  :       4.9491e-11
+
+Xsc for Point nb : [1186] is : #  Integrated weight (pb)  :       2.184e-10
+
+Xsc for Point nb : [1187] is : #  Integrated weight (pb)  :       5.00146e-11
+
+Xsc for Point nb : [1188] is : #  Integrated weight (pb)  :       3.3815e-10
+
+Xsc for Point nb : [1189] is : #  Integrated weight (pb)  :       1.1163e-10
+
+Xsc for Point nb : [1190] is : #  Integrated weight (pb)  :       2.2293e-10
+
+Xsc for Point nb : [1191] is : #  Integrated weight (pb)  :       1.8718e-10
+
+Xsc for Point nb : [1192] is : #  Integrated weight (pb)  :       3.2618e-16
+
+Xsc for Point nb : [1193] is : #  Integrated weight (pb)  :       4.7906e-11
+
+Xsc for Point nb : [1194] is : #  Integrated weight (pb)  :       2.2994e-10
+
+Xsc for Point nb : [1195] is : #  Integrated weight (pb)  :       4.4675e-11
+
+Xsc for Point nb : [1196] is : #  Integrated weight (pb)  :       5.3805e-11
+
+Xsc for Point nb : [1197] is : #  Integrated weight (pb)  :       3.4392e-10
+
+Xsc for Point nb : [1198] is : #  Integrated weight (pb)  :       5.0458e-11
+
+Xsc for Point nb : [1199] is : #  Integrated weight (pb)  :       4.6605e-11
+
+Xsc for Point nb : [1200] is : #  Integrated weight (pb)  :       3.8756e-11
+
+Xsc for Point nb : [1201] is : #  Integrated weight (pb)  :       6.9002e-11
+
+Xsc for Point nb : [1202] is : #  Integrated weight (pb)  :       8.3502e-11
+
+Xsc for Point nb : [1203] is : #  Integrated weight (pb)  :       2.584268e-12
+
+Xsc for Point nb : [1204] is : #  Integrated weight (pb)  :       3.3537e-10
+
+Xsc for Point nb : [1205] is : #  Integrated weight (pb)  :       1.7973e-10
+
+Xsc for Point nb : [1206] is : #  Integrated weight (pb)  :       1.8153e-10
+
+Xsc for Point nb : [1207] is : #  Integrated weight (pb)  :       3.7111e-10
+
+Xsc for Point nb : [1208] is : #  Integrated weight (pb)  :       2.9945e-11
+
+Xsc for Point nb : [1209] is : #  Integrated weight (pb)  :       2.700956e-11
+
+Xsc for Point nb : [1210] is : #  Integrated weight (pb)  :       6.903337e-12
+
+Xsc for Point nb : [1211] is : #  Integrated weight (pb)  :       2.3706e-10
+
+Xsc for Point nb : [1212] is : #  Integrated weight (pb)  :       2.594e-11
+
+Xsc for Point nb : [1213] is : #  Integrated weight (pb)  :       9.2173e-11
+
+Xsc for Point nb : [1214] is : #  Integrated weight (pb)  :       2.5045e-11
+
+Xsc for Point nb : [1215] is : #  Integrated weight (pb)  :       1.5586e-10
+
+Xsc for Point nb : [1216] is : #  Integrated weight (pb)  :       4.5853e-11
+
+Xsc for Point nb : [1217] is : #  Integrated weight (pb)  :       2.7693e-11
+
+Xsc for Point nb : [1218] is : #  Integrated weight (pb)  :       4.215e-10
+
+Xsc for Point nb : [1219] is : #  Integrated weight (pb)  :       3.3342e-10
+
+Xsc for Point nb : [1220] is : #  Integrated weight (pb)  :       3.6883e-10
+
+Xsc for Point nb : [1221] is : #  Integrated weight (pb)  :       2.1686e-10
+
+Xsc for Point nb : [1222] is : #  Integrated weight (pb)  :       8.2195e-11
+
+Xsc for Point nb : [1223] is : #  Integrated weight (pb)  :       2.0136e-10
+
+Xsc for Point nb : [1224] is : #  Integrated weight (pb)  :       2.0103e-10
+
+Xsc for Point nb : [1225] is : #  Integrated weight (pb)  :       2.2714e-10
+
+Xsc for Point nb : [1226] is : #  Integrated weight (pb)  :       2.5402e-10
+
+Xsc for Point nb : [1227] is : #  Integrated weight (pb)  :       2.5469e-11
+
+Xsc for Point nb : [1228] is : #  Integrated weight (pb)  :       1.9608e-11
+
+Xsc for Point nb : [1229] is : #  Integrated weight (pb)  :       8.0288038e-11
+
+Xsc for Point nb : [1230] is : #  Integrated weight (pb)  :       1.1394e-10
+
+Xsc for Point nb : [1231] is : #  Integrated weight (pb)  :       4.0014e-11
+
+Xsc for Point nb : [1232] is : #  Integrated weight (pb)  :       2.562e-11
+
+Xsc for Point nb : [1233] is : #  Integrated weight (pb)  :       1.264435e-10
+
+Xsc for Point nb : [1234] is : #  Integrated weight (pb)  :       4.1872e-10
+
+Xsc for Point nb : [1235] is : #  Integrated weight (pb)  :       3.135e-11
+
+Xsc for Point nb : [1236] is : #  Integrated weight (pb)  :       3.3711e-10
+
+Xsc for Point nb : [1237] is : #  Integrated weight (pb)  :       2.6553e-10
+
+Xsc for Point nb : [1238] is : #  Integrated weight (pb)  :       5.1217e-11
+
+Xsc for Point nb : [1239] is : #  Integrated weight (pb)  :       3.3925e-10
+
+Xsc for Point nb : [1240] is : #  Integrated weight (pb)  :       1.9804e-10
+
+Xsc for Point nb : [1241] is : #  Integrated weight (pb)  :       2.8187e-11
+
+Xsc for Point nb : [1242] is : #  Integrated weight (pb)  :       1.8292e-10
+
+Xsc for Point nb : [1243] is : #  Integrated weight (pb)  :       3.28e-10
+
+Xsc for Point nb : [1244] is : #  Integrated weight (pb)  :       4.1824e-10
+
+Xsc for Point nb : [1245] is : #  Integrated weight (pb)  :       1.3052e-10
+
+Xsc for Point nb : [1246] is : #  Integrated weight (pb)  :       3.5425e-11
+
+Xsc for Point nb : [1247] is : #  Integrated weight (pb)  :       1.7941e-11
+
+Xsc for Point nb : [1248] is : #  Integrated weight (pb)  :       1.289939e-10
+
+Xsc for Point nb : [1249] is : #  Integrated weight (pb)  :       2.0462e-10
+
+Xsc for Point nb : [1250] is : #  Integrated weight (pb)  :       1.6352e-10
+
+Xsc for Point nb : [1251] is : #  Integrated weight (pb)  :       2.5276e-11
+
+Xsc for Point nb : [1252] is : #  Integrated weight (pb)  :       1.6886e-10
+
+Xsc for Point nb : [1253] is : #  Integrated weight (pb)  :       8.09686e-12
+
+Xsc for Point nb : [1254] is : #  Integrated weight (pb)  :       1.8227e-11
+
+Xsc for Point nb : [1255] is : #  Integrated weight (pb)  :       5.874828e-11
+
+Xsc for Point nb : [1256] is : #  Integrated weight (pb)  :       3.8666e-10
+
+Xsc for Point nb : [1257] is : #  Integrated weight (pb)  :       2.5099e-11
+
+Xsc for Point nb : [1258] is : #  Integrated weight (pb)  :       5.0794e-11
+
+Xsc for Point nb : [1259] is : #  Integrated weight (pb)  :       3.7508e-10
+
+Xsc for Point nb : [1260] is : #  Integrated weight (pb)  :       3.1325e-11
+
+Xsc for Point nb : [1261] is : #  Integrated weight (pb)  :       3.4146e-11
+
+Xsc for Point nb : [1262] is : #  Integrated weight (pb)  :       1.6066e-10
+
+Xsc for Point nb : [1263] is : #  Integrated weight (pb)  :       1.4004e-11
+
+Xsc for Point nb : [1264] is : #  Integrated weight (pb)  :       1.0465e-10
+
+Xsc for Point nb : [1265] is : #  Integrated weight (pb)  :       4.0176e-11
+
+Xsc for Point nb : [1266] is : #  Integrated weight (pb)  :       2.3175e-10
+
+Xsc for Point nb : [1267] is : #  Integrated weight (pb)  :       3.047e-10
+
+Xsc for Point nb : [1268] is : #  Integrated weight (pb)  :       5.6538e-11
+
+Xsc for Point nb : [1269] is : #  Integrated weight (pb)  :       1.1414694e-10
+
+Xsc for Point nb : [1270] is : #  Integrated weight (pb)  :       3.9712e-10
+
+Xsc for Point nb : [1271] is : #  Integrated weight (pb)  :       4.247e-10
+
+Xsc for Point nb : [1272] is : #  Integrated weight (pb)  :       8.552261e-11
+
+Xsc for Point nb : [1273] is : #  Integrated weight (pb)  :       2.4841e-11
+
+Xsc for Point nb : [1274] is : #  Integrated weight (pb)  :       1.7823e-10
+
+Xsc for Point nb : [1275] is : #  Integrated weight (pb)  :       2.2568e-10
+
+Xsc for Point nb : [1276] is : #  Integrated weight (pb)  :       2.6523e-16
+
+Xsc for Point nb : [1277] is : #  Integrated weight (pb)  :       3.7386e-11
+
+Xsc for Point nb : [1278] is : #  Integrated weight (pb)  :       3.1246e-10
+
+Xsc for Point nb : [1279] is : #  Integrated weight (pb)  :       1.2787e-10
+
+Xsc for Point nb : [1280] is : #  Integrated weight (pb)  :       3.072e-11
+
+Xsc for Point nb : [1281] is : #  Integrated weight (pb)  :       3.6159e-11
+
+Xsc for Point nb : [1282] is : #  Integrated weight (pb)  :       2.512e-10
+
+Xsc for Point nb : [1283] is : #  Integrated weight (pb)  :       1.0815e-10
+
+Xsc for Point nb : [1284] is : #  Integrated weight (pb)  :       3.9352e-11
+
+Xsc for Point nb : [1285] is : #  Integrated weight (pb)  :       2.5433e-10
+
+Xsc for Point nb : [1286] is : #  Integrated weight (pb)  :       1.1836e-10
+
+Xsc for Point nb : [1287] is : #  Integrated weight (pb)  :       2.8087e-10
+
+Xsc for Point nb : [1288] is : #  Integrated weight (pb)  :       3.452e-10
+
+Xsc for Point nb : [1289] is : #  Integrated weight (pb)  :       2.6285e-10
+
+Xsc for Point nb : [1290] is : #  Integrated weight (pb)  :       9.71841e-12
+
+Xsc for Point nb : [1291] is : #  Integrated weight (pb)  :       3.71403e-15
+
+Xsc for Point nb : [1292] is : #  Integrated weight (pb)  :       3.3004e-11
+
+Xsc for Point nb : [1293] is : #  Integrated weight (pb)  :       4.685095e-11
+
+Xsc for Point nb : [1294] is : #  Integrated weight (pb)  :       5.5953e-12
+
+Xsc for Point nb : [1295] is : #  Integrated weight (pb)  :       4.6901e-11
+
+Xsc for Point nb : [1296] is : #  Integrated weight (pb)  :       2.6874e-11
+
+Xsc for Point nb : [1297] is : #  Integrated weight (pb)  :       3.1709e-10
+
+Xsc for Point nb : [1298] is : #  Integrated weight (pb)  :       7.5157e-11
+
+Xsc for Point nb : [1299] is : #  Integrated weight (pb)  :       4.243e-10
+
+Xsc for Point nb : [1300] is : #  Integrated weight (pb)  :       3.0007e-16
+
+Xsc for Point nb : [1301] is : #  Integrated weight (pb)  :       1.6333e-10
+
+Xsc for Point nb : [1302] is : #  Integrated weight (pb)  :       3.872e-10
+
+Xsc for Point nb : [1303] is : #  Integrated weight (pb)  :       5.671e-11
+
+Xsc for Point nb : [1304] is : #  Integrated weight (pb)  :       4.0174e-10
+
+Xsc for Point nb : [1305] is : #  Integrated weight (pb)  :       8.566946e-11
+
+Xsc for Point nb : [1306] is : #  Integrated weight (pb)  :       5.0122e-11
+
+Xsc for Point nb : [1307] is : #  Integrated weight (pb)  :       6.0296e-11
+
+Xsc for Point nb : [1308] is : #  Integrated weight (pb)  :       4.0273e-10
+
+Xsc for Point nb : [1309] is : #  Integrated weight (pb)  :       2.2048e-11
+
+Xsc for Point nb : [1310] is : #  Integrated weight (pb)  :       9.1136e-11
+
+Xsc for Point nb : [1311] is : #  Integrated weight (pb)  :       1.4932e-10
+
+Xsc for Point nb : [1312] is : #  Integrated weight (pb)  :       4.1877e-10
+
+Xsc for Point nb : [1313] is : #  Integrated weight (pb)  :       2.7944e-11
+
+Xsc for Point nb : [1314] is : #  Integrated weight (pb)  :       8.9977e-11
+
+Xsc for Point nb : [1315] is : #  Integrated weight (pb)  :       2.1374e-10
+
+Xsc for Point nb : [1316] is : #  Integrated weight (pb)  :       3.0074e-10
+
+Xsc for Point nb : [1317] is : #  Integrated weight (pb)  :       4.234e-11
+
+Xsc for Point nb : [1318] is : #  Integrated weight (pb)  :       4.5747e-11
+
+Xsc for Point nb : [1319] is : #  Integrated weight (pb)  :       8.2603e-11
+
+Xsc for Point nb : [1320] is : #  Integrated weight (pb)  :       1.5664e-10
+
+Xsc for Point nb : [1321] is : #  Integrated weight (pb)  :       1.8145e-10
+
+Xsc for Point nb : [1322] is : #  Integrated weight (pb)  :       1.1576426e-10
+
+Xsc for Point nb : [1323] is : #  Integrated weight (pb)  :       2.1506e-10
+
+Xsc for Point nb : [1324] is : #  Integrated weight (pb)  :       1.61e-10
+
+Xsc for Point nb : [1325] is : #  Integrated weight (pb)  :       4.0011e-11
+
+Xsc for Point nb : [1326] is : #  Integrated weight (pb)  :       5.457e-11
+
+Xsc for Point nb : [1327] is : #  Integrated weight (pb)  :       3.5628e-10
+
+Xsc for Point nb : [1328] is : #  Integrated weight (pb)  :       2.4166e-11
+
+Xsc for Point nb : [1329] is : #  Integrated weight (pb)  :       8.31694e-12
+
+Xsc for Point nb : [1330] is : #  Integrated weight (pb)  :       1.205033e-12
+
+Xsc for Point nb : [1331] is : #  Integrated weight (pb)  :       2.3853e-11
+
+Xsc for Point nb : [1332] is : #  Integrated weight (pb)  :       1.579e-10
+
+Xsc for Point nb : [1333] is : #  Integrated weight (pb)  :       1.1199e-10
+
+Xsc for Point nb : [1334] is : #  Integrated weight (pb)  :       3.6789e-11
+
+Xsc for Point nb : [1335] is : #  Integrated weight (pb)  :       4.511154e-11
+
+Xsc for Point nb : [1336] is : #  Integrated weight (pb)  :       3.1711e-11
+
+Xsc for Point nb : [1337] is : #  Integrated weight (pb)  :       1.566e-10
+
+Xsc for Point nb : [1338] is : #  Integrated weight (pb)  :       1.4646e-10
+
+Xsc for Point nb : [1339] is : #  Integrated weight (pb)  :       3.2162e-10
+
+Xsc for Point nb : [1340] is : #  Integrated weight (pb)  :       6.708835e-11
+
+Xsc for Point nb : [1341] is : #  Integrated weight (pb)  :       1.2368e-10
+
+Xsc for Point nb : [1342] is : #  Integrated weight (pb)  :       9.97614e-13
+
+Xsc for Point nb : [1343] is : #  Integrated weight (pb)  :       3.5154e-11
+
+Xsc for Point nb : [1344] is : #  Integrated weight (pb)  :       1.2880107e-10
+
+Xsc for Point nb : [1345] is : #  Integrated weight (pb)  :       8.1734e-11
+
+Xsc for Point nb : [1346] is : #  Integrated weight (pb)  :       3.6839e-11
+
+Xsc for Point nb : [1347] is : #  Integrated weight (pb)  :       2.7183e-10
+
+Xsc for Point nb : [1348] is : #  Integrated weight (pb)  :       2.2784e-10
+
+Xsc for Point nb : [1349] is : #  Integrated weight (pb)  :       2.3312e-10
+
+Xsc for Point nb : [1350] is : #  Integrated weight (pb)  :       1.9531e-11
+
+Xsc for Point nb : [1351] is : #  Integrated weight (pb)  :       8.127816e-11
+
+Xsc for Point nb : [1352] is : #  Integrated weight (pb)  :       1.9933e-10
+
+Xsc for Point nb : [1353] is : #  Integrated weight (pb)  :       3.1266e-10
+
+Xsc for Point nb : [1354] is : #  Integrated weight (pb)  :       8.8859e-11
+
+Xsc for Point nb : [1355] is : #  Integrated weight (pb)  :       3.1919e-11
+
+Xsc for Point nb : [1356] is : #  Integrated weight (pb)  :       1.6405e-10
+
+Xsc for Point nb : [1357] is : #  Integrated weight (pb)  :       2.1917e-11
+
+Xsc for Point nb : [1358] is : #  Integrated weight (pb)  :       4.6299e-11
+
+Xsc for Point nb : [1359] is : #  Integrated weight (pb)  :       5.036e-11
+
+Xsc for Point nb : [1360] is : #  Integrated weight (pb)  :       2.1316e-11
+
+Xsc for Point nb : [1361] is : #  Integrated weight (pb)  :       7.9251e-11
+
+Xsc for Point nb : [1362] is : #  Integrated weight (pb)  :       6.8266e-11
+
+Xsc for Point nb : [1363] is : #  Integrated weight (pb)  :       2.9743e-10
+
+Xsc for Point nb : [1364] is : #  Integrated weight (pb)  :       2.666e-11
+
+Xsc for Point nb : [1365] is : #  Integrated weight (pb)  :       4.3517e-11
+
+Xsc for Point nb : [1366] is : #  Integrated weight (pb)  :       5.1068e-11
+
+Xsc for Point nb : [1367] is : #  Integrated weight (pb)  :       1.29774e-10
+
+Xsc for Point nb : [1368] is : #  Integrated weight (pb)  :       2.2614e-10
+
+Xsc for Point nb : [1369] is : #  Integrated weight (pb)  :       2.6156e-11
+
+Xsc for Point nb : [1370] is : #  Integrated weight (pb)  :       7.0505e-11
+
+Xsc for Point nb : [1371] is : #  Integrated weight (pb)  :       3.7858e-11
+
+Xsc for Point nb : [1372] is : #  Integrated weight (pb)  :       2.2578e-11
+
+Xsc for Point nb : [1373] is : #  Integrated weight (pb)  :       1.6628e-10
+
+Xsc for Point nb : [1374] is : #  Integrated weight (pb)  :       3.8689e-10
+
+Xsc for Point nb : [1375] is : #  Integrated weight (pb)  :       6.5677e-11
+
+Xsc for Point nb : [1376] is : #  Integrated weight (pb)  :       3.3213e-11
+
+Xsc for Point nb : [1377] is : #  Integrated weight (pb)  :       2.0392e-10
+
+Xsc for Point nb : [1378] is : #  Integrated weight (pb)  :       3.0549e-10
+
+Xsc for Point nb : [1379] is : #  Integrated weight (pb)  :       1.62099e-11
+
+Xsc for Point nb : [1380] is : #  Integrated weight (pb)  :       2.19704e-11
+
+Xsc for Point nb : [1381] is : #  Integrated weight (pb)  :       7.2487e-11
+
+Xsc for Point nb : [1382] is : #  Integrated weight (pb)  :       4.0413e-10
+
+Xsc for Point nb : [1383] is : #  Integrated weight (pb)  :       1.9354e-10
+
+Xsc for Point nb : [1384] is : #  Integrated weight (pb)  :       2.5754e-10
+
+Xsc for Point nb : [1385] is : #  Integrated weight (pb)  :       1.8456e-10
+
+Xsc for Point nb : [1386] is : #  Integrated weight (pb)  :       3.4171e-10
+
+Xsc for Point nb : [1387] is : #  Integrated weight (pb)  :       8.4324e-11
+
+Xsc for Point nb : [1388] is : #  Integrated weight (pb)  :       7.3914e-11
+
+Xsc for Point nb : [1389] is : #  Integrated weight (pb)  :       2.9834e-10
+
+Xsc for Point nb : [1390] is : #  Integrated weight (pb)  :       1.9101e-11
+
+Xsc for Point nb : [1391] is : #  Integrated weight (pb)  :       7.5267e-11
+
+Xsc for Point nb : [1392] is : #  Integrated weight (pb)  :       1.8351e-10
+
+Xsc for Point nb : [1393] is : #  Integrated weight (pb)  :       7.7065e-11
+
+Xsc for Point nb : [1394] is : #  Integrated weight (pb)  :       5.4686e-11
+
+Xsc for Point nb : [1395] is : #  Integrated weight (pb)  :       6.498e-11
+
+Xsc for Point nb : [1396] is : #  Integrated weight (pb)  :       2.1032e-10
+
+Xsc for Point nb : [1397] is : #  Integrated weight (pb)  :       3.1745e-10
+
+Xsc for Point nb : [1398] is : #  Integrated weight (pb)  :       6.5471e-11
+
+Xsc for Point nb : [1399] is : #  Integrated weight (pb)  :       4.0227e-11
+
+Xsc for Point nb : [1400] is : #  Integrated weight (pb)  :       2.5243e-11
+
+Xsc for Point nb : [1401] is : #  Integrated weight (pb)  :       3.0958e-10
+
+Xsc for Point nb : [1402] is : #  Integrated weight (pb)  :       7.6779e-11
+
+Xsc for Point nb : [1403] is : #  Integrated weight (pb)  :       5.0809e-11
+
+Xsc for Point nb : [1404] is : #  Integrated weight (pb)  :       3.0215e-10
+
+Xsc for Point nb : [1405] is : #  Integrated weight (pb)  :       1.4402e-11
+
+Xsc for Point nb : [1406] is : #  Integrated weight (pb)  :       3.063e-10
+
+Xsc for Point nb : [1407] is : #  Integrated weight (pb)  :       2.0379e-10
+
+Xsc for Point nb : [1408] is : #  Integrated weight (pb)  :       3.4047e-11
+
+Xsc for Point nb : [1409] is : #  Integrated weight (pb)  :       5.3541e-11
+
+Xsc for Point nb : [1410] is : #  Integrated weight (pb)  :       9.8975e-11
+
+Xsc for Point nb : [1411] is : #  Integrated weight (pb)  :       5.0674e-11
+
+Xsc for Point nb : [1412] is : #  Integrated weight (pb)  :       1.2694e-10
+
+Xsc for Point nb : [1413] is : #  Integrated weight (pb)  :       4.1467e-11
+
+Xsc for Point nb : [1414] is : #  Integrated weight (pb)  :       2.4023e-11
+
+Xsc for Point nb : [1415] is : #  Integrated weight (pb)  :       9.7489e-11
+
+Xsc for Point nb : [1416] is : #  Integrated weight (pb)  :       2.4279e-11
+
+Xsc for Point nb : [1417] is : #  Integrated weight (pb)  :       4.9737e-11
+
+Xsc for Point nb : [1418] is : #  Integrated weight (pb)  :       3.7557e-10
+
+Xsc for Point nb : [1419] is : #  Integrated weight (pb)  :       2.6737e-11
+
+Xsc for Point nb : [1420] is : #  Integrated weight (pb)  :       1.6328e-10
+
+Xsc for Point nb : [1421] is : #  Integrated weight (pb)  :       1.6296e-10
+
+Xsc for Point nb : [1422] is : #  Integrated weight (pb)  :       8.4797e-11
+
+Xsc for Point nb : [1423] is : #  Integrated weight (pb)  :       4.056973e-11
+
+Xsc for Point nb : [1424] is : #  Integrated weight (pb)  :       1.2792e-10
+
+Xsc for Point nb : [1425] is : #  Integrated weight (pb)  :       3.6269e-10
+
+Xsc for Point nb : [1426] is : #  Integrated weight (pb)  :       2.5198e-11
+
+Xsc for Point nb : [1427] is : #  Integrated weight (pb)  :       2.8697e-10
+
+Xsc for Point nb : [1428] is : #  Integrated weight (pb)  :       4.2004e-10
+
+Xsc for Point nb : [1429] is : #  Integrated weight (pb)  :       3.3446e-10
+
+Xsc for Point nb : [1430] is : #  Integrated weight (pb)  :       4.9157e-11
+
+Xsc for Point nb : [1431] is : #  Integrated weight (pb)  :       2.7743e-11
+
+Xsc for Point nb : [1432] is : #  Integrated weight (pb)  :       2.0929e-10
+
+Xsc for Point nb : [1433] is : #  Integrated weight (pb)  :       7.5157e-11
+
+Xsc for Point nb : [1434] is : #  Integrated weight (pb)  :       2.5527e-10
+
+Xsc for Point nb : [1435] is : #  Integrated weight (pb)  :       4.2293e-10
+
+Xsc for Point nb : [1436] is : #  Integrated weight (pb)  :       2.3748e-11
+
+Xsc for Point nb : [1437] is : #  Integrated weight (pb)  :       3.5252e-11
+
+Xsc for Point nb : [1438] is : #  Integrated weight (pb)  :       3.823e-10
+
+Xsc for Point nb : [1439] is : #  Integrated weight (pb)  :       6.7779e-11
+
+Xsc for Point nb : [1440] is : #  Integrated weight (pb)  :       2.709321e-11
+
+Xsc for Point nb : [1441] is : #  Integrated weight (pb)  :       8.81808e-11
+
+Xsc for Point nb : [1442] is : #  Integrated weight (pb)  :       3.3597e-11
+
+Xsc for Point nb : [1443] is : #  Integrated weight (pb)  :       1.0153e-10
+
+Xsc for Point nb : [1444] is : #  Integrated weight (pb)  :       7.3287e-11
+
+Xsc for Point nb : [1445] is : #  Integrated weight (pb)  :       1.5616e-10
+
+Xsc for Point nb : [1446] is : #  Integrated weight (pb)  :       5.369e-11
+
+Xsc for Point nb : [1447] is : #  Integrated weight (pb)  :       3.062822e-11
+
+Xsc for Point nb : [1448] is : #  Integrated weight (pb)  :       2.3431e-10
+
+Xsc for Point nb : [1449] is : #  Integrated weight (pb)  :       1.4219e-10
+
+Xsc for Point nb : [1450] is : #  Integrated weight (pb)  :       2.8185e-10
+
+Xsc for Point nb : [1451] is : #  Integrated weight (pb)  :       2.7564e-11
+
+Xsc for Point nb : [1452] is : #  Integrated weight (pb)  :       6.420994e-11
+
+Xsc for Point nb : [1453] is : #  Integrated weight (pb)  :       6.9403e-11
+
+Xsc for Point nb : [1454] is : #  Integrated weight (pb)  :       2.0676e-10
+
+Xsc for Point nb : [1455] is : #  Integrated weight (pb)  :       1.4981e-10
+
+Xsc for Point nb : [1456] is : #  Integrated weight (pb)  :       1.5697e-10
+
+Xsc for Point nb : [1457] is : #  Integrated weight (pb)  :       1.0313e-10
+
+Xsc for Point nb : [1458] is : #  Integrated weight (pb)  :       3.4526e-10
+
+Xsc for Point nb : [1459] is : #  Integrated weight (pb)  :       1.1664e-10
+
+Xsc for Point nb : [1460] is : #  Integrated weight (pb)  :       8.7882e-11
+
+Xsc for Point nb : [1461] is : #  Integrated weight (pb)  :       3.8592e-10
+
+Xsc for Point nb : [1462] is : #  Integrated weight (pb)  :       1.2551e-10
+
+Xsc for Point nb : [1463] is : #  Integrated weight (pb)  :       1.6819e-10
+
+Xsc for Point nb : [1464] is : #  Integrated weight (pb)  :       1.2016e-10
+
+Xsc for Point nb : [1465] is : #  Integrated weight (pb)  :       4.2206e-10
+
+Xsc for Point nb : [1466] is : #  Integrated weight (pb)  :       4.154e-11
+
+Xsc for Point nb : [1467] is : #  Integrated weight (pb)  :       1.3652e-11
+
+Xsc for Point nb : [1468] is : #  Integrated weight (pb)  :       3.5539e-11
+
+Xsc for Point nb : [1469] is : #  Integrated weight (pb)  :       3.7681e-11
+
+Xsc for Point nb : [1470] is : #  Integrated weight (pb)  :       1.419193e-10
+
+Xsc for Point nb : [1471] is : #  Integrated weight (pb)  :       4.3115e-11
+
+Xsc for Point nb : [1472] is : #  Integrated weight (pb)  :       1.9245e-10
+
+Xsc for Point nb : [1473] is : #  Integrated weight (pb)  :       2.5296e-10
+
+Xsc for Point nb : [1474] is : #  Integrated weight (pb)  :       4.9355e-11
+
+Xsc for Point nb : [1475] is : #  Integrated weight (pb)  :       1.9491e-11
+
+Xsc for Point nb : [1476] is : #  Integrated weight (pb)  :       2.6245e-10
+
+Xsc for Point nb : [1477] is : #  Integrated weight (pb)  :       7.2369e-11
+
+Xsc for Point nb : [1478] is : #  Integrated weight (pb)  :       2.7167e-10
+
+Xsc for Point nb : [1479] is : #  Integrated weight (pb)  :       1.299e-10
+
+Xsc for Point nb : [1480] is : #  Integrated weight (pb)  :       2.8033e-11
+
+Xsc for Point nb : [1481] is : #  Integrated weight (pb)  :       3.6969e-10
+
+Xsc for Point nb : [1482] is : #  Integrated weight (pb)  :       4.0051e-10
+
+Xsc for Point nb : [1483] is : #  Integrated weight (pb)  :       3.3403e-10
+
+Xsc for Point nb : [1484] is : #  Integrated weight (pb)  :       1.9452e-11
+
+Xsc for Point nb : [1485] is : #  Integrated weight (pb)  :       5.2361e-11
+
+Xsc for Point nb : [1486] is : #  Integrated weight (pb)  :       1.1177e-10
+
+Xsc for Point nb : [1487] is : #  Integrated weight (pb)  :       3.8746e-11
+
+Xsc for Point nb : [1488] is : #  Integrated weight (pb)  :       5.0143e-11
+
+Xsc for Point nb : [1489] is : #  Integrated weight (pb)  :       3.0561e-11
+
+Xsc for Point nb : [1490] is : #  Integrated weight (pb)  :       6.1351e-11
+
+Xsc for Point nb : [1491] is : #  Integrated weight (pb)  :       2.3517e-11
+
+Xsc for Point nb : [1492] is : #  Integrated weight (pb)  :       2.6869e-11
+
+Xsc for Point nb : [1493] is : #  Integrated weight (pb)  :       4.2142e-11
+
+Xsc for Point nb : [1494] is : #  Integrated weight (pb)  :       1.5415e-11
+
+Xsc for Point nb : [1495] is : #  Integrated weight (pb)  :       9.5261e-11
+
+Xsc for Point nb : [1496] is : #  Integrated weight (pb)  :       1.1115e-10
+
+Xsc for Point nb : [1497] is : #  Integrated weight (pb)  :       1.7283e-16
+
+Xsc for Point nb : [1498] is : #  Integrated weight (pb)  :       2.9169e-11
+
+Xsc for Point nb : [1499] is : #  Integrated weight (pb)  :       2.7075e-10
+
+Xsc for Point nb : [1500] is : #  Integrated weight (pb)  :       2.3205e-11
+
+...Extracting Xsections Done...
+   
