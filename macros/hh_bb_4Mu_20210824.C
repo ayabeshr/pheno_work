@@ -363,18 +363,18 @@ void hh_bb_4Mu_20210824::Loop()
       h_eta_h1_b1b2->GetXaxis()->SetTitle("#eta");
       h_eta_h1_b1b2->GetYaxis()->SetTitle("Number of Events"); 
    
-   // h2 -> h1 h1 
-   h_mh2_h1h1 = new TH1D("h_mh2_h1h1", "h_mh2_h1h1", 300, 100., 700.);
-   h_mh2_h1h1->GetXaxis()->SetTitle("Invariant mass of 2 b-jets + 4 muons (GeV/c^{2})");
-   h_mh2_h1h1->GetYaxis()->SetTitle("Number of Events"); 
+      // h2 -> h1 h1 
+      h_mh2_h1h1 = new TH1D("h_mh2_h1h1", "h_mh2_h1h1", 350, 0., 700.);
+      h_mh2_h1h1->GetXaxis()->SetTitle("Invariant mass of 2 b-jets + 4 muons (GeV/c^{2})");
+      h_mh2_h1h1->GetYaxis()->SetTitle("Number of Events"); 
    
-   h_pt_h2_h1h1 = new TH1D("h_pt_h2_h1h1", "h_pt_h2_h1h1", 100, 0., 100.);
-   h_pt_h2_h1h1->GetXaxis()->SetTitle("p_{T} (GeV/c)");
-   h_pt_h2_h1h1->GetYaxis()->SetTitle("Number of Events");
+      h_pt_h2_h1h1 = new TH1D("h_pt_h2_h1h1", "h_pt_h2_h1h1", 100, 0., 100.);
+      h_pt_h2_h1h1->GetXaxis()->SetTitle("p_{T} (GeV/c)");
+      h_pt_h2_h1h1->GetYaxis()->SetTitle("Number of Events");
    
-   h_eta_h2_h1h1 = new TH1D("h_eta_h2_h1h1", "h_eta_h2_h1h1", 20, -8., 8.);
-   h_eta_h2_h1h1->GetXaxis()->SetTitle("#eta");
-   h_eta_h2_h1h1->GetYaxis()->SetTitle("Number of Events");
+      h_eta_h2_h1h1 = new TH1D("h_eta_h2_h1h1", "h_eta_h2_h1h1", 16, -8., 8.);
+      h_eta_h2_h1h1->GetXaxis()->SetTitle("#eta");
+      h_eta_h2_h1h1->GetYaxis()->SetTitle("Number of Events");
       
       
       
