@@ -257,10 +257,10 @@ void hh_bb_4Mu_20210824::Loop()
       h_eta_Za->GetXaxis()->SetTitle("#eta");
       h_eta_Za->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_Za = new TH1D("h_phi_Za", "h_phi_Za", 20, -10., 10.); 
+    /*  h_phi_Za = new TH1D("h_phi_Za", "h_phi_Za", 20, -10., 10.); 
       h_phi_Za->GetXaxis()->SetTitle("#phi");
       h_phi_Za->GetYaxis()->SetTitle("Number of Events");
-   
+    */
       // Zb
    
       // Za Invariant Mass of dimuons not close to Z mass ~ 91. GeV 
@@ -276,10 +276,10 @@ void hh_bb_4Mu_20210824::Loop()
       h_eta_Zb->GetXaxis()->SetTitle("#eta");
       h_eta_Zb->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_Zb = new TH1D("h_phi_Zb", "h_phi_Zb", 20, -10., 10.); 
+     /* h_phi_Zb = new TH1D("h_phi_Zb", "h_phi_Zb", 20, -10., 10.); 
       h_phi_Zb->GetXaxis()->SetTitle("#phi");
       h_phi_Zb->GetYaxis()->SetTitle("Number of Events");
-   
+     */
    
       h_pt_b_jet_1 = new TH1D("h_pt_b_jet_1", "h_pt_b_jet_1", 100, 0., 100.);
       h_pt_b_jet_1->GetXaxis()->SetTitle("p_{T} (GeV/c)");
@@ -297,14 +297,14 @@ void hh_bb_4Mu_20210824::Loop()
       h_eta_b_jet_2->GetXaxis()->SetTitle("#eta");
       h_eta_b_jet_2->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_b_jet_1 = new TH1D("h_phi_b_jet_1", "h_phi_b_jet_1", 20, -10., 10.);
+    /*  h_phi_b_jet_1 = new TH1D("h_phi_b_jet_1", "h_phi_b_jet_1", 20, -10., 10.);
       h_phi_b_jet_1->GetXaxis()->SetTitle("#phi");
       h_phi_b_jet_1->GetYaxis()->SetTitle("Number of Events");
    
       h_phi_b_jet_2 = new TH1D("h_phi_b_jet_2", "h_phi_b_jet_2", 20, -10., 10.);
       h_phi_b_jet_2->GetXaxis()->SetTitle("#phi");
       h_phi_b_jet_2->GetYaxis()->SetTitle("Number of Events");
-   
+     */
    
       // DR seperation bet 4Muons  
       h_DR_mu1mu2 = new TH1D("h_DR_mu1mu2", "DR between muon1 muon2", 20, 0., 20.);
