@@ -390,7 +390,7 @@ void hh_bb_4Mu_20210824::Loop()
       //Lumi_mc = nEvents/xsection(fb);
   
      // Lumi_mc for process: DY at 14TeV 
-     float Lumi_mc = 1000000./898200.; 
+     float Lumi_mc = 1000000./898225.; 
      float wt = Lumi_data/Lumi_mc;
       
       
