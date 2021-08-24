@@ -380,8 +380,18 @@ void hh_bb_4Mu_20210824::Loop()
       // Datasets NoPU 
       TFile *input_file = new TFile("/home/Aya/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root", "READ");
    
-     // Results root file
-     TFile *output_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/out_h2h1h1_bb4Mu_PhaseII_0PU.root");
+      // Results root file
+      TFile *output_file = new TFile("/home/Aya/out_h2h1h1_bb4Mu_PhaseII_0PU.root");
+      
+      
+      //------------------------WEIGHT Calculation---------------------------
+  
+      float Lumi_data = 3.e+3;    // in 1/fb
+      //Lumi_mc = nEvents/xsection(fb);
+  
+     // Lumi_mc for process: DY at 14TeV 
+     float Lumi_mc = 1000000./898200.; 
+     float wt = Lumi_data/Lumi_mc;
       
       
       
