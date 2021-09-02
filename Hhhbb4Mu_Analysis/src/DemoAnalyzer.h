@@ -770,7 +770,8 @@ DemoAnalyzer::DemoAnalyzer(TTree *tree) : fChain(0)
    if (tree == 0) {
       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root");
+         //f = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root");
+         f = new TFile("/media/aya/PACKUP/Aya/signal_20210831/BMP1_hh_bb_4Mu.root");
       }
       f->GetObject("Delphes",tree);
 
