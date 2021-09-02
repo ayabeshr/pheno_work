@@ -423,42 +423,51 @@ void DemoAnalyzer::Loop()
    //Long64_t nentries = 10;
    Long64_t nbytes = 0, nb = 0;
    
-   for (Long64_t jentry = 0; jentry < nentries; jentry++) 
-   {
-	   cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
-	   Long64_t ientry = LoadTree(jentry);
-       if (ientry < 0) break;
-       nb = fChain->GetEntry(jentry);   nbytes += nb;
-       // if (Cut(ientry) < 0) continue;
-       
-      // Loop overall Jets
-      cout << "start loop overall jets" << endl;
-      for (Int_t i = 0; i < Jet_size; i++){
-		  h_jets_size->Fill(i);
-		  h_pt_allJets->Fill(Jet_PT[i], wt);
-		  h_eta_allJets->Fill(Jet_Eta[i], wt);
-		  h_phi_allJets->Fill(Jet_Phi[i], wt);
-      }
-      cout << "end loop overall jets" << endl;
+   for (Long64_t jentry = 0; jentry < nentries; jentry++) {
+   
+	 cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
+	 Long64_t ientry = LoadTree(jentry);
+         if (ientry < 0) break;
+         nb = fChain->GetEntry(jentry);   nbytes += nb;
+        // if (Cut(ientry) < 0) continue;
+	   
+	// Loop over all Muons Loose
+         cout << "start loop overall loose muons" << endl;
+         
+	 for (Int_t i = 0; i < MuonLoose_size; i++){
+	       
+		 h_muons_size_Loose->Fill(i);
+		 h_pt_allMuons_Loose->Fill(MuonLoose_PT[i], wt);
+		 h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
+		 h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
+	  }
+	  cout << "end loop overall loose muons" << endl;
       
-      // Loop over MET
-      cout << "start loop overall MET" << endl;
-      for (Int_t i = 0; i < MissingET_size; i++){
-		  h_MET_size->Fill(i);
-		  h_MET->Fill(MissingET_MET[i], wt);
-		  h_eta_MET->Fill(MissingET_Eta[i], wt);
-          h_eta_MET->Fill(MissingET_Phi[i], wt);
-      }
-      cout << "end loop overall MET" << endl;
+         // Loop overall Jets
+          cout << "start loop overall jets" << endl;
+          for (Int_t i = 0; i < Jet_size; i++){
+	        
+		h_jets_size->Fill(i);
+	        h_pt_allJets->Fill(Jet_PT[i], wt);
+	        h_eta_allJets->Fill(Jet_Eta[i], wt);
+	        h_phi_allJets->Fill(Jet_Phi[i], wt);
+          }
+          cout << "end loop overall jets" << endl;
       
-      // Loop over all Muons Loose
-      cout << "start loop overall loose muons" << endl;
-      for (Int_t i = 0; i < MuonLoose_size; i++){
-		  
-		  h_muons_size_Loose->Fill(i);
-		  h_pt_allMuons_Loose->Fill(MuonLoose_PT[i], wt);
-		  h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
-		  h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
+	   
+          // Loop over MET
+          cout << "start loop overall MET" << endl;
+          for (Int_t i = 0; i < MissingET_size; i++){
+	      
+		h_MET_size->Fill(i);
+	        h_MET->Fill(MissingET_MET[i], wt);
+	        h_eta_MET->Fill(MissingET_Eta[i], wt);
+                h_eta_MET->Fill(MissingET_Phi[i], wt);
+          }
+          cout << "end loop overall MET" << endl;
+      
+	   
+      
 		  
 		  if ( MuonLoose_size > 3 ){ // I have at least 4 Muons per event 
 			  
