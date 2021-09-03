@@ -558,79 +558,83 @@ void DemoAnalyzer::Loop()
               // Sure that muon pairs are of opposite signs 
               if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] + MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){
 
-		          // Start 4 muon combination 1234 
-		          if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
+		   // Start 4 muon combination 1234 
+		   if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
 			  
-                      if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
+                        if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
 				  
-				          Z12 = mu1 + mu2;
-                          mZ12 = Z12.M();
-                          pt_Z12 = Z12.Pt();
-                          eta_Z12 = Z12.Eta();
-                          phi_Z12 = Z12.Phi();
+		             Z12 = mu1 + mu2;
+                             mZ12 = Z12.M();
+                             pt_Z12 = Z12.Pt();
+                             eta_Z12 = Z12.Eta();
+                             phi_Z12 = Z12.Phi();
                   
-                          Z34 = mu3 + mu4;
-                          mZ34 = Z34.M();
-                          pt_Z34 = Z34.Pt();
-                          eta_Z34 = Z34.Eta();
-                          phi_Z34 = Z34.Phi();
+                             Z34 = mu3 + mu4;
+                             mZ34 = Z34.M();
+                             pt_Z34 = Z34.Pt();
+                             eta_Z34 = Z34.Eta();
+                             phi_Z34 = Z34.Phi();
 			      
-			              if (mZ12 > 0.) h_mZ12->Fill(mZ12, wt);
-			              if (mZ34 > 0.) h_mZ34->Fill(mZ34, wt);
+			     if (mZ12 > 0.) h_mZ12->Fill(mZ12, wt);
+			     if (mZ34 > 0.) h_mZ34->Fill(mZ34, wt);
 			     
-			            }
-			        }
+			 }
+	            }
 		  
-		          dZ12 = fabs(mZ12 - mZ);
-		          dZ34 = fabs(mZ34 - mZ);
+		    dZ12 = fabs(mZ12 - mZ);
+		    dZ34 = fabs(mZ34 - mZ);
 		    
-		          // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
-		          //dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
-		          if ( dZ12 < dZ34 ) {
-				      dZc1 = dZ12;
-				      cout << "dZ mass for combination 1234 = dZ12 = " << dZc1 << endl;
-			        }	
-		          else 
-		          {
-				      dZc1 = dZ34;
-		              cout << "dZ mass for combination 1234 = dZ34 = " << dZc1 << endl;
-		          }
+                    // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
+		    //dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
+		    if ( dZ12 < dZ34 ) {
+				      
+			 dZc1 = dZ12;
+		         cout << "dZ mass for combination 1234 = dZ12 = " << dZc1 << endl;
+	            }	
 		    
-		          // Start 4 muon combination 1324 
-		          if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
+		    else 
+		    {
+			 dZc1 = dZ34;
+		         cout << "dZ mass for combination 1234 = dZ34 = " << dZc1 << endl;
+		    }
+		    
+		    // Start 4 muon combination 1324 
+		    if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
 				
-				      if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
+		         if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
 					
-					      Z13 = mu1 + mu3;
-					      mZ13 = Z13.M();
-					      pt_Z13 = Z13.Pt();
-                          eta_Z13 = Z13.Eta();
-                          phi_Z13 = Z13.Phi();
+			       Z13 = mu1 + mu3;
+			       mZ13 = Z13.M();
+			       pt_Z13 = Z13.Pt();
+                               eta_Z13 = Z13.Eta();
+                               phi_Z13 = Z13.Phi();
 					
-					      Z24 = mu2 + mu4;
-					      mZ24 = Z24.M();
-					      pt_Z24 = Z24.Pt();
-                          eta_Z24 = Z24.Eta();
-                          phi_Z24 = Z24.Phi();
+			       Z24 = mu2 + mu4;
+			       mZ24 = Z24.M();
+			       pt_Z24 = Z24.Pt();
+                               eta_Z24 = Z24.Eta();
+                               phi_Z24 = Z24.Phi();
 					
-					      if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
-			              if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
-			            }
-			        }
+			       if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
+			       if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
+			   }
+		      }
 		    
-		          dZ13 = fabs(mZ13 - mZ);
-		          dZ24 = fabs(mZ24 - mZ);
+		      dZ13 = fabs(mZ13 - mZ);
+		      dZ24 = fabs(mZ24 - mZ);
 		
-		          //dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
-		          if ( dZ13 < dZ24 ) {
-				      dZc2 = dZ13;
-				      cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
-			        }	
-		          else 
-		          {
-				      dZc2 = dZ24;
-		              cout << "dZ mass for combination 1324 = dZ24 = " << dZc2 << endl;
-		          }
+		      //dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
+		      if ( dZ13 < dZ24 ) {
+				      
+			   dZc2 = dZ13;
+		           cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
+		      }	
+		       
+		      else 
+		      {
+			    dZc2 = dZ24;
+		            cout << "dZ mass for combination 1324 = dZ24 = " << dZc2 << endl;
+		      }
 		    
 		          // Start 4 muon combination 1423 
 		          if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
