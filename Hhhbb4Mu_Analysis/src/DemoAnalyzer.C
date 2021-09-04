@@ -712,156 +712,158 @@ void DemoAnalyzer::Loop()
 			
 			 } // end if dZc1   
 			
-			       else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
+			 else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
 				
-				            if ( dZ13 < dZ24 ){
+				   if ( dZ13 < dZ24 ){
 					
-					               Za = Z13;
-					               mZa = mZ13;
-                                   ptZa = pt_Z13;
-                                   etaZa = eta_Z13;
-                                   phiZa = phi_Z13;
+					Za = Z13;
+					mZa = mZ13;
+                                        ptZa = pt_Z13;
+                                        etaZa = eta_Z13;
+                                        phiZa = phi_Z13;
 					
-					               Zb = Z24;
-					               mZb = mZ24;
-                                   ptZb = pt_Z24;
-                                   etaZb = eta_Z24;
-                                   phiZb = phi_Z24;
+					Zb = Z24;
+					mZb = mZ24;
+                                        ptZb = pt_Z24;
+                                        etaZb = eta_Z24;
+                                        phiZb = phi_Z24;
                     
-						    }
+				    }
 				 
-				             else
-				             {      
-					             Za = Z24;
-					             mZa = mZ24;
-                                 ptZa = pt_Z24;
-                                 etaZa = eta_Z24;
-                                 phiZa = phi_Z24;
+				    else
+				    {      
+					 Za = Z24;
+					 mZa = mZ24;
+                                         ptZa = pt_Z24;
+                                         etaZa = eta_Z24;
+                                         phiZa = phi_Z24;
 					
-					             Zb = Z13;
-					             mZb = mZ13;
-                                 ptZb = pt_Z13;
-                                 etaZb = eta_Z13;
-                                 phiZb = phi_Z13;
+					 Zb = Z13;
+					 mZb = mZ13;
+                                         ptZb = pt_Z13;
+                                         etaZb = eta_Z13;
+                                         phiZb = phi_Z13;
 					
-				             }
+				    }
 				
-			            } // end else if dZc2
+			   } // end else if dZc2
 		    
-		            else 
-			        {  // dZc3 < dZc1, dZc2
+		           else 
+			   {  // dZc3 < dZc1, dZc2
 					
-				        if ( dZ14 < dZ23 ){
+			        if ( dZ14 < dZ23 ){
 					
-					        Za = Z14;
-					        mZa = mZ14;
-                            ptZa = pt_Z14;
-                            etaZa = eta_Z14;
-                            phiZa = phi_Z14;
+			             Za = Z14;
+		                     mZa = mZ14;
+                                     ptZa = pt_Z14;
+                                     etaZa = eta_Z14;
+                                     phiZa = phi_Z14;
 					
-					        Zb = Z23;
-					        mZb = mZ23;
-                            ptZb = pt_Z23;
-                            etaZb = eta_Z23;
-                            phiZb = phi_Z23;
+				     Zb = Z23;
+			             mZb = mZ23;
+                                     ptZb = pt_Z23;
+                                     etaZb = eta_Z23;
+                                     phiZb = phi_Z23;
 					
-				        }
+				 }
 				
-				        else
-				        {
-					        Za = Z23;
-					        mZa = mZ23;
-                            ptZa = pt_Z23;
-                            etaZa = eta_Z23;
-                            phiZa = phi_Z23;
+				 else
+				 {
+			              Za = Z23;
+			              mZa = mZ23;
+                                      ptZa = pt_Z23;
+                                      etaZa = eta_Z23;
+                                      phiZa = phi_Z23;
 					
-					        Zb = Z14;
-					        mZb = mZ14;
-                            ptZb = pt_Z14;
-                            etaZb = eta_Z14;
-                            phiZb = phi_Z14;
-					
-				        }
+				      Zb = Z14;
+			              mZb = mZ14;
+                                      ptZb = pt_Z14;
+                                      etaZb = eta_Z14;
+                                      phiZb = phi_Z14;
+				   	
+		                  }
 				
-			        } // end else dZc3
+			    } // end else dZc3
 			
-            if ( mZa > 40. && mZa < 120.){
+                            if ( mZa > 40. && mZa < 120.){
 				if ( mZb > 12. && mZb < 120. ){
 					
-					h_mZa_4mu->Fill(mZa, wt);            
-                    h_mZb_4mu->Fill(mZb, wt);
-                    h_pt_Za->Fill(ptZa, wt);
-                    h_pt_Zb->Fill(ptZb, wt);
-                    h_eta_Za->Fill(etaZa, wt);
-                    h_eta_Zb->Fill(etaZb, wt);
-		            h_phi_Za->Fill(phiZa, wt);
-		            h_phi_Zb->Fill(phiZb, wt); 
+				       h_mZa_4mu->Fill(mZa, wt);            
+                                       h_mZb_4mu->Fill(mZb, wt);
+                                       h_pt_Za->Fill(ptZa, wt);
+                                       h_pt_Zb->Fill(ptZb, wt);
+                                       h_eta_Za->Fill(etaZa, wt);
+                                       h_eta_Zb->Fill(etaZb, wt);
+		                       h_phi_Za->Fill(phiZa, wt);
+		                       h_phi_Zb->Fill(phiZb, wt); 
 		            
 		            
 		           //============================
 		           // Reconstruct h1 from Za, Zb
 		           //============================
             
-                   double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
+                           double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
                    
-                   // Initialize Variables
-                   mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
+                           // Initialize Variables
+                           mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
                    
-                   h1 = Za + Zb;
-                   mh1_ZaZb = h1.M();
-                   pt_h1_ZaZb = h1.Pt();
-                   eta_h1_ZaZb = h1.Eta();
-                   phi_h1_ZaZb = h1.Phi();
+                           h1 = Za + Zb;
+                           mh1_ZaZb = h1.M();
+                           pt_h1_ZaZb = h1.Pt();
+                           eta_h1_ZaZb = h1.Eta();
+                           phi_h1_ZaZb = h1.Phi();
             
-                   h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
-                   h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
-                   h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
-                   h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
+                           h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                           h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
+                           h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
+                           h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
 		            
 		            
 		            
 		         /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                   ^                                         ^ 
-                   ^            Determine b1, b2             ^
-                   ^                                         ^
-                   ^              for h -> b1 b2             ^
-                   ^                                         ^ 
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+                           ^                                         ^ 
+                           ^            Determine b1, b2             ^
+                           ^                                         ^
+                           ^              for h -> b1 b2             ^
+                           ^                                         ^ 
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
        
-                   bool found_bjet = false;
-                   int nbjets = 0;            // total nb of b-jets found per event
-                   vector<Int_t> bjet_indx;
-                   bjet_indx.clear();
+                           bool found_bjet = false;
+                           int nbjets = 0;            // total nb of b-jets found per event
+                   
+		           vector<Int_t> bjet_indx;    // saves index of jet tagged as b-jet 
+                           bjet_indx.clear();
             
-                   // Loop and select B-Tagged jets
-                   for ( Int_t i = 0; i < Jet_size; i++){
+                          // Loop and select B-Tagged jets
+                          for ( Int_t i = 0; i < Jet_size; i++){
 					   
-				       // Examine which of jets are BTagged
-                       UInt_t jet_bTag = Jet_BTag[i]; 
-                       //std::cout << "Jet [" << i << "] BTag = " << jet_bTag << endl; 
+				// Examine which of jets are BTagged
+                                UInt_t jet_bTag = Jet_BTag[i]; 
+                       
+				//std::cout << "Jet [" << i << "] BTag = " << jet_bTag << endl; 
              
-                       if ( jet_bTag == 1) found_bjet = true; 
+                                if ( jet_bTag == 1) found_bjet = true; 
 				 
-                       if ( found_bjet ){
+                                    if ( found_bjet ){
 						   
-					       nbjets++;
-				           bjet_indx.push_back(i);  // save index of jet tagged as b-jet 
-				        } 	
+					  nbjets++;
+				          bjet_indx.push_back(i);  // save index of jet tagged as b-jet 
+				    } 	
 		            } // end loop overall jets	
 		 	       
-		 	       cout << "========================================" << endl;
-		 	       cout << " number of b-jets =  " << nbjets << endl;
-		 		   cout << "========================================" << endl;	
+		 	    cout << "========================================" << endl;
+		 	    cout << " number of b-jets =  " << nbjets          << endl;
+		            cout << "========================================" << endl;	
 		           
-		           if ( nbjets > 1 ){ // I have at least 2 b jets 
+		            if ( nbjets > 1 ){ // I have at least 2 b jets 
 					   
-				       double  mb1, pt_b1, eta_b1, phi_b1, mb2, pt_b2, eta_b2, phi_b2;
+				  double  mb1, pt_b1, eta_b1, phi_b1, mb2, pt_b2, eta_b2, phi_b2;
 				       
-				       // Initialize Variables
-				       mb1 = -9999.; pt_b1 = -9999.; eta_b1 = -9999.; phi_b1 = -9999.; mb2 = -9999.; pt_b2 = -9999.; eta_b2 = -9999.; phi_b2 = -9999.;
+				  // Initialize Variables
+				  mb1 = -9999.; pt_b1 = -9999.; eta_b1 = -9999.; phi_b1 = -9999.; mb2 = -9999.; pt_b2 = -9999.; eta_b2 = -9999.; phi_b2 = -9999.;
 			
-			           Int_t b1_indx = bjet_indx[0];
-			           Int_t b2_indx = bjet_indx[1];
+			          Int_t b1_indx = bjet_indx[0];
+			          Int_t b2_indx = bjet_indx[1];
 			       
 			           cout << "nbjets = " << nbjets << " b1-jet indx = " << b1_indx << " b2-jet indx = " << b2_indx << endl;
 			           
@@ -870,51 +872,51 @@ void DemoAnalyzer::Loop()
 						
 			           mb1 = b1.M();
 			           pt_b1 = b1.Pt();		    
-                       eta_b1 = b1.Eta();          
-                       phi_b1 = b1.Phi();           
+                                   eta_b1 = b1.Eta();          
+                                   phi_b1 = b1.Phi();           
                         
-                       mb2 = b2.M();
+                                   mb2 = b2.M();
 			           pt_b2 = b2.Pt();		    
-                       eta_b2 = b2.Eta();          
-                       phi_b2 = b2.Phi(); 
+                                   eta_b2 = b2.Eta();          
+                                   phi_b2 = b2.Phi(); 
             
-                       double DR_b1b2; 
+                                   double DR_b1b2; 
                        
-                       // Initialize Variable
-                       DR_b1b2 = -9999.;
+                                   // Initialize Variable
+                                   DR_b1b2 = -9999.;
             
-                       DR_b1b2 = TMath::Sqrt(TMath::Power((eta_b1 - eta_b2), 2) + TMath::Power((phi_b1 - phi_b2), 2));  
+                                   DR_b1b2 = TMath::Sqrt(TMath::Power((eta_b1 - eta_b2), 2) + TMath::Power((phi_b1 - phi_b2), 2));  
             
-                       h_mb_jet_1->Fill(mb1, wt);
-                       h_mb_jet_2->Fill(mb2, wt);
-                       h_pt_b_jet_1->Fill(pt_b1, wt);
-                       h_pt_b_jet_2->Fill(pt_b2, wt);
-                       h_eta_b_jet_1->Fill(eta_b1, wt);
-                       h_eta_b_jet_2->Fill(eta_b2, wt);
-                       h_phi_b_jet_1->Fill(phi_b1, wt);
-                       h_phi_b_jet_2->Fill(phi_b2, wt);
-                       h_DR_b1b2->Fill(DR_b1b2, wt); 
+                                   h_mb_jet_1->Fill(mb1, wt);
+                                   h_mb_jet_2->Fill(mb2, wt);
+                                   h_pt_b_jet_1->Fill(pt_b1, wt);
+                                   h_pt_b_jet_2->Fill(pt_b2, wt);
+                                   h_eta_b_jet_1->Fill(eta_b1, wt);
+                                   h_eta_b_jet_2->Fill(eta_b2, wt);
+                                   h_phi_b_jet_1->Fill(phi_b1, wt);
+                                   h_phi_b_jet_2->Fill(phi_b2, wt);
+                                   h_DR_b1b2->Fill(DR_b1b2, wt); 
                          
                          
-                      //============================
-		              // Reconstruct h2 from b1, b2
-		              //============================
-            
-                       double mh2_b1b2, pt_h2_b1b2, eta_h2_b1b2, phi_h2_b1b2;
+                                  //============================
+		                  // Reconstruct h2 from b1, b2
+		                  //============================
+             
+                                   double mh2_b1b2, pt_h2_b1b2, eta_h2_b1b2, phi_h2_b1b2;
                        
-                       // Initialize Variables
-                       mh2_b1b2 = -9999.; pt_h2_b1b2 = -9999.; eta_h2_b1b2 = -9999.; phi_h2_b1b2 = -9999.;
-                       
-                       h2 = b1 +b2;
-                       mh2_b1b2 = h2.M();
-                       pt_h2_b1b2 = h2.Pt();
-                       eta_h2_b1b2 = h2.Eta();
-                       phi_h2_b1b2 = h2.Phi();
+                                   // Initialize Variables
+                                   mh2_b1b2 = -9999.; pt_h2_b1b2 = -9999.; eta_h2_b1b2 = -9999.; phi_h2_b1b2 = -9999.;
+                        
+                                   h2 = b1 +b2;
+                                   mh2_b1b2 = h2.M();
+                                   pt_h2_b1b2 = h2.Pt();
+                                   eta_h2_b1b2 = h2.Eta();
+                                   phi_h2_b1b2 = h2.Phi();
                 
-                       h_mh1_b1b2->Fill(mh2_b1b2, wt);
-                       h_pt_h1_b1b2->Fill(pt_h2_b1b2, wt);
-                       h_eta_h1_b1b2->Fill(eta_h2_b1b2, wt);
-                       h_phi_h1_b1b2->Fill(phi_h2_b1b2, wt);
+                                   h_mh1_b1b2->Fill(mh2_b1b2, wt);
+                                   h_pt_h1_b1b2->Fill(pt_h2_b1b2, wt);
+                                   h_eta_h1_b1b2->Fill(eta_h2_b1b2, wt);
+                                   h_phi_h1_b1b2->Fill(phi_h2_b1b2, wt);
                 
                 
                       //======================================//
