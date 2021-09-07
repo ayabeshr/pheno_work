@@ -842,73 +842,73 @@ void DemoAnalyzer::Loop()
 				
 			 } // end else dZc3
 			
-            //if ( mZa > 40. && mZa < 120.){
-				//if ( mZb > 12. && mZb < 120. ){
+                      //if ( mZa > 40. && mZa < 120.){
+	              //if ( mZb > 12. && mZb < 120. ){
 					
-					h_mZa_4mu->Fill(mZa, wt);            
-                    h_mZb_4mu->Fill(mZb, wt);
-                    h_pt_Za->Fill(ptZa, wt);
-                    h_pt_Zb->Fill(ptZb, wt);
-                    h_eta_Za->Fill(etaZa, wt);
-                    h_eta_Zb->Fill(etaZb, wt);
-		            h_phi_Za->Fill(phiZa, wt);
-		            h_phi_Zb->Fill(phiZb, wt); 
+			     h_mZa_4mu->Fill(mZa, wt);            
+                             h_mZb_4mu->Fill(mZb, wt);
+                             h_pt_Za->Fill(ptZa, wt);
+                             h_pt_Zb->Fill(ptZb, wt);
+                             h_eta_Za->Fill(etaZa, wt);
+                             h_eta_Zb->Fill(etaZb, wt);
+		             h_phi_Za->Fill(phiZa, wt);
+		             h_phi_Zb->Fill(phiZb, wt); 
 		            
 		            
-		           //============================
-		           // Reconstruct h1 from Za, Zb
-		           //============================
+		            //============================
+		            // Reconstruct h1 from Za, Zb
+		            //============================
             
-                   double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
+                             double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
                    
-                   // Initialize Variables
-                   mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
+                             // Initialize Variables
+                             mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
                    
-                   h1 = Za + Zb;
-                   mh1_ZaZb = h1.M();
-                   pt_h1_ZaZb = h1.Pt();
-                   eta_h1_ZaZb = h1.Eta();
-                   phi_h1_ZaZb = h1.Phi();
+                             h1 = Za + Zb;
+                             mh1_ZaZb = h1.M();
+                             pt_h1_ZaZb = h1.Pt();
+                             eta_h1_ZaZb = h1.Eta();
+                             phi_h1_ZaZb = h1.Phi();
             
-                   h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
-                   h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
-                   h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
-                   h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
+                             h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                             h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
+                             h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
+                             h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
 		            
 		            
 		            
-		         /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                   ^                                         ^ 
-                   ^            Determine b1, b2             ^
-                   ^                                         ^
-                   ^              for h -> b1 b2             ^
-                   ^                                         ^ 
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+		             /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               ^                                         ^ 
+                               ^            Determine b1, b2             ^
+                               ^                                         ^
+                               ^              for h -> b1 b2             ^
+                               ^                                         ^ 
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
        
-                   bool found_bjet = false;
-                   int nbjets = 0;            // total nb of b-jets found per event
-                   vector<Int_t> bjet_indx;
-                   bjet_indx.clear();
+                            bool found_bjet = false;
+                            int nbjets = 0;            // total nb of b-jets found per event
+                            vector<Int_t> bjet_indx;
+                            bjet_indx.clear();
             
-                   // Loop and select B-Tagged jets
-                   for ( Int_t i = 0; i < Jet_size; i++){
+                            // Loop and select B-Tagged jets
+                            for ( Int_t i = 0; i < Jet_size; i++){
 					   
-				       // Examine which of jets are BTagged
-                       UInt_t jet_bTag = Jet_BTag[i]; 
-                       //std::cout << "Jet [" << i << "] BTag = " << jet_bTag << endl; 
+				  // Examine which of jets are BTagged
+                                  UInt_t jet_bTag = Jet_BTag[i]; 
+                                  //std::cout << "Jet [" << i << "] BTag = " << jet_bTag << endl; 
              
-                       if ( jet_bTag == 1) found_bjet = true; 
+                                  if ( jet_bTag == 1) found_bjet = true; 
 				 
-                       if ( found_bjet ){
+                                      if ( found_bjet ){
 						   
-					       nbjets++;
+					   nbjets++;
 				           bjet_indx.push_back(i);  // save index of jet tagged as b-jet 
-				        } 	
+				      } 	
 		            } // end loop overall jets	
 		 	       
-		 	       cout << "========================================" << endl;
-		 	       cout << " number of b-jets =  " << nbjets          << endl;
-		 		   cout << "========================================" << endl;	
+		 	    cout << "========================================" << endl;
+		 	    cout << " number of b-jets =  " << nbjets          << endl;
+		            cout << "========================================" << endl;	
 		           
 		           if ( nbjets > 1 ){ // I have at least 2 b jets 
 					   
