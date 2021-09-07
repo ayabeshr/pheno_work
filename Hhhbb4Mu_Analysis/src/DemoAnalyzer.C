@@ -910,102 +910,100 @@ void DemoAnalyzer::Loop()
 		 	    cout << " number of b-jets =  " << nbjets          << endl;
 		            cout << "========================================" << endl;	
 		           
-		           if ( nbjets > 1 ){ // I have at least 2 b jets 
+		            if ( nbjets > 1 ){ // I have at least 2 b jets 
 					   
-					   double b_mass = 4.18;  // in GeV
-				       double  mb1, pt_b1, eta_b1, phi_b1, mb2, pt_b2, eta_b2, phi_b2;
+			         double b_mass = 4.18;  // in GeV
+				 double  mb1, pt_b1, eta_b1, phi_b1, mb2, pt_b2, eta_b2, phi_b2;
 				       
-				       // Initialize Variables
-				       mb1 = -9999.; pt_b1 = -9999.; eta_b1 = -9999.; phi_b1 = -9999.; mb2 = -9999.; pt_b2 = -9999.; eta_b2 = -9999.; phi_b2 = -9999.;
+				 // Initialize Variables
+				 mb1 = -9999.; pt_b1 = -9999.; eta_b1 = -9999.; phi_b1 = -9999.; mb2 = -9999.; pt_b2 = -9999.; eta_b2 = -9999.; phi_b2 = -9999.;
 			
-			           Int_t b1_indx = bjet_indx[0];
-			           Int_t b2_indx = bjet_indx[1];
+			         Int_t b1_indx = bjet_indx[0];
+			         Int_t b2_indx = bjet_indx[1];
+			          
+			         cout << "nbjets = " << nbjets << " b1-jet indx = " << b1_indx << " b2-jet indx = " << b2_indx << endl;
 			           
-			           if ( Jet_Charge[b1_indx] + Jet_Charge[b2_indx] == 0 ) { // make sure that we have b b~ pair 
-			       
-			                cout << "nbjets = " << nbjets << " b1-jet indx = " << b1_indx << " b2-jet indx = " << b2_indx << endl;
+			         b1.SetPtEtaPhiM(Jet_PT[b1_indx], Jet_Eta[b1_indx], Jet_Phi[b1_indx], Jet_Mass[b1_indx]);
+			         b2.SetPtEtaPhiM(Jet_PT[b2_indx], Jet_Eta[b2_indx], Jet_Phi[b2_indx], Jet_Mass[b2_indx]);
 			           
-			                b1.SetPtEtaPhiM(Jet_PT[b1_indx], Jet_Eta[b1_indx], Jet_Phi[b1_indx], Jet_Mass[b1_indx]);
-			                b2.SetPtEtaPhiM(Jet_PT[b2_indx], Jet_Eta[b2_indx], Jet_Phi[b2_indx], Jet_Mass[b2_indx]);
-			           
-			                //b1.SetPtEtaPhiM(Jet_PT[b1_indx], Jet_Eta[b1_indx], Jet_Phi[b1_indx], b_mass);
-			                //b2.SetPtEtaPhiM(Jet_PT[b2_indx], Jet_Eta[b2_indx], Jet_Phi[b2_indx], b_mass);
+			         //b1.SetPtEtaPhiM(Jet_PT[b1_indx], Jet_Eta[b1_indx], Jet_Phi[b1_indx], b_mass);
+			         //b2.SetPtEtaPhiM(Jet_PT[b2_indx], Jet_Eta[b2_indx], Jet_Phi[b2_indx], b_mass);
 						
-			                mb1 = b1.M();
-			                pt_b1 = b1.Pt();		    
-                            eta_b1 = b1.Eta();          
-                            phi_b1 = b1.Phi();           
+			         mb1 = b1.M();
+			         pt_b1 = b1.Pt();		    
+                                 eta_b1 = b1.Eta();          
+                                 phi_b1 = b1.Phi();           
                         
-                            mb2 = b2.M();
-			                pt_b2 = b2.Pt();		    
-                            eta_b2 = b2.Eta();          
-                            phi_b2 = b2.Phi(); 
+                                 mb2 = b2.M();
+			         pt_b2 = b2.Pt();		    
+                                 eta_b2 = b2.Eta();          
+                                 phi_b2 = b2.Phi(); 
             
-                            double DR_b1b2; 
+                                 double DR_b1b2; 
                        
-                            // Initialize Variable
-                            DR_b1b2 = -9999.;
+                                 // Initialize Variable
+                                 DR_b1b2 = -9999.;
             
-                            DR_b1b2 = TMath::Sqrt(TMath::Power((eta_b1 - eta_b2), 2) + TMath::Power((phi_b1 - phi_b2), 2));  
+                                 DR_b1b2 = TMath::Sqrt(TMath::Power((eta_b1 - eta_b2), 2) + TMath::Power((phi_b1 - phi_b2), 2));  
             
-                            h_mb_jet_1->Fill(mb1, wt);
-                            h_mb_jet_2->Fill(mb2, wt);
-                            //h_mb_jet_1->Fill(b_mass, wt);
-                            //h_mb_jet_2->Fill(b_mass, wt); 
-                            h_pt_b_jet_1->Fill(pt_b1, wt);
-                            h_pt_b_jet_2->Fill(pt_b2, wt);
-                            h_eta_b_jet_1->Fill(eta_b1, wt);
-                            h_eta_b_jet_2->Fill(eta_b2, wt);
-                            h_phi_b_jet_1->Fill(phi_b1, wt);
-                            h_phi_b_jet_2->Fill(phi_b2, wt);
-                            h_DR_b1b2->Fill(DR_b1b2, wt); 
+                                 h_mb_jet_1->Fill(mb1, wt);
+                                 h_mb_jet_2->Fill(mb2, wt);
+                                 //h_mb_jet_1->Fill(b_mass, wt);
+                                 //h_mb_jet_2->Fill(b_mass, wt); 
+                                 h_pt_b_jet_1->Fill(pt_b1, wt);
+                                 h_pt_b_jet_2->Fill(pt_b2, wt);
+                                 h_eta_b_jet_1->Fill(eta_b1, wt);
+                                 h_eta_b_jet_2->Fill(eta_b2, wt);
+                                 h_phi_b_jet_1->Fill(phi_b1, wt);
+                                 h_phi_b_jet_2->Fill(phi_b2, wt);
+                                 h_DR_b1b2->Fill(DR_b1b2, wt); 
                          
                          
-                           //============================
-		                   // Reconstruct h2 from b1, b2
-		                   //============================
+                                 //============================
+		                 // Reconstruct h2 from b1, b2
+		                 //============================
             
-                            double mh2_b1b2, pt_h2_b1b2, eta_h2_b1b2, phi_h2_b1b2;
+                                 double mh2_b1b2, pt_h2_b1b2, eta_h2_b1b2, phi_h2_b1b2;
                        
-                           // Initialize Variables
-                            mh2_b1b2 = -9999.; pt_h2_b1b2 = -9999.; eta_h2_b1b2 = -9999.; phi_h2_b1b2 = -9999.;
+                                 // Initialize Variables
+                                 mh2_b1b2 = -9999.; pt_h2_b1b2 = -9999.; eta_h2_b1b2 = -9999.; phi_h2_b1b2 = -9999.;
                        
-                            h2 = b1 + b2;
-                            mh2_b1b2 = h2.M();
-                            pt_h2_b1b2 = h2.Pt();
-                            eta_h2_b1b2 = h2.Eta();
-                            phi_h2_b1b2 = h2.Phi();
+                                 h2 = b1 + b2;
+                                 mh2_b1b2 = h2.M();
+                                 pt_h2_b1b2 = h2.Pt();
+                                 eta_h2_b1b2 = h2.Eta();
+                                 phi_h2_b1b2 = h2.Phi();
                 
-                            h_mh1_b1b2->Fill(mh2_b1b2, wt);
-                            h_pt_h1_b1b2->Fill(pt_h2_b1b2, wt);
-                            h_eta_h1_b1b2->Fill(eta_h2_b1b2, wt);
-                            h_phi_h1_b1b2->Fill(phi_h2_b1b2, wt);
+                                 h_mh1_b1b2->Fill(mh2_b1b2, wt);
+                                 h_pt_h1_b1b2->Fill(pt_h2_b1b2, wt);
+                                 h_eta_h1_b1b2->Fill(eta_h2_b1b2, wt);
+                                 h_phi_h1_b1b2->Fill(phi_h2_b1b2, wt);
                 
                 
-                           //======================================//
-		                   //                                       //
-		                   //      Reconstruct BSM H from SM h      // 
-		                   //               H -> h h                //
-		                   //                                       //
-		                   //=======================================//
+                                 //======================================//
+		                 //                                       //
+		                 //      Reconstruct BSM H from SM h      // 
+		                 //               H -> h h                //
+		                 //                                       //
+		                 //=======================================//
                 
-                            double mH_hh, pt_H_hh, eta_H_hh, phi_H_hh;
+                                 double mH_hh, pt_H_hh, eta_H_hh, phi_H_hh;
                
-                            // Initialize Variables
-                            mH_hh = -9999.; pt_H_hh = -9999.; eta_H_hh = -9999.; phi_H_hh = -9999.;
+                                 // Initialize Variables
+                                 mH_hh = -9999.; pt_H_hh = -9999.; eta_H_hh = -9999.; phi_H_hh = -9999.;
                        
-                            H = h1 + h2;
-                            mH_hh = H.M(); 
-                            pt_H_hh = H.Pt();
-                            eta_H_hh = H.Eta();
-                            phi_H_hh = H.Phi();
+                                 H = h1 + h2;
+                                 mH_hh = H.M(); 
+                                 pt_H_hh = H.Pt();
+                                 eta_H_hh = H.Eta();
+                                 phi_H_hh = H.Phi();
                
-                            h_mh2_h1h1->Fill(mH_hh, wt);
-                            h_pt_h2_h1h1->Fill(pt_H_hh, wt);
-                            h_eta_h2_h1h1->Fill(eta_H_hh, wt);
-                            h_phi_h2_h1h1->Fill(phi_H_hh, wt);
+                                 h_mh2_h1h1->Fill(mH_hh, wt);
+                                 h_pt_h2_h1h1->Fill(pt_H_hh, wt);
+                                 h_eta_h2_h1h1->Fill(eta_H_hh, wt);
+                                 h_phi_h2_h1h1->Fill(phi_H_hh, wt);
                 
-				        } // end if jet charge 
+				        
                         
 		            } // end if nbjets > 1 
 		            
