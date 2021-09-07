@@ -806,41 +806,41 @@ void DemoAnalyzer::Loop()
 			 } // end else if dZc2
 		    
 		         else 
-			        {  // dZc3 < dZc1, dZc2
+			 {  // dZc3 < dZc1, dZc2
 					
-				        if ( dZ14 < dZ23 ){
+			    if ( dZ14 < dZ23 ){
 					
-					        Za = Z14;
-					        mZa = mZ14;
-                            ptZa = pt_Z14;
-                            etaZa = eta_Z14;
-                            phiZa = phi_Z14;
+			         Za = Z14;
+			         mZa = mZ14;
+                                 ptZa = pt_Z14;
+                                 etaZa = eta_Z14;
+                                 phiZa = phi_Z14;
 					
-					        Zb = Z23;
-					        mZb = mZ23;
-                            ptZb = pt_Z23;
-                            etaZb = eta_Z23;
-                            phiZb = phi_Z23;
+			         Zb = Z23;
+			         mZb = mZ23;
+                                 ptZb = pt_Z23;
+                                 etaZb = eta_Z23;
+                                 phiZb = phi_Z23;
 					
-				        }
+		            }
 				
-				        else
-				        {
-					        Za = Z23;
-					        mZa = mZ23;
-                            ptZa = pt_Z23;
-                            etaZa = eta_Z23;
-                            phiZa = phi_Z23;
+                     	    else
+		            {
+		                 Za = Z23;
+			         mZa = mZ23;
+                                 ptZa = pt_Z23;
+                                 etaZa = eta_Z23;
+                                 phiZa = phi_Z23;
 					
-					        Zb = Z14;
-					        mZb = mZ14;
-                            ptZb = pt_Z14;
-                            etaZb = eta_Z14;
-                            phiZb = phi_Z14;
+			         Zb = Z14;
+			         mZb = mZ14;
+                                 ptZb = pt_Z14;
+                                 etaZb = eta_Z14;
+                                 phiZb = phi_Z14;
 					
-				        }
+		             }
 				
-			        } // end else dZc3
+			 } // end else dZc3
 			
             //if ( mZa > 40. && mZa < 120.){
 				//if ( mZb > 12. && mZb < 120. ){
