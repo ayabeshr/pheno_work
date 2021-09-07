@@ -399,13 +399,25 @@ void DemoAnalyzer::Loop()
    //================================================================================================//
    //                                   DATASET Background 14 TeV                                    //
    //================================================================================================// 
+   
    // DY 
    TFile *input_file = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root", "READ");
+    
+   // ttbar
+   TFile *input_file = new TFile("/run/media/Aya/LinuxSpace/MyWork_Final_Samples/TTbar_BG_14TeV_SMfull_CMS_PhaseII_0PU_GEN_pythia8/TTbar_BG_14TeV_SMfull_pythia8_CMS_PhaseII_0PU_GEN-SIM.root", "READ");
    
    
-   // Results root file
+   //================================================================================================//
+   //                                         Output Root files                                      //
+   //================================================================================================//
+   
+   // DY 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_demo_DY.root", "RECREATE"); 
-   TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_demo_DY_2.root", "RECREATE"); 
+   //TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_demo_DY_2.root", "RECREATE"); 
+   
+   // ttbar
+   TFile *op_file = new TFile("/HEP_DATA/aya/Results/output_demo_ttbar.root", "RECREATE");
+	
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_demo_BMP1_hh_bb_4Mu.root", "RECREATE"); 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_sm_h_4Mu.root", "RECREATE"); 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_sm_h_bb.root", "RECREATE"); 
@@ -414,14 +426,17 @@ void DemoAnalyzer::Loop()
    //------------------------WEIGHT Calculation---------------------------
   
    float Lumi_data = 3.e+03;    // in 1/fb
-   //Lumi_mc = nEvents/xsection(fb);
-  
-   // signal
-   //float Lumi_mc = 100000./42.32e-11;  // BMP1
-   //float Lumi_mc = 10000./2.186e-04;  //sm_h_4Mu 
-   //float Lumi_mc = 10000./ 220.2;    // sm_h_bb
-   //float Lumi_mc = 10000./ 3.044e-05 ;   // gg_h_zz
-   float Lumi_mc = 5000./898225.;   // DY
+	
+   //-----------------------------------//
+   //  Lumi_mc = nEvents/xsection(fb);  //
+   //-----------------------------------//	
+	
+   //float Lumi_mc = 100000./42.32e-11;      // BMP1
+   //float Lumi_mc = 10000./2.186e-04;       // sm_h_4Mu 
+   //float Lumi_mc = 10000./ 220.2;          // sm_h_bb
+   //float Lumi_mc = 10000./ 3.044e-05 ;     // gg_h_zz
+   //float Lumi_mc = 5000./898225.;          // DY
+   float Lumi_mc = 1000000./7559.171362345;  // ttbar
    
     
    float wt = Lumi_data/Lumi_mc;
@@ -439,42 +454,49 @@ void DemoAnalyzer::Loop()
    
    for (Long64_t jentry = 0; jentry < nentries; jentry++) 
    {
-	   cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
-	   Long64_t ientry = LoadTree(jentry);
-       if (ientry < 0) break;
-       nb = fChain->GetEntry(jentry);   nbytes += nb;
-       // if (Cut(ientry) < 0) continue;
+        cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
+	Long64_t ientry = LoadTree(jentry);
+        if (ientry < 0) break;
+        nb = fChain->GetEntry(jentry);   nbytes += nb;
+        // if (Cut(ientry) < 0) continue;
        
-      // Loop overall Jets
-      cout << "start loop overall jets" << endl;
-      for (Int_t i = 0; i < Jet_size; i++){
-		  h_jets_size->Fill(i);
-		  h_pt_allJets->Fill(Jet_PT[i], wt);
-		  h_eta_allJets->Fill(Jet_Eta[i], wt);
-		  h_phi_allJets->Fill(Jet_Phi[i], wt);
-      }
-      cout << "end loop overall jets" << endl;
+       // Loop overall Jets
+       cout << "start loop overall jets" << endl;
+       for (Int_t i = 0; i < Jet_size; i++){
+	 
+	    h_jets_size->Fill(i);
+            h_pt_allJets->Fill(Jet_PT[i], wt);
+	    h_eta_allJets->Fill(Jet_Eta[i], wt);
+	    h_phi_allJets->Fill(Jet_Phi[i], wt);
+	       
+       }
+       cout << "end loop overall jets" << endl;
       
-      // Loop over MET
-      cout << "start loop overall MET" << endl;
-      for (Int_t i = 0; i < MissingET_size; i++){
-		  h_MET_size->Fill(i);
-		  h_MET->Fill(MissingET_MET[i], wt);
-		  h_eta_MET->Fill(MissingET_Eta[i], wt);
-          h_phi_MET->Fill(MissingET_Phi[i], wt);
-      }
-      cout << "end loop overall MET" << endl;
-      
-      // Loop over all Muons Loose
-      cout << "start loop overall loose muons" << endl;
-      for (Int_t i = 0; i < MuonLoose_size; i++){
+       // Loop over MET
+       cout << "start loop overall MET" << endl;
+       for (Int_t i = 0; i < MissingET_size; i++){
 		  
-		  h_muons_size_Loose->Fill(i);
-		  h_pt_allMuons_Loose->Fill(MuonLoose_PT[i], wt);
-		  h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
-		  h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
-		}  
-		 // if ( MuonLoose_size > 3 ){ // I have at least 4 Muons per event 
+	    h_MET_size->Fill(i);
+            h_MET->Fill(MissingET_MET[i], wt);
+            h_eta_MET->Fill(MissingET_Eta[i], wt);
+            h_phi_MET->Fill(MissingET_Phi[i], wt);
+	       
+       }
+       cout << "end loop overall MET" << endl;
+      
+       // Loop over all Muons Loose
+       cout << "start loop overall loose muons" << endl;
+       for (Int_t i = 0; i < MuonLoose_size; i++){
+		  
+	    h_muons_size_Loose->Fill(i);
+            h_pt_allMuons_Loose->Fill(MuonLoose_PT[i], wt);
+	    h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
+	    h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
+		
+       }  
+       cout << "end loop overall Muon_loose" << endl;
+	   
+       // if ( MuonLoose_size > 3 ){ // I have at least 4 Muons per event 
 			  
 			  // TLorentzVector declarations 
               TLorentzVector mu1, mu2, mu3, mu4, Z12, Z34, Z13, Z24, Z14, Z23, Za, Zb, b1, b2, h1, h2, H;
