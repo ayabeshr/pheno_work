@@ -243,81 +243,81 @@ void DemoAnalyzer::Loop()
    h_phi_Za->GetXaxis()->SetTitle("#phi");
    h_phi_Za->GetYaxis()->SetTitle("Number of Events");
      
-      // Zb
+   // Zb
    
-      // Za Invariant Mass of dimuons not close to Z mass ~ 91. GeV 
-      h_mZb_4mu = new TH1D("h_mZb_4mu", "h_mZb_4mu_Not Close to Z Mass", 120, 0., 120.);
-      h_mZb_4mu->GetXaxis()->SetTitle("Invariant mass of dimuon [GeV/c^{2}]"); 
-      h_mZb_4mu->GetYaxis()->SetTitle("Number of Events");
+   // Za Invariant Mass of dimuons not close to Z mass ~ 91. GeV 
+   h_mZb_4mu = new TH1D("h_mZb_4mu", "h_mZb_4mu_Not Close to Z Mass", 120, 0., 120.);
+   h_mZb_4mu->GetXaxis()->SetTitle("Invariant mass of dimuon [GeV/c^{2}]"); 
+   h_mZb_4mu->GetYaxis()->SetTitle("Number of Events");
    
-      h_pt_Zb = new TH1D("h_pt_Zb", "h_pt_Zb", 500, 0., 500.); 
-      h_pt_Zb->GetXaxis()->SetTitle("p_{T} [GeV/c]");
-      h_pt_Zb->GetYaxis()->SetTitle("Number of Events");
+   h_pt_Zb = new TH1D("h_pt_Zb", "h_pt_Zb", 500, 0., 500.); 
+   h_pt_Zb->GetXaxis()->SetTitle("p_{T} [GeV/c]");
+   h_pt_Zb->GetYaxis()->SetTitle("Number of Events");
    
-      h_eta_Zb = new TH1D("h_eta_Zb", "h_eta_Zb", 16, -8., 8.); 
-      h_eta_Zb->GetXaxis()->SetTitle("#eta");
-      h_eta_Zb->GetYaxis()->SetTitle("Number of Events");
+   h_eta_Zb = new TH1D("h_eta_Zb", "h_eta_Zb", 16, -8., 8.); 
+   h_eta_Zb->GetXaxis()->SetTitle("#eta");
+   h_eta_Zb->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_Zb = new TH1D("h_phi_Zb", "h_phi_Zb", 20, -10., 10.); 
-      h_phi_Zb->GetXaxis()->SetTitle("#phi");
-      h_phi_Zb->GetYaxis()->SetTitle("Number of Events");
+   h_phi_Zb = new TH1D("h_phi_Zb", "h_phi_Zb", 20, -10., 10.); 
+   h_phi_Zb->GetXaxis()->SetTitle("#phi");
+   h_phi_Zb->GetYaxis()->SetTitle("Number of Events");
      
-      h_mb_jet_1 = new TH1D("h_mb_jet_1", "h_mb_jet_1", 100, 0., 100.);
-      h_mb_jet_1->GetXaxis()->SetTitle(" mass of b1 jet [GeV/C^{2}]");
-      h_mb_jet_1->GetYaxis()->SetTitle("Number of Events");
+   h_mb_jet_1 = new TH1D("h_mb_jet_1", "h_mb_jet_1", 100, 0., 100.);
+   h_mb_jet_1->GetXaxis()->SetTitle(" mass of b1 jet [GeV/C^{2}]");
+   h_mb_jet_1->GetYaxis()->SetTitle("Number of Events");
       
-      h_mb_jet_2 = new TH1D("h_mb_jet_2", "h_mb_jet_2", 100, 0., 100.);
-      h_mb_jet_2->GetXaxis()->SetTitle(" mass of b2 jet [GeV/C^{2}]");
-      h_mb_jet_2->GetYaxis()->SetTitle("Number of Events");
+   h_mb_jet_2 = new TH1D("h_mb_jet_2", "h_mb_jet_2", 100, 0., 100.);
+   h_mb_jet_2->GetXaxis()->SetTitle(" mass of b2 jet [GeV/C^{2}]");
+   h_mb_jet_2->GetYaxis()->SetTitle("Number of Events");
       
-      h_pt_b_jet_1 = new TH1D("h_pt_b_jet_1", "h_pt_b_jet_1", 500, 0., 500.);
-      h_pt_b_jet_1->GetXaxis()->SetTitle("p_{T} (GeV/C)");
-      h_pt_b_jet_1->GetYaxis()->SetTitle("Number of Events");
+   h_pt_b_jet_1 = new TH1D("h_pt_b_jet_1", "h_pt_b_jet_1", 500, 0., 500.);
+   h_pt_b_jet_1->GetXaxis()->SetTitle("p_{T} (GeV/C)");
+   h_pt_b_jet_1->GetYaxis()->SetTitle("Number of Events");
    
-      h_pt_b_jet_2 = new TH1D("h_pt_b_jet_2", "h_pt_b_jet_2", 500, 0., 500.);
-      h_pt_b_jet_2->GetXaxis()->SetTitle("p_{T} (GeV/C)");
-      h_pt_b_jet_2->GetYaxis()->SetTitle("Number of Events");
+   h_pt_b_jet_2 = new TH1D("h_pt_b_jet_2", "h_pt_b_jet_2", 500, 0., 500.);
+   h_pt_b_jet_2->GetXaxis()->SetTitle("p_{T} (GeV/C)");
+   h_pt_b_jet_2->GetYaxis()->SetTitle("Number of Events");
    
-      h_eta_b_jet_1 = new TH1D("h_eta_b_jet_1", "h_eta_b_jet_1", 20, -8., 8.);
-      h_eta_b_jet_1->GetXaxis()->SetTitle("#eta");
-      h_eta_b_jet_1->GetYaxis()->SetTitle("Number of Events");
+   h_eta_b_jet_1 = new TH1D("h_eta_b_jet_1", "h_eta_b_jet_1", 20, -8., 8.);
+   h_eta_b_jet_1->GetXaxis()->SetTitle("#eta");
+   h_eta_b_jet_1->GetYaxis()->SetTitle("Number of Events");
    
-      h_eta_b_jet_2 = new TH1D("h_eta_b_jet_2", "h_eta_b_jet_2", 20, -8., 8.);
-      h_eta_b_jet_2->GetXaxis()->SetTitle("#eta");
-      h_eta_b_jet_2->GetYaxis()->SetTitle("Number of Events");
+   h_eta_b_jet_2 = new TH1D("h_eta_b_jet_2", "h_eta_b_jet_2", 20, -8., 8.);
+   h_eta_b_jet_2->GetXaxis()->SetTitle("#eta");
+   h_eta_b_jet_2->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_b_jet_1 = new TH1D("h_phi_b_jet_1", "h_phi_b_jet_1", 20, -10., 10.);
-      h_phi_b_jet_1->GetXaxis()->SetTitle("#phi");
-      h_phi_b_jet_1->GetYaxis()->SetTitle("Number of Events");
+   h_phi_b_jet_1 = new TH1D("h_phi_b_jet_1", "h_phi_b_jet_1", 20, -10., 10.);
+   h_phi_b_jet_1->GetXaxis()->SetTitle("#phi");
+   h_phi_b_jet_1->GetYaxis()->SetTitle("Number of Events");
    
-      h_phi_b_jet_2 = new TH1D("h_phi_b_jet_2", "h_phi_b_jet_2", 20, -10., 10.);
-      h_phi_b_jet_2->GetXaxis()->SetTitle("#phi");
-      h_phi_b_jet_2->GetYaxis()->SetTitle("Number of Events");
+   h_phi_b_jet_2 = new TH1D("h_phi_b_jet_2", "h_phi_b_jet_2", 20, -10., 10.);
+   h_phi_b_jet_2->GetXaxis()->SetTitle("#phi");
+   h_phi_b_jet_2->GetYaxis()->SetTitle("Number of Events");
      
-      h_DR_b1b2 = new TH1D("h_DR_b1b2", "DR between b1 b2 jets", 20, 0., 20.);
-      h_DR_b1b2->GetXaxis()->SetTitle("#Delta R");
-      h_DR_b1b2->GetYaxis()->SetTitle("Number of Events");
+   h_DR_b1b2 = new TH1D("h_DR_b1b2", "DR between b1 b2 jets", 20, 0., 20.);
+   h_DR_b1b2->GetXaxis()->SetTitle("#Delta R");
+   h_DR_b1b2->GetYaxis()->SetTitle("Number of Events");
    
-      // DR seperation bet 4Muons  
-      h_DR_mu1mu2 = new TH1D("h_DR_mu1mu2", "DR between muon1 muon2", 20, 0., 20.);
-      h_DR_mu1mu2->GetXaxis()->SetTitle("#Delta R_{12}");
-      h_DR_mu1mu2->GetYaxis()->SetTitle("Number of Events");
+   // DR seperation bet 4Muons  
+   h_DR_mu1mu2 = new TH1D("h_DR_mu1mu2", "DR between muon1 muon2", 20, 0., 20.);
+   h_DR_mu1mu2->GetXaxis()->SetTitle("#Delta R_{12}");
+   h_DR_mu1mu2->GetYaxis()->SetTitle("Number of Events");
       
-      h_DR_mu3mu4 = new TH1D("h_DR_mu3mu4", "DR between muon3 muon4", 20, 0., 10.);
-      h_DR_mu3mu4->GetXaxis()->SetTitle("#Delta R_{34}");
-      h_DR_mu3mu4->GetYaxis()->SetTitle("Number of Events");
+   h_DR_mu3mu4 = new TH1D("h_DR_mu3mu4", "DR between muon3 muon4", 20, 0., 10.);
+   h_DR_mu3mu4->GetXaxis()->SetTitle("#Delta R_{34}");
+   h_DR_mu3mu4->GetYaxis()->SetTitle("Number of Events");
       
-      h_DR_mu1mu3 = new TH1D("h_DR_mu1mu3", "DR between muon1 muon3", 20, 0., 10.);
-      h_DR_mu1mu3->GetXaxis()->SetTitle("#Delta R_{13}");
-      h_DR_mu1mu3->GetYaxis()->SetTitle("Number of Events");
+   h_DR_mu1mu3 = new TH1D("h_DR_mu1mu3", "DR between muon1 muon3", 20, 0., 10.);
+   h_DR_mu1mu3->GetXaxis()->SetTitle("#Delta R_{13}");
+   h_DR_mu1mu3->GetYaxis()->SetTitle("Number of Events");
       
-      h_DR_mu2mu4 = new TH1D("h_DR_mu2mu4", "DR between muon2 muon4", 20, 0., 10.);
-      h_DR_mu2mu4->GetXaxis()->SetTitle("#Delta R_{24}");
-      h_DR_mu2mu4->GetYaxis()->SetTitle("Number of Events");
+   h_DR_mu2mu4 = new TH1D("h_DR_mu2mu4", "DR between muon2 muon4", 20, 0., 10.);
+   h_DR_mu2mu4->GetXaxis()->SetTitle("#Delta R_{24}");
+   h_DR_mu2mu4->GetYaxis()->SetTitle("Number of Events");
    
-      h_DR_mu1mu4 = new TH1D("h_DR_mu1mu4", "DR between muon1 muon4", 20, 0., 10.);
-      h_DR_mu1mu4->GetXaxis()->SetTitle("#Delta R_{14}");
-      h_DR_mu1mu4->GetYaxis()->SetTitle("Number of Events");
+   h_DR_mu1mu4 = new TH1D("h_DR_mu1mu4", "DR between muon1 muon4", 20, 0., 10.);
+   h_DR_mu1mu4->GetXaxis()->SetTitle("#Delta R_{14}");
+   h_DR_mu1mu4->GetYaxis()->SetTitle("Number of Events");
    
       h_DR_mu2mu3 = new TH1D("h_DR_mu2mu3", "DR between muon2 muon3", 20, 0., 10.);
       h_DR_mu2mu3->GetXaxis()->SetTitle("#Delta R_{23}");
