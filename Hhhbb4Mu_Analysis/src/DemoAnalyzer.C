@@ -76,6 +76,12 @@ void DemoAnalyzer::Loop()
    TH1D *h_pt_allJets;
    TH1D *h_eta_allJets;
    TH1D *h_phi_allJets;
+	
+   // All B-Jets	
+   TH1D *h_pt_all_B_Jets;
+   TH1D *h_eta_all_B_Jets;
+   TH1D *h_phi_all_B_Jets;
+   TH1D *h_bjet_size; 
    
    TH1D *h_mZ12;
    TH1D *h_mZ34;
