@@ -1051,8 +1051,9 @@ void DemoAnalyzer::Loop()
                                  h_pt_h2_h1h1->Fill(pt_H_hh, wt);
                                  h_eta_h2_h1h1->Fill(eta_H_hh, wt);
                                  h_phi_h2_h1h1->Fill(phi_H_hh, wt);
+				    
                 
-				        
+			    // } // end if bjet_indx.size() > 1 	        
                         
 		            } // end if nbjets > 1 
 		            
@@ -1078,6 +1079,10 @@ void DemoAnalyzer::Loop()
    h_pt_allJets->Write();
    h_eta_allJets->Write();
    h_phi_allJets->Write();
+   h_pt_all_B_Jets->Write();
+   h_eta_all_B_Jets->Write();
+   h_phi_all_B_Jets->Write();
+   h_bjet_size->Write();	
    h_MET_size->Write();
    h_MET->Write();
    h_eta_MET->Write();
