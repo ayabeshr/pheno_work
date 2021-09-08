@@ -193,6 +193,26 @@ void DemoAnalyzer::Loop()
    h_phi_allJets= new TH1D("h_phi_allJets", "h_phi_allJets", 20, -10., 10.);
    h_phi_allJets->GetXaxis()->SetTitle("#phi");
    h_phi_allJets->GetYaxis()->SetTitle("Number of Events");
+	
+   // pT of all B-Jets
+   h_pt_all_B_Jets = new TH1D("h_pt_all_B_Jets", "h_pt_all_B_Jets", 500, 0., 500.);
+   h_pt_all_B_Jets->GetXaxis()->SetTitle("p_{T} [GeV/c]");
+   h_pt_all_B_Jets->GetYaxis()->SetTitle("Number of Events");
+   
+   // Eta of all B-Jets
+   h_eta_all_B_Jets = new TH1D("h_eta_all_B_Jets", "h_eta_all_B_Jets", 16, -8., 8.);
+   h_eta_all_B_Jets->GetXaxis()->SetTitle("#eta");
+   h_eta_all_B_Jets->GetYaxis()->SetTitle("Number of Events");
+   
+   // Phi of all B-Jets
+   h_phi_all_B_Jets = new TH1D("h_phi_all_B_Jets", "h_phi_all_B_Jets", 20, -10., 10.);
+   h_phi_all_B_Jets->GetXaxis()->SetTitle("#phi");
+   h_phi_all_B_Jets->GetYaxis()->SetTitle("Number of Events");
+   
+   h_bjet_size = new TH1D("h_bjet_size", "h_bjet_size", 20, 0., 20.);
+   h_bjet_size->GetXaxis()->SetTitle("Number of B_Jets");
+   h_bjet_size->GetYaxis()->SetTitle("Number of Events");	
+	
 
    // Combinations 1234
    
@@ -401,16 +421,17 @@ void DemoAnalyzer::Loop()
    //TFile *indata = new TFile("/home/aya/programs/Delphes-3.4.2/sm_h_4Mu.root", "READ");
    //TFile *indata = new TFile("/home/aya/programs/Delphes-3.4.2/sm_h_bb.root", "READ");
    //TFile *indata = new TFile("/home/aya/Desktop/Pheno_Work/analysis/gg.root", "READ");
+   File *indata = new TFile("/HEP_DATA/aya/gghhbb4M_20210908.root", "READ");
    
    //================================================================================================//
    //                                   DATASET Background 14 TeV                                    //
    //================================================================================================// 
    
    // DY 
-   TFile *input_file = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root", "READ");
+   //TFile *input_file = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root", "READ");
     
    // ttbar
-   TFile *input_file = new TFile("/run/media/Aya/LinuxSpace/MyWork_Final_Samples/TTbar_BG_14TeV_SMfull_CMS_PhaseII_0PU_GEN_pythia8/TTbar_BG_14TeV_SMfull_pythia8_CMS_PhaseII_0PU_GEN-SIM.root", "READ");
+   //TFile *input_file = new TFile("/run/media/Aya/LinuxSpace/MyWork_Final_Samples/TTbar_BG_14TeV_SMfull_CMS_PhaseII_0PU_GEN_pythia8/TTbar_BG_14TeV_SMfull_pythia8_CMS_PhaseII_0PU_GEN-SIM.root", "READ");
    
    
    //================================================================================================//
@@ -422,12 +443,13 @@ void DemoAnalyzer::Loop()
    //TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_demo_DY_2.root", "RECREATE"); 
    
    // ttbar
-   TFile *op_file = new TFile("/HEP_DATA/aya/Results/output_demo_ttbar.root", "RECREATE");
+   //TFile *op_file = new TFile("/HEP_DATA/aya/Results/output_demo_ttbar.root", "RECREATE");
 	
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_demo_BMP1_hh_bb_4Mu.root", "RECREATE"); 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_sm_h_4Mu.root", "RECREATE"); 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_sm_h_bb.root", "RECREATE"); 
-   //TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_gg_2.root", "RECREATE"); 
+   //TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_gg_2.root", "RECREATE");
+   TFile *op_file = new TFile("/HEP_DATA/aya/Results/output_demo_gghhbb4M_20210908.root", "RECREATE"); 
    
    //------------------------WEIGHT Calculation---------------------------
   
@@ -442,7 +464,7 @@ void DemoAnalyzer::Loop()
    //float Lumi_mc = 10000./ 220.2;          // sm_h_bb
    //float Lumi_mc = 10000./ 3.044e-05 ;     // gg_h_zz
    //float Lumi_mc = 5000./898225.;          // DY
-   float Lumi_mc = 1000000./7559.171362345;  // ttbar
+   //float Lumi_mc = 1000000./7559.171362345;  // ttbar
    
     
    float wt = Lumi_data/Lumi_mc;
@@ -453,9 +475,9 @@ void DemoAnalyzer::Loop()
   /*==================================================================================*/ 
    
    
-   //Long64_t nentries = fChain->GetEntriesFast();
+   Long64_t nentries = fChain->GetEntriesFast();
    //Long64_t nentries = 10;
-   Long64_t nentries = 5000; 
+   //Long64_t nentries = 5000; 
    Long64_t nbytes = 0, nb = 0;
    
    for (Long64_t jentry = 0; jentry < nentries; jentry++) 
@@ -897,21 +919,40 @@ void DemoAnalyzer::Loop()
                             bjet_indx.clear();
             
                             // Loop and select B-Tagged jets
+		            cout << "Jet_Size =  " << Jet_size << " for Event nb  " << endl;
                             for ( Int_t i = 0; i < Jet_size; i++){
 					   
 				  // Examine which of jets are BTagged
                                   UInt_t jet_bTag = Jet_BTag[i]; 
-                                  //std::cout << "Jet [" << i << "] BTag = " << jet_bTag << endl; 
+                                  
+				  cout << "Jet [" << i 
+                                       << "]  has BTag discriminator = " << Jet_BTag[i]
+                                       <<  " and Jet_PT = " << Jet_PT[i] << endl; 
              
                                   if ( jet_bTag == 1) found_bjet = true; 
 				 
                                       if ( found_bjet ){
 						   
 					   nbjets++;
+					      
+					   h_pt_all_B_Jets->Fill(Jet_PT[i], wt);
+                                           h_eta_all_B_Jets->Fill(Jet_Eta[i], wt);
+                                           h_phi_all_B_Jets->Fill(Jet_Phi[i], wt);
+                           
+					   // Define required cuts on b-jets pt, eta to select suitable pair for h signal
+                                           /* if ( (Jet_PT[i] > certainvalue)  && (Jet_Eta[i] > certain value) ){
+							   
+						   // save only indx for b-jet if it fullfill the above cuts
+					           bjet_indx.push_back(i);
+							   
+					      } */    
+					      
 				           bjet_indx.push_back(i);  // save index of jet tagged as b-jet 
 				      } 	
 		            } // end loop overall jets	
-		 	       
+		 	    
+		            h_bjet_size->Fill(nbjets, wt);
+		  
 		 	    cout << "========================================" << endl;
 		 	    cout << " number of b-jets =  " << nbjets          << endl;
 		            cout << "========================================" << endl;	
