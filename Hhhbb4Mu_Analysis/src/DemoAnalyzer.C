@@ -958,6 +958,8 @@ void DemoAnalyzer::Loop()
 		            cout << "========================================" << endl;	
 		           
 		            if ( nbjets > 1 ){ // I have at least 2 b jets 
+				    
+				 // if ( bjet_indx.size() > 1 ) { // make sure that we still have at least 2 bjets after applying cuts
 					   
 			         double b_mass = 4.18;  // in GeV
 				 double  mb1, pt_b1, eta_b1, phi_b1, mb2, pt_b2, eta_b2, phi_b2;
