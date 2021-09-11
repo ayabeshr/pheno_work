@@ -57,6 +57,14 @@ void DemoAnalyzer::Loop()
    // TH1D
    // various muon combinations bet 1,2,3,4 muons gives various Z masses, choose combination wich is nearer to Z mass 91 GeV to be Za, and the other with mass < 91 GeV take it to be Zb of signal and call them Za, Zb
    
+   // Gen_Particles
+   TH1D *h_Gen_Muons_pt;
+   TH1D *h_Gen_Muons_eta;
+   TH1D *h_Gen_Muons_phi;
+   TH1D *h_Gen_Bjet_pt;
+   TH1D *h_Gen_Bjet_eta;
+   TH1D *h_Gen_Bjet_phi;	
+
    // size of available objects
    TH1D *h_muons_size_Loose;
    TH1D *h_jets_size;
@@ -133,6 +141,31 @@ void DemoAnalyzer::Loop()
    TH1D *h_pt_h2_h1h1;
    TH1D *h_eta_h2_h1h1;
    TH1D *h_phi_h2_h1h1;
+
+   // Gen Particles	
+   h_Gen_Muons_pt = new TH1D("h_Gen_Muons_pt", "h_Gen_Muons_pt", 500, 0., 500.);
+   h_Gen_Muons_pt->GetXaxis()->SetTitle("p_{T} [GeV/C]");
+   h_Gen_Muons_pt->GetYaxis()->SetTitle("Number of Events");
+   
+   h_Gen_Muons_eta = new TH1D("h_Gen_Muons_eta", "h_Gen_Muons_eta", 20, -10., 10.);
+   h_Gen_Muons_eta->GetXaxis()->SetTitle("#eta");
+   h_Gen_Muons_eta->GetYaxis()->SetTitle("Number of Events");
+   
+   h_Gen_Muons_phi = new TH1D("h_Gen_Muons_phi", "h_Gen_Muons_phi", 20, -10., 10.);
+   h_Gen_Muons_phi->GetXaxis()->SetTitle("#phi");
+   h_Gen_Muons_phi->GetYaxis()->SetTitle("Number of Events");
+   
+   h_Gen_Bjet_pt = new TH1D("h_Gen_Bjet_pt", "h_Gen_Bjet_pt", 500, 0., 500.);
+   h_Gen_Bjet_pt->GetXaxis()->SetTitle("p_{T} [GeV/C]");
+   h_Gen_Bjet_pt->GetYaxis()->SetTitle("Number of Events");
+   
+   h_Gen_Bjet_eta = new TH1D("h_Gen_Bjet_eta", "h_Gen_Bjet_eta", 20, -10., 10.);
+   h_Gen_Bjet_eta->GetXaxis()->SetTitle("#eta");
+   h_Gen_Bjet_eta->GetYaxis()->SetTitle("Number of Events");
+   
+   h_Gen_Bjet_phi = new TH1D("h_Gen_Bjet_phi", "h_Gen_Bjet_phi", 20, -10., 10.);
+   h_Gen_Bjet_phi->GetXaxis()->SetTitle("#phi");
+   h_Gen_Bjet_phi->GetYaxis()->SetTitle("Number of Events");	
       
    // Size of all Muons
    h_muons_size_Loose = new TH1D("h_muonsloose_size", "h_muonsloose_size", 10, 0., 10.);
@@ -468,7 +501,7 @@ void DemoAnalyzer::Loop()
    
     
    float wt = Lumi_data/Lumi_mc;
-   
+    float wt = 1.;    // examine plots with unweighted events
    
    /*===================================================================================*/  
   /*------------------------------Looping over ALL Events-----------------------------*/
