@@ -500,8 +500,8 @@ void DemoAnalyzer::Loop()
    //float Lumi_mc = 1000000./7559.171362345;  // ttbar
    
     
-   float wt = Lumi_data/Lumi_mc;
-    float wt = 1.;    // examine plots with unweighted events
+   //float wt = Lumi_data/Lumi_mc;
+   float wt = 1.;    // examine plots with unweighted events
    
    /*===================================================================================*/  
   /*------------------------------Looping over ALL Events-----------------------------*/
@@ -556,6 +556,50 @@ void DemoAnalyzer::Loop()
 		
        }  
        cout << "end loop overall Muon_loose" << endl;
+	   
+	   
+       //------------------------GEN PARTICLES------------------------------ 	 
+		 
+	  // Get Thresholds for pT, eta for generated objects 
+	 
+	 // Looping overall Gen_Particles 	 
+	 for (Int_t i = 0; i < Particle_size; i++){
+		 
+	        // Get particle pdg id 
+	        int p_id = Particle_PID[i];
+		 
+	        // Check for Muons
+	        if ( p_id == 13 ) { // pdg_id = 13 for Muon
+			 
+		     float gen_muon_pt = Particle_PT[i];
+	             float gen_muon_eta = Particle_Eta[i];
+		     float gen_muon_phi = Particle_Phi[i];
+
+                     h_Gen_Muons_pt->Fill(gen_muon_pt, wt); 
+                     h_Gen_Muons_eta->Fill(gen_muon_eta, wt); 
+                     h_Gen_Muons_phi->Fill(gen_muon_phi, wt); 
+              
+                     /*muon_pt->Fill(); 
+		     muon_eta->Fill();
+		     muon_phi->Fill(); */
+			 
+	        } // end if on id 13 	
+	     
+	        // Check for b quarks
+	        if ( p_id == 5 ) { // pdg_id = 5 for b quark 
+			 
+		     float gen_b_pt = Particle_PT[i];
+		     float gen_b_eta = Particle_Eta[i];
+		     float gen_b_phi = Particle_Phi[i]; 
+			 
+		     h_Gen_Bjet_pt->Fill(gen_b_pt, wt); 
+                     h_Gen_Bjet_eta->Fill(gen_b_eta, wt); 
+                     h_Gen_Bjet_phi->Fill(gen_b_phi, wt);
+			  
+	         } // end if on id 5
+		 
+           } // end loop over gen particles    
+	   
 	   
        // if ( MuonLoose_size > 3 ){ // I have at least 4 Muons per event 
 			  
