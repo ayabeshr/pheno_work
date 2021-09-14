@@ -879,71 +879,71 @@ void DemoAnalyzer::Loop()
 		      } // end if on mu3,4 charge
 		 } // end if on mu1,2 charge
 		  
-		        dZ12 = fabs(mZ12 - mZ);
-		        dZ34 = fabs(mZ34 - mZ);
+		 dZ12 = fabs(mZ12 - mZ);
+		 dZ34 = fabs(mZ34 - mZ);
 		    
-		        // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
-		        //dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
+                 // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
+                 //dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
 		          
-		        if ( dZ12 < dZ34 ) {
+	         if ( dZ12 < dZ34 ) {
 				     
-			        dZc1 = dZ12;
-		            cout << "dZ mass for combination 1234 = dZ12 = " << dZc1 << endl;
-	            }	
+		      dZc1 = dZ12;
+		      cout << "dZ mass for combination 1234 = dZ12 = " << dZc1 << endl;
+	         }	
 		    
-		        else 
-		        {
-			        dZc1 = dZ34;
-		            cout << "dZ mass for combination 1234 = dZ34 = " << dZc1 << endl;
-		        }
+		 else 
+		 {
+		      dZc1 = dZ34;
+	              cout << "dZ mass for combination 1234 = dZ34 = " << dZc1 << endl;
+	         }
 		    
-		        // Start 4 muon combination 1324 
-		        if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
+		 // Start 4 muon combination 1324 
+		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
 				
-		           if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
+		     if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
 					   
-					   if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
+			 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
+						  
+			      double m13 = (mu1 + mu3).M();
+			      double m24 = (mu2 + mu4).M();
 						   
-						   double m13 = (mu1 + mu3).M();
-						   double m24 = (mu2 + mu4).M();
-						   
-						   if ( m13 > 4. ) { 
+		              if ( m13 > 4. ) { 
 					
-			                   Z13 = mu1 + mu3;
-			                   mZ13 = Z13.M();
-			                   pt_Z13 = Z13.Pt();
-                               eta_Z13 = Z13.Eta();
-                               phi_Z13 = Z13.Phi();
+			           Z13 = mu1 + mu3;
+			           mZ13 = Z13.M();
+			           pt_Z13 = Z13.Pt();
+                                   eta_Z13 = Z13.Eta();
+                                   phi_Z13 = Z13.Phi();
                                
-						   } // end if m13
+			       } // end if m13
 						   
-						   if ( m24 > 4. ) { 
+		               if ( m24 > 4. ) { 
 					
-			                   Z24 = mu2 + mu4;
-			                   mZ24 = Z24.M();
-			                   pt_Z24 = Z24.Pt();
-                               eta_Z24 = Z24.Eta();
-                               phi_Z24 = Z24.Phi();
+			            Z24 = mu2 + mu4;
+			            mZ24 = Z24.M();
+			            pt_Z24 = Z24.Pt();
+                                    eta_Z24 = Z24.Eta();
+                                    phi_Z24 = Z24.Phi();
                                
-						   } // end if m24
+			       } // end if m24
 					
-			               if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
-			               if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
+			       if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
+			       if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
 			              
-					  } // end if on selection on two highest pT muons
-			       } // end if on mu1,3 charge
-	            } // end if on mu2,4 charge
+			    } // end if on selection on two highest pT muons
+		        } // end if on mu1,3 charge
+	         } // end if on mu2,4 charge
 		    
-		        dZ13 = fabs(mZ13 - mZ);
-		        dZ24 = fabs(mZ24 - mZ);
+		 dZ13 = fabs(mZ13 - mZ);
+		 dZ24 = fabs(mZ24 - mZ);
 		
-		        //dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
+	         //dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
 		      
-		        if ( dZ13 < dZ24 ) {
+		 if ( dZ13 < dZ24 ) {
 			
-			        dZc2 = dZ13;
-			        cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
-		        }	
+		      dZc2 = dZ13;
+		      cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
+		 }	
 		          
 		        else 
 		        {
