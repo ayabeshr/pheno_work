@@ -567,18 +567,18 @@ void DemoAnalyzer::Loop()
        
        for (Int_t i = 0; i < Jet_size; i++){
 	 
-	        Float_t jet_pt = Jet_PT[i];
-			Float_t jet_eta = Jet_Eta[i];
-			UInt_t jet_bTag = Jet_BTag[i];
+	    Float_t jet_pt = Jet_PT[i];
+	    Float_t jet_eta = Jet_Eta[i];
+	    UInt_t jet_bTag = Jet_BTag[i];
 			
-			v_jet_pt.push_back(jet_pt);
+	    v_jet_pt.push_back(jet_pt);
             v_jet_eta.push_back(jet_eta);   
             v_jet_bTag.push_back(jet_bTag);      
 	        
-	        h_jets_size->Fill(i);
+	    h_jets_size->Fill(i);
             h_pt_allJets->Fill(Jet_PT[i], wt);
-	        h_eta_allJets->Fill(Jet_Eta[i], wt);
-	        h_phi_allJets->Fill(Jet_Phi[i], wt);
+	    h_eta_allJets->Fill(Jet_Eta[i], wt);
+	    h_phi_allJets->Fill(Jet_Phi[i], wt);
 	       
        }
        cout << "end loop overall jets" << endl;
@@ -610,15 +610,16 @@ void DemoAnalyzer::Loop()
        
        for (Int_t i = 0; i < MuonLoose_size; i++){
 		   
-		    Float_t muon_pt = MuonLoose_PT[i];
-			Float_t muon_eta = MuonLoose_Eta[i];
-			v_muon_pt.push_back(muon_pt);
-			v_muon_eta.push_back(muon_eta);
+            Float_t muon_pt = MuonLoose_PT[i];
+            Float_t muon_eta = MuonLoose_Eta[i];
+            
+	    v_muon_pt.push_back(muon_pt);
+	    v_muon_eta.push_back(muon_eta);
 		  
-	        h_muons_size_Loose->Fill(i);
+	    h_muons_size_Loose->Fill(i);
             h_pt_allMuons_Loose->Fill(MuonLoose_PT[i], wt);
-	        h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
-	        h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
+	    h_eta_allMuons_Loose->Fill(MuonLoose_Eta[i], wt);
+	    h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
 		
        }  
        cout << "end loop overall Muon_loose" << endl;
@@ -630,10 +631,10 @@ void DemoAnalyzer::Loop()
        cout << "start loop overall tight muons" << endl;
        for (Int_t i = 0; i < MuonTight_size; i++){
 		  
-	       h_muons_size_Tight->Fill(i);
-           h_pt_allMuons_Tight->Fill(MuonTight_PT[i], wt);
-	       h_eta_allMuons_Tight->Fill(MuonTight_Eta[i], wt);
-	       h_phi_allMuons_Tight->Fill(MuonTight_Phi[i], wt);
+	    h_muons_size_Tight->Fill(i);
+            h_pt_allMuons_Tight->Fill(MuonTight_PT[i], wt);
+	    h_eta_allMuons_Tight->Fill(MuonTight_Eta[i], wt);
+	    h_phi_allMuons_Tight->Fill(MuonTight_Phi[i], wt);
 		
        }  
        cout << "end loop overall Muon_tight" << endl;
@@ -641,57 +642,58 @@ void DemoAnalyzer::Loop()
 	   
        //------------------------GEN PARTICLES------------------------------ 	 
 		 
-	   // Get Thresholds for pT, eta for generated objects 
+       // Get Thresholds for pT, eta for generated objects 
 	 
-	  // Looping overall Gen_Particles 	 
-	  for (Int_t i = 0; i < Particle_size; i++){
+       // Looping overall Gen_Particles 	 
+       for (Int_t i = 0; i < Particle_size; i++){
 		 
-	        // Get particle pdg id 
-	        int p_id = Particle_PID[i];
+	    // Get particle pdg id 
+	    int p_id = Particle_PID[i];
 		 
-	        // Check for Muons
-	        if ( p_id == 13 ) { // pdg_id = 13 for Muon
+	    // Check for Muons
+	    if ( p_id == 13 ) { // pdg_id = 13 for Muon
 			 
-		         float gen_muon_pt = Particle_PT[i];
-	             float gen_muon_eta = Particle_Eta[i];
-		         float gen_muon_phi = Particle_Phi[i];
+		 float gen_muon_pt = Particle_PT[i];
+	         float gen_muon_eta = Particle_Eta[i];
+		 float gen_muon_phi = Particle_Phi[i];
 
                  h_Gen_Muons_pt->Fill(gen_muon_pt, wt); 
                  h_Gen_Muons_eta->Fill(gen_muon_eta, wt); 
                  h_Gen_Muons_phi->Fill(gen_muon_phi, wt); 
               
                 /*muon_pt->Fill(); 
-		         muon_eta->Fill();
-		         muon_phi->Fill(); */
+		 muon_eta->Fill();
+		 muon_phi->Fill(); */
 			 
-	        } // end if on id 13 	
+	     } // end if on id 13 	
 	     
-	        // Check for b quarks
-	        if ( p_id == 5 ) { // pdg_id = 5 for b quark 
+	     // Check for b quarks
+	     if ( p_id == 5 ) { // pdg_id = 5 for b quark 
 			 
-		     float gen_b_pt = Particle_PT[i];
-		     float gen_b_eta = Particle_Eta[i];
-		     float gen_b_phi = Particle_Phi[i]; 
+		  float gen_b_pt = Particle_PT[i];
+		  float gen_b_eta = Particle_Eta[i];
+		  float gen_b_phi = Particle_Phi[i]; 
 			 
-		     h_Gen_Bjet_pt->Fill(gen_b_pt, wt); 
-                     h_Gen_Bjet_eta->Fill(gen_b_eta, wt); 
-                     h_Gen_Bjet_phi->Fill(gen_b_phi, wt);
+		  h_Gen_Bjet_pt->Fill(gen_b_pt, wt); 
+                  h_Gen_Bjet_eta->Fill(gen_b_eta, wt); 
+                  h_Gen_Bjet_phi->Fill(gen_b_phi, wt);
 			  
-	         } // end if on id 5
+	      } // end if on id 5
 		 
-           } // end loop over gen particles    
+       } // end loop over gen particles    
            
            
 	   
-	   //=====================================================================//
+       //=====================================================================//
        //                        Start 4Muons , ZZ Selections                 //
        //=====================================================================//
 	      
-	    vector<Int_t> v_muon_idx; // saves muon index if fullfill Object Selection 
-	    v_muon_idx.clear();
-	    cout << "Original Number of Muons: " << MuonLoose_size << endl;
+       vector<Int_t> v_muon_idx; // saves muon index if fullfill Object Selection 
+       v_muon_idx.clear();
+       
+       cout << "Original Number of Muons: " << MuonLoose_size << endl;
 	    
-	    for ( Int_t i = 0; i < MuonLoose_size; i++ ){
+       for ( Int_t i = 0; i < MuonLoose_size; i++ ){
 			  
 		    float muonL_pt = MuonLoose_PT[i];
 		    float muonL_eta = fabs(MuonLoose_Eta[i]);
