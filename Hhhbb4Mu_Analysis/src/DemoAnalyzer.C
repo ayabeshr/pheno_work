@@ -1341,10 +1341,10 @@ void DemoAnalyzer::Loop()
 							            Jet_Mass[signal_bjet_2_indx] );
 							     
 							     
-							            double b1_mass =  b1.M();
-							            double b1_pt   =  b1.Pt();
-							            double b1_eta  =  b1.Eta();
-							            double b1_phi  =  b1.Phi();
+					           double b1_mass =  b1.M();
+					           double b1_pt   =  b1.Pt();
+					           double b1_eta  =  b1.Eta();
+						   double b1_phi  =  b1.Phi();
 							     
 							            double b2_mass =  b1.M();
 							            double b2_pt   =  b1.Pt();
