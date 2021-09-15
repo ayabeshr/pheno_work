@@ -1138,112 +1138,113 @@ void DemoAnalyzer::Loop()
 		           // Reconstruct h1 from Za, Zb
 		           //============================
             
-                         double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
+                           double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
                    
-                         // Initialize Variables
-                         mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
+                           // Initialize Variables
+                           mh1_ZaZb = -9999.; pt_h1_ZaZb = -9999.; eta_h1_ZaZb = -9999.; phi_h1_ZaZb = -9999.;
                    
-                         h1 = Za + Zb;
-                         mh1_ZaZb = h1.M(); // get invariant mass of 4Muons 
+                           h1 = Za + Zb;
+                           mh1_ZaZb = h1.M(); // get invariant mass of 4Muons 
                          
-                         // 7th Selection: on invariant mass of 4Muons, in Signal Region 115 ≤ m4l ≤ 135 GeV  
-                         if ( ( mh1_ZaZb > 115. ) && ( mh1_ZaZb < 135. ) ) {
+                           // 7th Selection: on invariant mass of 4Muons, in Signal Region 115 ≤ m4l ≤ 135 GeV  
+                           
+			   if ( ( mh1_ZaZb > 115. ) && ( mh1_ZaZb < 135. ) ) {
                          
-                             pt_h1_ZaZb = h1.Pt();
-                             eta_h1_ZaZb = h1.Eta();
-                             phi_h1_ZaZb = h1.Phi();
+                                 pt_h1_ZaZb = h1.Pt();
+                                 eta_h1_ZaZb = h1.Eta();
+                                 phi_h1_ZaZb = h1.Phi();
             
-                             h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
-                             h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
-                             h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
-                             h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
+                                 h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                                 h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
+                                 h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
+                                 h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
 		            
 					         
-					         /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                              ^                                         ^ 
-                              ^            Determine b1, b2             ^
-                              ^                                         ^
-                              ^              for h -> b1 b2             ^
-                              ^                                         ^ 
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+		                /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                 ^                                         ^ 
+                                 ^            Determine b1, b2             ^
+                                 ^                                         ^
+                                 ^              for h -> b1 b2             ^
+                                 ^                                         ^ 
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
        
-                            bool found_bjet = false;
-                            int nbjets = 0;            // total nb of b-jets found per event
-                            vector<Int_t> bjet_indx;
-                            bjet_indx.clear();
+                                 bool found_bjet = false;
+                                 int nbjets = 0;            // total nb of b-jets found per event
+                                 vector<Int_t> bjet_indx;
+                                 bjet_indx.clear();
             
-                            // Loop overall jets
-		                    cout << "Jet_Size =  " << Jet_size << " for Event nb  " <<  jentry << endl;
+                                 // Loop overall jets
+		                 cout << "Jet_Size =  " << Jet_size << " for Event nb  " <<  jentry << endl;
                             
-                            for ( Int_t i = 0; i < Jet_size; i++ ){
+                                 for ( Int_t i = 0; i < Jet_size; i++ ){
 					   
-                                 UInt_t jet_bTag = Jet_BTag[i];  // save BTag value for each jet
+                                       UInt_t jet_bTag = Jet_BTag[i];  // save BTag value for each jet
                                   
-				                 
-                                 // 1st Selection: select loose B-jets WP with BTag values >= 4 (4, 5, 6, 7) stored at bit 0 in DelphesCard
-                                 if ( ( jet_bTag == 4 ) || ( jet_bTag > 4 ) ) {
+				       // 1st Selection: select loose B-jets WP with BTag values >= 4 (4, 5, 6, 7) stored at bit 0 in Delphes_Card
+                                       if ( ( jet_bTag == 4 ) || ( jet_bTag > 4 ) ) {
 									 
-								 //	1st Selection: select Tight B-jets WP with BTag values 1, 3, 5, 7  stored at bit 2 in DelphesCard
-								 // if ( ( jet_bTag == 1 ) || ( jet_bTag == 3 ) || ( jet_bTag == 5 ) || ( jet_bTag == 7 ) ) {
+				       // 1st Selection: select Tight B-jets WP with BTag values 1, 3, 5, 7  stored at bit 2 in Delphes_Card
+				       // if ( ( jet_bTag == 1 ) || ( jet_bTag == 3 ) || ( jet_bTag == 5 ) || ( jet_bTag == 7 ) ) {
 									 
-									 found_bjet = true;
+				             found_bjet = true;
 									 
-									 if ( found_bjet ){
+				             if ( found_bjet ){
 										 
-										 nbjets++;
-										 
-										 int bj_indx = i;
+				    	          nbjets++;
+					          int bj_indx = i;
+					       
+					          bjet_indx.push_back(bj_indx);  // filling is sorted with order of highest pT at first element then decreases 
 					
-					                     cout << "Jet [" << bj_indx
-                                              << "]  has BTag discriminator = " << Jet_BTag[i]
-                                              <<  " and Jet_PT = " << Jet_PT[i] <<  " GeV/C" << endl; 
+					          cout << "Jet [" << bj_indx
+                                                       << "]  has BTag discriminator = " << Jet_BTag[i]
+                                                       <<  " and Jet_PT = " << Jet_PT[i] <<  " GeV/C" << endl; 
 									 
-									     bjet_indx.push_back(bj_indx);  // filling is sorted with order of highest pT at first element then decreases 
+					    
 									 
-									 } // end if found_bjet
-								 } // end if jet_bTagS
-							 } // end loop overall jets
+				             } // end if found_bjet
+					 } // end if jet_bTagS
+				  } // end loop overall jets
 							 
-							 h_bjet_size->Fill(nbjets, wt);
+				  h_bjet_size->Fill(nbjets, wt);
 							 
 							 	
-							 // 2nd Selection: on having at least 2 b-jets/event 
-							 if ( nbjets > 1 ){ 
+				  // 2nd Selection: on having at least 2 b-jets/event 
+				  
+				  if ( nbjets > 1 ){ 
 								 
-								 cout << "========================================" << endl;
-		 	                     cout << " number of b-jets/event =  " << nbjets    << endl;
-		                         cout << "========================================" << endl;
+				       cout << "========================================" << endl;
+		 	               cout << " number of b-jets/event =  " << nbjets    << endl;
+		                       cout << "========================================" << endl;
 							 		 
-								 // save index of b-jets after applying series of selections
-								 vector<Int_t> bjet_indx_AfterSel;
-								 bjet_indx_AfterSel.clear();
+				       // save index of b-jets after applying series of selections
+				       vector<Int_t> bjet_indx_AfterSel;
+				       bjet_indx_AfterSel.clear();
 								 
-								 for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { cout << "bjet index for v_element [" << i << "] is : "<< bjet_indx[i] << endl;}
+				       for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { cout << "bjet index for v_element [" << i << "] is : "<< bjet_indx[i] << endl;}
 							    
-							     // Loop overall b-jets/event 
-								 for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
+					     // Loop overall b-jets/event 
+					     for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
 									 
-									 int bj_indx_AfterSelec = bjet_indx[i];
-									 double bjet_pt = Jet_PT[bj_indx_AfterSelec];
-									 double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
-									 double abs_bjet_eta = fabs(Jet_Eta[bj_indx_AfterSelec]);
-									 double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
+						   int bj_indx_AfterSelec = bjet_indx[i];
+						   double bjet_pt = Jet_PT[bj_indx_AfterSelec];
+						   double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
+						   double abs_bjet_eta = fabs(Jet_Eta[bj_indx_AfterSelec]);
+						   double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
+						
+						   double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
+						   double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
+					           double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
+						   double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
+						   double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
+						   double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
+						   double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
+						   double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
 									 
-					
-									 double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
-									 double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
-									 double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
-									 double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
-									 double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
-									 double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
-									 double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
-									 double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
-									 
-									 
-									 double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
-									 double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
-									 double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
-									 double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
+						   // Calculate DeltaR(b-jet,lepton) of ZZ candidates 			 
+						   double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
+						   double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
+						   double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
+						   double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
                 
 									 
 									 // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
