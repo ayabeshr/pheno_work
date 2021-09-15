@@ -1276,23 +1276,22 @@ void DemoAnalyzer::Loop()
 					 cout << "......Start Final Selection on BTagScore......" << endl;
 								   
 					 // make sure that we still have at least 2 bjets after above selections
-					             if ( bjet_indx_AfterSel.size() > 1 ) {  
+					 if ( bjet_indx_AfterSel.size() > 1 ) {  
 									    
-									    cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
-                                        cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
+					      cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
+                                              cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
 									    
-									    // save BTag scores for selected bjets
-									    for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) {  
+					      // save BTag scores for selected bjets
+					      for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) {  
 											
-											int bjet_indx_final = bjet_indx_AfterSel[i];
-										    Int_t BTag_score = Jet_BTag[bjet_indx_final];
-										   
-										    cout << "B-jet [" << bjet_indx_final 
-										         << "] has BTag_Score = " << BTag_score << endl;
+						    int bjet_indx_final = bjet_indx_AfterSel[i];
+						    Int_t BTag_score = Jet_BTag[bjet_indx_final];
+                                                    
+						    v_BTag_scores.push_back(BTag_score);				    
+						    
+						    cout << "B-jet [" << bjet_indx_final << "] has BTag_Score = " << BTag_score << endl;
 										         
-										    v_BTag_scores.push_back(BTag_score);
-					              
-								        } //end loop on bjet_indx_AfterSel.size()
+					       } //end loop on bjet_indx_AfterSel.size()
 								        
 								        for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << " "; }
 		                         
