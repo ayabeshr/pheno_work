@@ -1302,42 +1302,43 @@ void DemoAnalyzer::Loop()
 		                         
 		                                
 		                                // 5th Selection: on BTag Scores of b-jets (select 2 b-jets with highest BTag score)
-		                                int max_BTag_score_b1 = v_BTag_scores[0];  // highest bTag score for 1st b-jet
+		                                
+						int max_BTag_score_b1 = v_BTag_scores[0];   // highest bTag score for 1st b-jet
 		                                int max2_BTag_score_b2 = v_BTag_scores[1];  // second highest bTag score for 2nd b-jet
 				    
 						// Get index of 2 b-jets with highest scores
-				                        Int_t btag, b_id, signal_bjet_1_indx, signal_bjet_2_indx;
+				                        
+						Int_t btag, b_id, signal_bjet_1_indx, signal_bjet_2_indx;
 				                 
-									 
-				                        // save signal 2 bjets index with highest BTag score   
-				                        for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) { 
+						// save signal 2 bjets index with highest BTag score   
+				                for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) { 
 											
-											b_id =  bjet_indx_AfterSel[i];
-									        btag =  Jet_BTag[b_id];
+						      b_id =  bjet_indx_AfterSel[i];
+						      btag =  Jet_BTag[b_id];
 									        
-									        if ( btag == max_BTag_score_b1 ) signal_bjet_1_indx = b_id; 
+						      if ( btag == max_BTag_score_b1 ) signal_bjet_1_indx = b_id; 
 				                          
-				                            else if ( btag == max2_BTag_score_b2 ) signal_bjet_2_indx = b_id;
+				                      else if ( btag == max2_BTag_score_b2 ) signal_bjet_2_indx = b_id;
 				                          
-				                            else { cout << "btag for bjet [" << b_id << "] doesn't match any of highest scores" << endl;}
+				                      else { cout << "btag for bjet [" << b_id << "] doesn't match any of highest scores" << endl;}
 				                     
-							            }
+					         } // end loop on bjet_indx_AfterSel
 							     
-							            cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
-							                 << " ) with Highest BTag Scores " << max_BTag_score_b1 << ", " << max2_BTag_score_b2
-							                 << " respectively!" << endl;
+					         cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
+						      << " ) with Highest BTag Scores " << max_BTag_score_b1 << ", " << max2_BTag_score_b2
+						      << " respectively!" << endl;
 							          
 							          
-							            // Set TLorentzVectors for selected 2 b-jets of signal
-							            b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
-							                             Jet_Eta[signal_bjet_1_indx], 
-							                             Jet_Phi[signal_bjet_1_indx], 
-							                             Jet_Mass[signal_bjet_1_indx] );
+						  // Set TLorentzVectors for selected 2 b-jets of signal
+					          b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
+							           Jet_Eta[signal_bjet_1_indx], 
+							           Jet_Phi[signal_bjet_1_indx], 
+							           Jet_Mass[signal_bjet_1_indx] );
 							                     
-							            b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
-							                             Jet_Eta[signal_bjet_2_indx], 
-							                             Jet_Phi[signal_bjet_2_indx], 
-							                             Jet_Mass[signal_bjet_2_indx] );
+						   b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
+							            Jet_Eta[signal_bjet_2_indx], 
+							            Jet_Phi[signal_bjet_2_indx], 
+							            Jet_Mass[signal_bjet_2_indx] );
 							     
 							     
 							            double b1_mass =  b1.M();
