@@ -1293,11 +1293,10 @@ void DemoAnalyzer::Loop()
 										         
 					       } //end loop on bjet_indx_AfterSel.size()
 								        
-								        for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << " "; }
+					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << " "; }
 		                         
-		                
-		                                // sort elements of BTagScores vector in descending order (starting with highest score)
-		                                sort(v_BTag_scores.begin(), v_BTag_scores.end(), greater<int>());
+					       // sort elements of BTagScores vector in descending order (starting with highest score)
+		                               sort(v_BTag_scores.begin(), v_BTag_scores.end(), greater<int>());
 		                         
 		                                for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << "sorted BTag_Scores = " << v_BTag_scores[i] << endl; }  
 		                         
