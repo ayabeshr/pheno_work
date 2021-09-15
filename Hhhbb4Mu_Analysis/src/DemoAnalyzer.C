@@ -548,11 +548,11 @@ void DemoAnalyzer::Loop()
    
    for (Long64_t jentry = 0; jentry < nentries; jentry++) 
    {
-      cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
-	  Long64_t ientry = LoadTree(jentry);
-      if (ientry < 0) break;
-      nb = fChain->GetEntry(jentry);   nbytes += nb;
-      // if (Cut(ientry) < 0) continue;
+       cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
+       Long64_t ientry = LoadTree(jentry);
+       if (ientry < 0) break;
+       nb = fChain->GetEntry(jentry);   nbytes += nb;
+       // if (Cut(ientry) < 0) continue;
        
        // Loop overall Jets
        cout << "start loop overall jets" << endl;
@@ -945,198 +945,198 @@ void DemoAnalyzer::Loop()
 		      cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
 		 }	
 		          
-		        else 
-		        {
-			        dZc2 = dZ24;
-		            cout << "dZ mass for combination 1324 = dZ24 = " << dZc2 << endl;
-		        }
+		 else 
+		 {
+		      dZc2 = dZ24;
+		      cout << "dZ mass for combination 1324 = dZ24 = " << dZc2 << endl;
+		 }
 		    
-		        // Start 4 muon combination 1423 
-		        if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
+		 // Start 4 muon combination 1423 
+		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
 				
-		           if ( MuonLoose_Charge[1] + MuonLoose_Charge[2] == 0){ // mu2, mu3
+		     if ( MuonLoose_Charge[1] + MuonLoose_Charge[2] == 0){ // mu2, mu3
 					   
-					   if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
+			 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
 						   
-						   double m14 = (mu1 + mu4).M();
-						   double m23 = (mu2 + mu3).M();
+			       double m14 = (mu1 + mu4).M();
+			       double m23 = (mu2 + mu3).M();
 						   
-						   if ( m14 > 4. ) {
+			       if ( m14 > 4. ) {
 							   
-					           Z14 = mu1 + mu4;
-			                   mZ14 = Z14.M();
-			                   pt_Z14 = Z14.Pt();
-			                   eta_Z14 = Z14.Eta();
-			                   phi_Z14 = Z14.Phi();
+			            Z14 = mu1 + mu4;
+			            mZ14 = Z14.M();
+			            pt_Z14 = Z14.Pt();
+			            eta_Z14 = Z14.Eta();
+			            phi_Z14 = Z14.Phi();
 			                   
-						   } // end if m14
+			       } // end if m14
 						   
-						   if ( m23 > 4. ) {
+			       if ( m23 > 4. ) {
 					
-			                   Z23 = mu2 + mu3;
-			                   mZ23 = Z23.M();
-			                   pt_Z23 = Z23.Pt();
-		                       eta_Z23 = Z23.Eta();
-			                   phi_Z23 = Z23.Phi();
+			            Z23 = mu2 + mu3;
+			            mZ23 = Z23.M();
+			            pt_Z23 = Z23.Pt();
+		                    eta_Z23 = Z23.Eta();
+			            phi_Z23 = Z23.Phi();
 			                   
-						   } // end if m23
+				} // end if m23
 					
-			               if (mZ14 > 0.) h_mZ14->Fill(mZ14, wt);
-			               if (mZ23 > 0.) h_mZ23->Fill(mZ23, wt);
+			        if (mZ14 > 0.) h_mZ14->Fill(mZ14, wt);
+			        if (mZ23 > 0.) h_mZ23->Fill(mZ23, wt);
 			              
-					   } // end if on selection on two highest pT muons
-			        } // end if on mu1,4 charge
-		         } // end if on mu2,3 charge
+	                 } // end if on selection on two highest pT muons
+	             } // end if on mu1,4 charge
+		 } // end if on mu2,3 charge
 		    
-		         dZ14 = fabs(mZ14 - mZ);
-		         dZ23 = fabs(mZ23 - mZ);
+		 dZ14 = fabs(mZ14 - mZ);
+		 dZ23 = fabs(mZ23 - mZ);
 		
-		         //dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
+		 //dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
 		      
-		         if ( dZ14 < dZ23 ) {
+		 if ( dZ14 < dZ23 ) {
 				      
-			         dZc3 = dZ14;
-		             cout << "dZ mass for combination 1423 = dZ14 = " << dZc3 << endl;
-		         }	
+		      dZc3 = dZ14;
+		      cout << "dZ mass for combination 1423 = dZ14 = " << dZc3 << endl;
+		 }	
 		        
-		         else 
-		         {
-			         dZc3 = dZ23;
-		             cout << "dZ mass for combination 1423 = dZ23 = " << dZc3 << endl;
-		         } 
+		 else 
+		 {
+		      dZc3 = dZ23;
+		       cout << "dZ mass for combination 1423 = dZ23 = " << dZc3 << endl;
+		 } 
        
        
                  // Choose dZc of the least value bet dZc1, dZc2, dZc3 to be Za, Zb combination
 		      
-		         if ( dZc1 < dZc2 && dZc1 < dZc3 ){  // dZc1 < dZc2, dZc3
+		 if ( dZc1 < dZc2 && dZc1 < dZc3 ){  // dZc1 < dZc2, dZc3
 			    
-			        if ( dZ12 < dZ34 ){
+		     if ( dZ12 < dZ34 ){
 					
-			            Za = Z12;
-			            mZa = mZ12;
-                        ptZa = pt_Z12;
-                        etaZa = eta_Z12;
-                        phiZa = phi_Z12;
+			   Za = Z12;
+			   mZa = mZ12;
+                           ptZa = pt_Z12;
+                           etaZa = eta_Z12;
+                           phiZa = phi_Z12;
 					
-				        Zb = Z34;
-			            mZb = mZ34;
-                        ptZb = pt_Z34;
-                        etaZb = eta_Z34;
-			            phiZb = phi_Z34;
+		           Zb = Z34;
+			   mZb = mZ34;
+                           ptZb = pt_Z34;
+                           etaZb = eta_Z34;
+			   phiZb = phi_Z34;
 					
-			        } 
+		     } 
 				
-			        else
-			        { 
-			            Za = Z34;
-			            mZa = mZ34;
-                        ptZa = pt_Z34;
-                        etaZa = eta_Z34;
-                        phiZa = phi_Z34;
+		     else
+	             { 
+			   Za = Z34;
+			   mZa = mZ34;
+                           ptZa = pt_Z34;
+                           etaZa = eta_Z34;
+                           phiZa = phi_Z34;
                     
-			            Zb = Z12;
-			            mZb = mZ12;
-                        ptZb = pt_Z12;
-                        etaZb = eta_Z12;
-                        phiZb = phi_Z12;
+			   Zb = Z12;
+			   mZb = mZ12;
+                           ptZb = pt_Z12;
+                           etaZb = eta_Z12;
+                           phiZb = phi_Z12;
 					
-			         } 
+		     } 
 			
-		         } // end if dZc1   
+		 } // end if dZc1   
 			
-		         else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
+		 else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
 					 
-				     if ( dZ13 < dZ24 ){
+		           if ( dZ13 < dZ24 ){
 					
-				         Za = Z13;
-				         mZa = mZ13;
-                         ptZa = pt_Z13;
-                         etaZa = eta_Z13;
-                         phiZa = phi_Z13;
+				Za = Z13;
+				mZa = mZ13;
+                                ptZa = pt_Z13;
+                                etaZa = eta_Z13;
+                                phiZa = phi_Z13;
 					
-				         Zb = Z24;
-			             mZb = mZ24;
-                         ptZb = pt_Z24;
-                         etaZb = eta_Z24;
-                         phiZb = phi_Z24;
+				Zb = Z24;
+			        mZb = mZ24;
+                                ptZb = pt_Z24;
+                                etaZb = eta_Z24;
+                                phiZb = phi_Z24;
                     
-				     }
+			    }
 				 
-				     else
-				     {      
-				         Za = Z24;
-				         mZa = mZ24;
-                         ptZa = pt_Z24;
-                         etaZa = eta_Z24;
-                         phiZa = phi_Z24;
+		            else
+			    {      
+				 Za = Z24;
+				 mZa = mZ24;
+                                 ptZa = pt_Z24;
+                                 etaZa = eta_Z24;
+                                 phiZa = phi_Z24;
 					
-				         Zb = Z13;
-				         mZb = mZ13;
-                         ptZb = pt_Z13;
-                         etaZb = eta_Z13;
-                         phiZb = phi_Z13;
+				 Zb = Z13;
+				 mZb = mZ13;
+                                 ptZb = pt_Z13;
+                                 etaZb = eta_Z13;
+                                 phiZb = phi_Z13;
 					
-				     }
+			     }
 				
-			     } // end else if dZc2
+		  } // end else if dZc2
 		    
-		         else 
-			     {  // dZc3 < dZc1, dZc2
+		  else 
+	          {  // dZc3 < dZc1, dZc2
 					
-			        if ( dZ14 < dZ23 ){
+			if ( dZ14 < dZ23 ){
 					
-			             Za = Z14;
-			             mZa = mZ14;
-                         ptZa = pt_Z14;
-                         etaZa = eta_Z14;
-                         phiZa = phi_Z14;
+			     Za = Z14;
+			     mZa = mZ14;
+                             ptZa = pt_Z14;
+                             etaZa = eta_Z14;
+                             phiZa = phi_Z14;
 					
-			             Zb = Z23;
-			             mZb = mZ23;
-                         ptZb = pt_Z23;
-                         etaZb = eta_Z23;
-                         phiZb = phi_Z23;
+			     Zb = Z23;
+			     mZb = mZ23;
+                             ptZb = pt_Z23;
+                             etaZb = eta_Z23;
+                             phiZb = phi_Z23;
 					
-		            }
+		        }
 				
-                    else
-		            {
-		                 Za = Z23;
-			             mZa = mZ23;
-                         ptZa = pt_Z23;
-                         etaZa = eta_Z23;
-                         phiZa = phi_Z23;
+                        else
+		        {
+		             Za = Z23;
+			     mZa = mZ23;
+                             ptZa = pt_Z23;
+                             etaZa = eta_Z23;
+                             phiZa = phi_Z23;
 					
-			             Zb = Z14;
-			             mZb = mZ14;
-                         ptZb = pt_Z14;
-                         etaZb = eta_Z14;
-                         phiZb = phi_Z14;
+			     Zb = Z14;
+			     mZb = mZ14;
+                             ptZb = pt_Z14;
+                             etaZb = eta_Z14;
+                             phiZb = phi_Z14;
 					
-		            }
+		         }
 				
-			      } // end else dZc3
+		  } // end else dZc3
 			
                   
                   // 6th Selection: on Za and Zb masses, Za > 40 GeV (closest to nomial Z mass) & Zb > 12 GeV
                   
                   if ( mZa > 40. && mZa < 120.){
 					  
-	                 if ( mZb > 12. && mZb < 120. ){
+	              if ( mZb > 12. && mZb < 120. ){
 						 
-					     h_mZa_4mu->Fill(mZa, wt);            
-                         h_mZb_4mu->Fill(mZb, wt);
-                         h_pt_Za->Fill(ptZa, wt);
-                         h_pt_Zb->Fill(ptZb, wt);
-                         h_eta_Za->Fill(etaZa, wt);
-                         h_eta_Zb->Fill(etaZb, wt);
-		                 h_phi_Za->Fill(phiZa, wt);
-		                 h_phi_Zb->Fill(phiZb, wt); 
+			   h_mZa_4mu->Fill(mZa, wt);            
+                           h_mZb_4mu->Fill(mZb, wt);
+                           h_pt_Za->Fill(ptZa, wt);
+                           h_pt_Zb->Fill(ptZb, wt);
+                           h_eta_Za->Fill(etaZa, wt);
+                           h_eta_Zb->Fill(etaZb, wt);
+		           h_phi_Za->Fill(phiZa, wt);
+		           h_phi_Zb->Fill(phiZb, wt); 
 		            
 		            
-		                 //============================
-		                 // Reconstruct h1 from Za, Zb
-		                 //============================
+		           //============================
+		           // Reconstruct h1 from Za, Zb
+		           //============================
             
                          double mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
                    
