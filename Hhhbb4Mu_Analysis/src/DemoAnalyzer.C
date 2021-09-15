@@ -1222,63 +1222,60 @@ void DemoAnalyzer::Loop()
 								 
 				       for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { cout << "bjet index for v_element [" << i << "] is : "<< bjet_indx[i] << endl;}
 							    
-					     // Loop overall b-jets/event 
-					     for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
+				       // Loop overall b-jets/event 
+				       for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
 									 
-						   int bj_indx_AfterSelec = bjet_indx[i];
-						   double bjet_pt = Jet_PT[bj_indx_AfterSelec];
-						   double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
-						   double abs_bjet_eta = fabs(bjet_eta);
-						   double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
+					     int bj_indx_AfterSelec = bjet_indx[i];
+					     double bjet_pt = Jet_PT[bj_indx_AfterSelec];
+				             double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
+				             double abs_bjet_eta = fabs(bjet_eta);
+					     double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
 						
-						   double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
-						   double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
-					           double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
-						   double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
-						   double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
-						   double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
-						   double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
-						   double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
+					     double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
+					     double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
+					     double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
+					     double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
+					     double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
+				             double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
+					     double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
+					     double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
 									 
-						   // Calculate DeltaR(b-jet,lepton) of ZZ candidates 			 
-						   double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
-						   double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
-						   double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
-						   double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
+					     // Calculate DeltaR(b-jet,lepton) of ZZ candidates 			 
+					     double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
+				             double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
+					     double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
+					     double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
                 
 									 
-						   // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
-					           if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
+					     // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
+					     if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
 										 
-							 cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
+						   cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
 										 
-							 // 4th Selection: on b-jet pT > 20 GeV
-							 if ( bjet_pt > 20.) {   
+					           // 4th Selection: on b-jet pT > 20 GeV
+						   if ( bjet_pt > 20.) {   
 											 
-							      cout << "......Selection on bjet PT DONE......"  << endl;
+							cout << "......Selection on bjet PT DONE......"  << endl;
 											 
-							      // 5th Selection on b-jet abs_eta < 2.4
-							      if ( abs_bjet_eta < 2.4) {
+							// 5th Selection on b-jet abs_eta < 2.4
+						        if ( abs_bjet_eta < 2.4) {
 												 
-											     // save b-jet index for further selection 
-											     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
-											     cout << "......Selection on bjet abs Eta DONE......"  << endl;
-											} 
-											
-											 
-										 } // end if bjet_pt 	 
-								      } // end if DR 
-				                   } // end loop over vector elements 
+							     // save b-jet index for further selection 
+							     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
+							     cout << "......Selection on bjet abs Eta DONE......"  << endl;
+								      
+							} // end if abs_bjet_eta
+					            } // end if bjet_pt 	 
+					      } // end if DR 
+				         } // end loop over vector elements 
                                    
-                                
-                                
-                                 // store BTag scores for b-jets survived the above selections 
-					             vector<Int_t> v_BTag_scores; 
-								 v_BTag_scores. clear(); 
+					 // store BTag scores for b-jets survived the above selections 
+					 vector<Int_t> v_BTag_scores; 
+					 v_BTag_scores. clear(); 
 								   
-								 cout << "......Start Final Selection on BTagScore......" << endl;
+					 cout << "......Start Final Selection on BTagScore......" << endl;
 								   
-					             // make sure that we still have at least 2 bjets after above selections
+					 // make sure that we still have at least 2 bjets after above selections
 					             if ( bjet_indx_AfterSel.size() > 1 ) {  
 									    
 									    cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
