@@ -1228,7 +1228,7 @@ void DemoAnalyzer::Loop()
 						   int bj_indx_AfterSelec = bjet_indx[i];
 						   double bjet_pt = Jet_PT[bj_indx_AfterSelec];
 						   double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
-						   double abs_bjet_eta = fabs(Jet_Eta[bj_indx_AfterSelec]);
+						   double abs_bjet_eta = fabs(bjet_eta);
 						   double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
 						
 						   double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
@@ -1247,16 +1247,18 @@ void DemoAnalyzer::Loop()
 						   double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
                 
 									 
-									 // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
-									 if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
+						   // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
+					           if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
 										 
-										 cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
-										 // 4th Selection: on b-jet pT > 20 GeV
-										 if ( bjet_pt > 20.) {   
+							 cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
+										 
+							 // 4th Selection: on b-jet pT > 20 GeV
+							 if ( bjet_pt > 20.) {   
 											 
-											 cout << "......Selection on bjet PT DONE......"  << endl;
-											 // 5th Selection on b-jet abs_eta < 2.4
-											 if ( abs_bjet_eta < 2.4) {
+							      cout << "......Selection on bjet PT DONE......"  << endl;
+											 
+							      // 5th Selection on b-jet abs_eta < 2.4
+							      if ( abs_bjet_eta < 2.4) {
 												 
 											     // save b-jet index for further selection 
 											     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
