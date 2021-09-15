@@ -1298,15 +1298,14 @@ void DemoAnalyzer::Loop()
 					       // sort elements of BTagScores vector in descending order (starting with highest score)
 		                               sort(v_BTag_scores.begin(), v_BTag_scores.end(), greater<int>());
 		                         
-		                                for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << "sorted BTag_Scores = " << v_BTag_scores[i] << endl; }  
+					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << "sorted BTag_Scores = " << v_BTag_scores[i] << endl; }  
 		                         
 		                                
 		                                // 5th Selection: on BTag Scores of b-jets (select 2 b-jets with highest BTag score)
 		                                int max_BTag_score_b1 = v_BTag_scores[0];  // highest bTag score for 1st b-jet
 		                                int max2_BTag_score_b2 = v_BTag_scores[1];  // second highest bTag score for 2nd b-jet
 				    
-				    
-				                        // Get index of 2 b-jets with highest scores
+						// Get index of 2 b-jets with highest scores
 				                        Int_t btag, b_id, signal_bjet_1_indx, signal_bjet_2_indx;
 				                 
 									 
