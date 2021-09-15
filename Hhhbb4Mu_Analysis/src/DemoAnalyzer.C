@@ -37,20 +37,20 @@ void DemoAnalyzer::Loop()
 //      root> t.Loop();       // Loop on all entries
 //
 
-//     This is the loop skeleton where:
+//    This is the loop skeleton where:
 //    jentry is the global entry number in the chain
 //    ientry is the entry number in the current Tree
-//  Note that the argument to GetEntry must be:
+//    Note that the argument to GetEntry must be:
 //    jentry for TChain::GetEntry
 //    ientry for TTree::GetEntry and TBranch::GetEntry
 //
-//       To read only selected branches, Insert statements like:
-// METHOD1:
+//    To read only selected branches, Insert statements like:
+//    METHOD1:
 //    fChain->SetBranchStatus("*",0);  // disable all branches
 //    fChain->SetBranchStatus("branchname",1);  // activate branchname
-// METHOD2: replace line
+//    METHOD2: replace line
 //    fChain->GetEntry(jentry);       //read all branches
-//by  b_branchname->GetEntry(ientry); //read only this branch
+//    by  b_branchname->GetEntry(ientry); //read only this branch
    if (fChain == 0) return;
    
    
@@ -1335,77 +1335,77 @@ void DemoAnalyzer::Loop()
 							           Jet_Phi[signal_bjet_1_indx], 
 							           Jet_Mass[signal_bjet_1_indx] );
 							                     
-						   b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
-							            Jet_Eta[signal_bjet_2_indx], 
-							            Jet_Phi[signal_bjet_2_indx], 
-							            Jet_Mass[signal_bjet_2_indx] );
+						  b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
+							           Jet_Eta[signal_bjet_2_indx], 
+							           Jet_Phi[signal_bjet_2_indx], 
+							           Jet_Mass[signal_bjet_2_indx] );
 							     
 							     
-					           double b1_mass =  b1.M();
-					           double b1_pt   =  b1.Pt();
-					           double b1_eta  =  b1.Eta();
-						   double b1_phi  =  b1.Phi();
+					          double b1_mass =  b1.M();
+					          double b1_pt   =  b1.Pt();
+					          double b1_eta  =  b1.Eta();
+						  double b1_phi  =  b1.Phi();
 							     
-							            double b2_mass =  b1.M();
-							            double b2_pt   =  b1.Pt();
-							            double b2_eta  =  b1.Eta();
-							            double b2_phi  =  b1.Phi();
+					          double b2_mass =  b1.M();
+					          double b2_pt   =  b1.Pt();
+					          double b2_eta  =  b1.Eta();
+					          double b2_phi  =  b1.Phi();
 							     
-							            double DeltaEta_b1b2_sqr = TMath::Power( ( b1_eta - b2_eta ), 2); 
-							            double DeltaPhi_b1b2_sqr = TMath::Power( ( b1_phi - b2_phi ), 2); 
-							            double DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
+					          double DeltaEta_b1b2_sqr = TMath::Power( ( b1_eta - b2_eta ), 2); 
+					          double DeltaPhi_b1b2_sqr = TMath::Power( ( b1_phi - b2_phi ), 2); 
+					          double DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
 							     
-							            h_mb_jet_1->Fill(b1_mass, wt);
-                                        h_mb_jet_2->Fill(b2_mass, wt);
-							            h_pt_b_jet_1->Fill(b1_pt, wt);
-                                        h_pt_b_jet_2->Fill(b2_pt, wt);
-                                        h_eta_b_jet_1->Fill(b1_eta, wt);
-                                        h_eta_b_jet_2->Fill(b2_eta, wt);
-                                        h_phi_b_jet_1->Fill(b1_phi, wt);
-                                        h_phi_b_jet_2->Fill(b2_phi, wt);
-                                        //h_DR_b1b2->Fill(DR_b1b2, wt); 
+					          h_mb_jet_1->Fill(b1_mass, wt);
+                                                  h_mb_jet_2->Fill(b2_mass, wt);
+					          h_pt_b_jet_1->Fill(b1_pt, wt);
+                                                  h_pt_b_jet_2->Fill(b2_pt, wt);
+                                                  h_eta_b_jet_1->Fill(b1_eta, wt);
+                                                  h_eta_b_jet_2->Fill(b2_eta, wt);
+                                                  h_phi_b_jet_1->Fill(b1_phi, wt);
+                                                  h_phi_b_jet_2->Fill(b2_phi, wt);
+                                                  //h_DR_b1b2->Fill(DR_b1b2, wt); 
                                  
                                  
-							            //========================================//
-		                                //       Reconstruct h2 from b1, b2       //
-		                                //========================================//
+				                  //========================================//
+		                                  //       Reconstruct h2 from b1, b2       //
+		                                  //========================================//
 							     
-							            // TLorentzVector for 2nd SM higgs
-							            h2 = b1 + b2;
+					          // TLorentzVector for 2nd SM higgs
+						  h2 = b1 + b2;
 							     
-							            double h2_b1b2_mass =  h2.M();
-							            double h2_b1b2_pt   =  h2.Pt();
-							            double h2_b1b2_eta  =  h2.Eta();
-							            double h2_b1b2_phi  =  h2.Phi();
+						  double h2_b1b2_mass =  h2.M();
+						  double h2_b1b2_pt   =  h2.Pt();
+						  double h2_b1b2_eta  =  h2.Eta();
+						  double h2_b1b2_phi  =  h2.Phi();
 							     
-							            h_mh1_b1b2->Fill(h2_b1b2_mass, wt);
-                                        h_pt_h1_b1b2->Fill(h2_b1b2_pt, wt);
-                                        h_eta_h1_b1b2->Fill(h2_b1b2_eta, wt);
-                                        h_phi_h1_b1b2->Fill(h2_b1b2_phi, wt);
+					          h_mh1_b1b2->Fill(h2_b1b2_mass, wt);
+                                                  h_pt_h1_b1b2->Fill(h2_b1b2_pt, wt);
+                                                  h_eta_h1_b1b2->Fill(h2_b1b2_eta, wt);
+                                                  h_phi_h1_b1b2->Fill(h2_b1b2_phi, wt);
 							     
 							     
-                                        //======================================//
-		                                //                                       //
-		                                //      Reconstruct BSM H from SM h      // 
-		                                //               H -> h h                //
-		                                //                                       //
-		                                //=======================================//
+                                                  //======================================//
+		                                  //                                       //
+		                                  //      Reconstruct BSM H from SM h      // 
+		                                  //               H -> h h                //
+		                                  //                                       //
+		                                  //=======================================//
                 
-                                        // TLorentzVector for BSM Heavy Higgs 
-                                        H = h1 + h2;
+                                                  // TLorentzVector for BSM Heavy Higgs 
+                                                  H = h1 + h2;
                                  
-                                        double H_bb4Mu_mass =  H.M();
-                                        double H_bb4Mu_pt   =  H.Pt();
-                                        double H_bb4Mu_eta  =  H.Eta();
-                                        double H_bb4Mu_phi  =  H.Phi(); 
+                                                  double H_bb4Mu_mass =  H.M();
+                                                  double H_bb4Mu_pt   =  H.Pt();
+                                                  double H_bb4Mu_eta  =  H.Eta();
+                                                  double H_bb4Mu_phi  =  H.Phi(); 
                                  
-                                        h_mh2_h1h1->Fill(H_bb4Mu_mass, wt);
-                                        h_pt_h2_h1h1->Fill(H_bb4Mu_pt, wt);
-                                        h_eta_h2_h1h1->Fill(H_bb4Mu_eta, wt);
-                                        h_phi_h2_h1h1->Fill(H_bb4Mu_phi, wt); 
+                                                  h_mh2_h1h1->Fill(H_bb4Mu_mass, wt);
+                                                  h_pt_h2_h1h1->Fill(H_bb4Mu_pt, wt);
+                                                  h_eta_h2_h1h1->Fill(H_bb4Mu_eta, wt);
+                                                  h_phi_h2_h1h1->Fill(H_bb4Mu_phi, wt); 
 								       
-		                         } // end if bjet_indx_AfterSel.size() > 1 
-				             } // end if nbjets > 1      
+		                        } // end if bjet_indx_AfterSel.size() > 1 
+				    } // end if nbjets > 1      
 		                 } // end if on m4l invariant mass selection
 		            } // end if mZb  
                   } // end if mZa
