@@ -466,6 +466,9 @@ void DemoAnalyzer::Loop()
    TTree *muon3 = new TTree("muon3", "3rd muon");
    TTree *muon4 = new TTree("muon4", "4th muon");
    
+   // Array act as a counter stores how many events passed a certain selection, 
+   Int_t NEvents[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};    // size = nb of selection cuts, each element referes to certain selection  
+   
    
    //================================================================================================//
    //                                   DATASET SIGNAL H->hh->bb4Mu  NoPU                            //
@@ -476,6 +479,8 @@ void DemoAnalyzer::Loop()
    //TFile *indata = new TFile("/home/aya/Desktop/Pheno_Work/analysis/gg.root", "READ");
    //TFile *indata = new TFile("/HEP_DATA/aya/gghhbb4M_offshellsyntax_20210911.root", "READ");  
    //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work/gghhbb4M_offshellsyntax_20210911.root", "READ");
+   //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work/gghhbb4M_offshellsyntax_20210911.root", "READ");
+   //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/gghhbb4M_AllDiagrams_20210915.root", "READ");
    
    
    //================================================================================================//
@@ -509,7 +514,12 @@ void DemoAnalyzer::Loop()
    //TFile *op_file = new TFile("/media/aya/PACKUP/Aya/output_gg_2.root", "RECREATE");
    //TFile *op_file = new TFile("/HEP_DATA/aya/Results/output_demo_gghhbb4M_20210911.root", "RECREATE"); 
    //TFile *op_file = new TFile("/home/aya/Desktop/Pheno_Work/analysis/Results/output_demo_gghhbb4M_20210914.root", "RECREATE"); 
-   TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/output_demo_ZZ4M_20210914.root", "RECREATE"); 
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); 
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_2_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); // adding control region cuts
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_3_gghhbb4M_AllDiagrams_20210915.root", "RECREATE");   // tight b-jets
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_4_gghhbb4M_AllDiagrams_20210915.root", "RECREATE");   // add DR(ll)
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_weighted_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); 
+   TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/output_demo_ZZ4M_20210919.root", "RECREATE"); 
    
    
    //------------------------WEIGHT Calculation---------------------------
@@ -526,10 +536,11 @@ void DemoAnalyzer::Loop()
    //float Lumi_mc = 10000./ 3.044e-05 ;     // gg_h_zz
    //float Lumi_mc = 5000./898225.;          // DY
    //float Lumi_mc = 1000000./7559.171362345;  // ttbar
-   
+   float Lumi_mc = 1.e+06/ 12.16;              // ZZ4Mu  
+   //float Lumi_mc = 1.e+05/ 3.62e-05; // gghhbb4M_offshellsyntax_alldiagrams
     
-   //float wt = Lumi_data/Lumi_mc;
-   float wt = 1.;    // examine plots with unweighted events
+   float wt = Lumi_data/Lumi_mc;
+   //float wt = 1.;    // examine plots with unweighted events
    
    /*===================================================================================*/  
   /*------------------------------Looping over ALL Events-----------------------------*/
@@ -555,8 +566,8 @@ void DemoAnalyzer::Loop()
        // if (Cut(ientry) < 0) continue;
        
        // Loop overall Jets
-       cout << "start loop overall jets" << endl;
-       cout << "Jet size = " << Jet_size << endl;
+       // cout << "start loop overall jets" << endl;
+       // cout << "Jet size = " << Jet_size << endl;
        
        vector<Float_t> v_jet_pt;
        vector<Float_t> v_jet_eta;
@@ -581,14 +592,14 @@ void DemoAnalyzer::Loop()
 	    h_phi_allJets->Fill(Jet_Phi[i], wt);
 	       
        }
-       cout << "end loop overall jets" << endl;
+     //  cout << "end loop overall jets" << endl;
        
        for ( int i = 0; i < v_jet_pt.size(); i++ ) { cout << "PT of Jets in GeV = " << v_jet_pt[i] << endl; }
        for ( int i = 0; i < v_jet_bTag.size(); i++){ cout << "BTag Discriminator = " << v_jet_bTag[i] << endl; }
        for ( int i = 0; i < v_jet_eta.size(); i++) { cout << "Eta of Jets = " << v_jet_eta[i] << endl; }
       
        // Loop over MET
-       cout << "start loop overall MET" << endl;
+       // cout << "start loop overall MET" << endl;
        for (Int_t i = 0; i < MissingET_size; i++){
 		  
 	    h_MET_size->Fill(i);
@@ -597,11 +608,11 @@ void DemoAnalyzer::Loop()
             h_phi_MET->Fill(MissingET_Phi[i], wt);
 	       
        }
-       cout << "end loop overall MET" << endl;
+      // cout << "end loop overall MET" << endl;
       
        // Loop over all Muons Loose
-       cout << "start loop overall loose muons" << endl;
-       //cout << "Muon_Loose size = " << MuonLoose_size << endl;
+       // cout << "start loop overall loose muons" << endl;
+       // cout << "Muon_Loose size = " << MuonLoose_size << endl;
        
        vector<Float_t> v_muon_pt;
        vector<Float_t> v_muon_eta;
@@ -622,13 +633,13 @@ void DemoAnalyzer::Loop()
 	    h_phi_allMuons_Loose->Fill(MuonLoose_Phi[i], wt);
 		
        }  
-       cout << "end loop overall Muon_loose" << endl;
+       //cout << "end loop overall Muon_loose" << endl;
        
-       for ( int i = 0; i < v_muon_pt.size(); i++) { cout << "PT of Muons in GeV = " << v_muon_pt[i] << endl; }
-       for ( int i = 0; i < v_muon_eta.size(); i++) { cout << "Eta of Muons = " << v_muon_eta[i] << endl; }
+       //for ( int i = 0; i < v_muon_pt.size(); i++) { cout << "PT of Muons in GeV = " << v_muon_pt[i] << endl; }
+       //for ( int i = 0; i < v_muon_eta.size(); i++) { cout << "Eta of Muons = " << v_muon_eta[i] << endl; }
        
        
-       cout << "start loop overall tight muons" << endl;
+      // cout << "start loop overall tight muons" << endl;
        for (Int_t i = 0; i < MuonTight_size; i++){
 		  
 	    h_muons_size_Tight->Fill(i);
@@ -637,7 +648,7 @@ void DemoAnalyzer::Loop()
 	    h_phi_allMuons_Tight->Fill(MuonTight_Phi[i], wt);
 		
        }  
-       cout << "end loop overall Muon_tight" << endl;
+      // cout << "end loop overall Muon_tight" << endl;
 	   
 	   
        //------------------------GEN PARTICLES------------------------------ 	 
@@ -716,7 +727,9 @@ void DemoAnalyzer::Loop()
 	   
         // 2nd Selection: on number of Muons per event
         if ( v_muon_idx.size() > 3 ){ // having at least 4 Muons per event 
-			  
+		
+	     NEvents[0]++;
+		
 	     // TLorentzVector declarations 
              TLorentzVector mu1, mu2, mu3, mu4, Z12, Z34, Z13, Z24, Z14, Z23, Za, Zb, b1, b2, h1, h2, H;
       
@@ -837,45 +850,52 @@ void DemoAnalyzer::Loop()
       
              // 3rd Selection: on 4Muons charge 
              if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] + MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){ //Sure that muon pairs are of opposite signs 
+                 
+		 NEvents[1]++;     
+		     
+		 // 4th Selection: on Leading (highest pT) and Subleading (second highest pT) Muons
+                 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ){         
 
-		 // Start 4 muon combination 1234 
-		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
+                     NEvents[2]++;
+			 
+		    // Start 4 muon combination 1234 
+		    // 5th Selection: on charge of each muon pair	 
+		    if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
 			  
                      if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
-				      
-		         // 4th Selection: on highest and second highest pT Muons
-			  
-			 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ){ 
+			     
+			 NEvents[3]++;
+			 double m12 = (mu1 + mu2).M();
+			 double m34 = (mu3 + mu4).M(); 
+			
+			 // 6th Selection: on DeltaR(lepton,lepton) > 0.02  
 						  
-			       double m12 = (mu1 + mu2).M();
-			       double m34 = (mu3 + mu4).M(); 
-						  
-			       // 5th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
-						  
-			       if ( m12 > 4. ) { 
+			 if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) ){
 						 
-			            Z12 = mu1 + mu2;
+			     NEvents[4]++;
+			
+			     // 7th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
+			     if (  ( m12 > 4.) &&  ( m34 > 4. ) ) { 
+						 
+			            NEvents[5]++;
+				    Z12 = mu1 + mu2;
                                     mZ12 = Z12.M();
                                     pt_Z12 = Z12.Pt();
                                     eta_Z12 = Z12.Eta();
                                     phi_Z12 = Z12.Phi();
                               
-				} // end if m12
-				          
-				if ( m34 > 4. ) {
-				             
-				     Z34 = mu3 + mu4;
-                                     mZ34 = Z34.M();
-                                     pt_Z34 = Z34.Pt();
-                                     eta_Z34 = Z34.Eta();
-                                     phi_Z34 = Z34.Phi();
+				    Z34 = mu3 + mu4;
+                                    mZ34 = Z34.M();
+                                    pt_Z34 = Z34.Pt();
+                                    eta_Z34 = Z34.Eta();
+                                    phi_Z34 = Z34.Phi();
 			          
-			        } // end if m34
+			        } // end if m12, m34
+			   } // end DR 12,34
 			           
-			        if (mZ12 > 0.) h_mZ12->Fill(mZ12, wt);
-			        if (mZ34 > 0.) h_mZ34->Fill(mZ34, wt);
+			   if (mZ12 > 0.) h_mZ12->Fill(mZ12, wt);
+			   if (mZ34 > 0.) h_mZ34->Fill(mZ34, wt);
 			         
-			     } // end if on 4th selection 
 		      } // end if on mu3,4 charge
 		 } // end if on mu1,2 charge
 		  
@@ -883,130 +903,95 @@ void DemoAnalyzer::Loop()
 		 dZ34 = fabs(mZ34 - mZ);
 		    
                  // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
-                 //dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
-		          
-	         if ( dZ12 < dZ34 ) {
-				     
-		      dZc1 = dZ12;
-		      cout << "dZ mass for combination 1234 = dZ12 = " << dZc1 << endl;
-	         }	
-		    
-		 else 
-		 {
-		      dZc1 = dZ34;
-	              cout << "dZ mass for combination 1234 = dZ34 = " << dZc1 << endl;
-	         }
-		    
-		 // Start 4 muon combination 1324 
+                 dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
+		 
+			 
+	         // Start 4 muon combination 1324 
 		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
 				
 		     if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
-					   
-			 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
-						  
-			      double m13 = (mu1 + mu3).M();
-			      double m24 = (mu2 + mu4).M();
+			
+			 NEvents[6]++;
+			 double m13 = (mu1 + mu3).M();
+			 double m24 = (mu2 + mu4).M();
+			 
+			 if ( ( DR_mu13 > 0.02) && ( DR_mu24 > 0.02) ){
+						 
+			     NEvents[7]++;
 						   
-		              if ( m13 > 4. ) { 
-					
-			           Z13 = mu1 + mu3;
-			           mZ13 = Z13.M();
-			           pt_Z13 = Z13.Pt();
-                                   eta_Z13 = Z13.Eta();
-                                   phi_Z13 = Z13.Phi();
+			     if ( ( m13 > 4.) && ( m24 > 4. ) ) {  // mll > 4 GeV
+							   
+				  NEvents[8]++;
+				  Z13 = mu1 + mu3;
+			          mZ13 = Z13.M();
+			          pt_Z13 = Z13.Pt();
+                                  eta_Z13 = Z13.Eta();
+                                  phi_Z13 = Z13.Phi();
                                
-			       } // end if m13
-						   
-		               if ( m24 > 4. ) { 
-					
-			            Z24 = mu2 + mu4;
-			            mZ24 = Z24.M();
-			            pt_Z24 = Z24.Pt();
-                                    eta_Z24 = Z24.Eta();
-                                    phi_Z24 = Z24.Phi();
+				  Z24 = mu2 + mu4;
+			          mZ24 = Z24.M();
+			          pt_Z24 = Z24.Pt();
+                                  eta_Z24 = Z24.Eta();
+                                  phi_Z24 = Z24.Phi();
                                
-			       } // end if m24
+			       } // end ifm13, m24
+			  } // end DR
 					
-			       if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
-			       if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
-			              
-			    } // end if on selection on two highest pT muons
-		        } // end if on mu1,3 charge
+			  if (mZ13 > 0.) h_mZ13->Fill(mZ13, wt);
+			  if (mZ24 > 0.) h_mZ24->Fill(mZ24, wt);
+			    
+		     } // end if on mu1,3 charge
 	         } // end if on mu2,4 charge
 		    
 		 dZ13 = fabs(mZ13 - mZ);
 		 dZ24 = fabs(mZ24 - mZ);
 		
-	         //dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
+	         dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
 		      
-		 if ( dZ13 < dZ24 ) {
-			
-		      dZc2 = dZ13;
-		      cout << "dZ mass for combination 1324 = dZ13 = " << dZc2 << endl;
-		 }	
-		          
-		 else 
-		 {
-		      dZc2 = dZ24;
-		      cout << "dZ mass for combination 1324 = dZ24 = " << dZc2 << endl;
-		 }
-		    
+		 
 		 // Start 4 muon combination 1423 
 		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
 				
 		     if ( MuonLoose_Charge[1] + MuonLoose_Charge[2] == 0){ // mu2, mu3
-					   
-			 if ( ( pt_mu1 > 20. ) && ( pt_mu2 > 10. ) ) { 
+			
+			 NEvents[9]++;
+			 double m14 = (mu1 + mu4).M();
+			 double m23 = (mu2 + mu3).M();
+						
+			 if ( ( DR_mu14 > 0.02) && ( DR_mu23 > 0.02) ){
+						 
+			     NEvents[10]++;
 						   
-			       double m14 = (mu1 + mu4).M();
-			       double m23 = (mu2 + mu3).M();
-						   
-			       if ( m14 > 4. ) {
+			     if ( ( m14 > 4. ) && ( m23 > 4. ) ) {
 							   
-			            Z14 = mu1 + mu4;
-			            mZ14 = Z14.M();
-			            pt_Z14 = Z14.Pt();
-			            eta_Z14 = Z14.Eta();
-			            phi_Z14 = Z14.Phi();
+				 NEvents[11]++;
+			         Z14 = mu1 + mu4;
+			         mZ14 = Z14.M();
+			         pt_Z14 = Z14.Pt();
+			         eta_Z14 = Z14.Eta();
+		                 phi_Z14 = Z14.Phi();
+			          
+				 Z23 = mu2 + mu3;
+			         mZ23 = Z23.M();
+			         pt_Z23 = Z23.Pt();
+		                 eta_Z23 = Z23.Eta();
+	                         phi_Z23 = Z23.Phi();
 			                   
-			       } // end if m14
-						   
-			       if ( m23 > 4. ) {
+			     } // end if m14, m23
+			  } // end DR	 
 					
-			            Z23 = mu2 + mu3;
-			            mZ23 = Z23.M();
-			            pt_Z23 = Z23.Pt();
-		                    eta_Z23 = Z23.Eta();
-			            phi_Z23 = Z23.Phi();
-			                   
-				} // end if m23
-					
-			        if (mZ14 > 0.) h_mZ14->Fill(mZ14, wt);
-			        if (mZ23 > 0.) h_mZ23->Fill(mZ23, wt);
-			              
-	                 } // end if on selection on two highest pT muons
+			  if (mZ14 > 0.) h_mZ14->Fill(mZ14, wt);
+			  if (mZ23 > 0.) h_mZ23->Fill(mZ23, wt);
+			 
 	             } // end if on mu1,4 charge
 		 } // end if on mu2,3 charge
 		    
 		 dZ14 = fabs(mZ14 - mZ);
 		 dZ23 = fabs(mZ23 - mZ);
 		
-		 //dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
+		/dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
 		      
-		 if ( dZ14 < dZ23 ) {
-				      
-		      dZc3 = dZ14;
-		      cout << "dZ mass for combination 1423 = dZ14 = " << dZc3 << endl;
-		 }	
-		        
-		 else 
-		 {
-		      dZc3 = dZ23;
-		       cout << "dZ mass for combination 1423 = dZ23 = " << dZc3 << endl;
-		 } 
-       
-       
-                 // Choose dZc of the least value bet dZc1, dZc2, dZc3 to be Za, Zb combination
+		// Choose dZc of the least value bet dZc1, dZc2, dZc3 to be Za, Zb combination
 		      
 		 if ( dZc1 < dZc2 && dZc1 < dZc3 ){  // dZc1 < dZc2, dZc3
 			    
@@ -1118,12 +1103,13 @@ void DemoAnalyzer::Loop()
 		  } // end else dZc3
 			
                   
-                  // 6th Selection: on Za and Zb masses, Za > 40 GeV (closest to nomial Z mass) & Zb > 12 GeV
+                  // 8th Selection: on Za and Zb masses, Za > 40 GeV (closest to nomial Z mass) & Zb > 12 GeV
                   
                   if ( mZa > 40. && mZa < 120.){
 					  
 	              if ( mZb > 12. && mZb < 120. ){
-						 
+				
+			   NEvents[12]++;   
 			   h_mZa_4mu->Fill(mZa, wt);            
                            h_mZb_4mu->Fill(mZb, wt);
                            h_pt_Za->Fill(ptZa, wt);
@@ -1146,18 +1132,19 @@ void DemoAnalyzer::Loop()
                            h1 = Za + Zb;
                            mh1_ZaZb = h1.M(); // get invariant mass of 4Muons 
                          
-                           // 7th Selection: on invariant mass of 4Muons, in Signal Region 115 ≤ m4l ≤ 135 GeV  
+                           // 9th Selection: on invariant mass of 4Muons, in Signal Region 115 ≤ m4l ≤ 135 GeV  
                            
 			   if ( ( mh1_ZaZb > 115. ) && ( mh1_ZaZb < 135. ) ) {
                          
-                                 pt_h1_ZaZb = h1.Pt();
+                                 NEvents[13]++;
+				 pt_h1_ZaZb = h1.Pt();
                                  eta_h1_ZaZb = h1.Eta();
                                  phi_h1_ZaZb = h1.Phi();
             
-                                 h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                                /* h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
                                  h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
                                  h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
-                                 h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
+                                 h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt); */
 		            
 					         
 		                /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1181,10 +1168,10 @@ void DemoAnalyzer::Loop()
                                        UInt_t jet_bTag = Jet_BTag[i];  // save BTag value for each jet
                                   
 				       // 1st Selection: select loose B-jets WP with BTag values >= 4 (4, 5, 6, 7) stored at bit 0 in Delphes_Card
-                                       if ( ( jet_bTag == 4 ) || ( jet_bTag > 4 ) ) {
+                                      // if ( ( jet_bTag == 4 ) || ( jet_bTag > 4 ) ) {
 									 
 				       // 1st Selection: select Tight B-jets WP with BTag values 1, 3, 5, 7  stored at bit 2 in Delphes_Card
-				       // if ( ( jet_bTag == 1 ) || ( jet_bTag == 3 ) || ( jet_bTag == 5 ) || ( jet_bTag == 7 ) ) {
+				       if ( ( jet_bTag == 1 ) || ( jet_bTag == 3 ) || ( jet_bTag == 5 ) || ( jet_bTag == 7 ) ) {
 									 
 				             found_bjet = true;
 									 
@@ -1195,9 +1182,9 @@ void DemoAnalyzer::Loop()
 					       
 					          bjet_indx.push_back(bj_indx);  // filling is sorted with order of highest pT at first element then decreases 
 					
-					          cout << "Jet [" << bj_indx
+					         /* cout << "Jet [" << bj_indx
                                                        << "]  has BTag discriminator = " << Jet_BTag[i]
-                                                       <<  " and Jet_PT = " << Jet_PT[i] <<  " GeV/C" << endl; 
+                                                       <<  " and Jet_PT = " << Jet_PT[i] <<  " GeV/C" << endl; */
 									 
 					    
 									 
@@ -1212,6 +1199,7 @@ void DemoAnalyzer::Loop()
 				  
 				  if ( nbjets > 1 ){ 
 								 
+				       NEvents[14]++;
 				       cout << "========================================" << endl;
 		 	               cout << " number of b-jets/event =  " << nbjets    << endl;
 		                       cout << "========================================" << endl;
@@ -1250,16 +1238,19 @@ void DemoAnalyzer::Loop()
 					     // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
 					     if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
 										 
+						   NEvents[15]++;
 						   cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
 										 
 					           // 4th Selection: on b-jet pT > 20 GeV
 						   if ( bjet_pt > 20.) {   
 											 
+							NEvents[16]++;
 							cout << "......Selection on bjet PT DONE......"  << endl;
 											 
 							// 5th Selection on b-jet abs_eta < 2.4
 						        if ( abs_bjet_eta < 2.4) {
 												 
+							     NEvents[17]++;
 							     // save b-jet index for further selection 
 							     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
 							     cout << "......Selection on bjet abs Eta DONE......"  << endl;
@@ -1278,8 +1269,9 @@ void DemoAnalyzer::Loop()
 					 // make sure that we still have at least 2 bjets after above selections
 					 if ( bjet_indx_AfterSel.size() > 1 ) {  
 									    
+					      NEvents[18]++;
 					      cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
-                                              cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
+                                             // cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
 									    
 					      // save BTag scores for selected bjets
 					      for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) {  
@@ -1293,7 +1285,7 @@ void DemoAnalyzer::Loop()
 										         
 					       } //end loop on bjet_indx_AfterSel.size()
 								        
-					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << " "; }
+					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << endl; }
 		                         
 					       // sort elements of BTagScores vector in descending order (starting with highest score)
 		                               sort(v_BTag_scores.begin(), v_BTag_scores.end(), greater<int>());
@@ -1307,11 +1299,10 @@ void DemoAnalyzer::Loop()
 		                                int max2_BTag_score_b2 = v_BTag_scores[1];  // second highest bTag score for 2nd b-jet
 				    
 						// Get index of 2 b-jets with highest scores
-				                        
+				                
 						Int_t btag, b_id, signal_bjet_1_indx, signal_bjet_2_indx;
 				                 
-						// save signal 2 bjets index with highest BTag score   
-				                for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) { 
+					        for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) { 
 											
 						      b_id =  bjet_indx_AfterSel[i];
 						      btag =  Jet_BTag[b_id];
@@ -1354,8 +1345,9 @@ void DemoAnalyzer::Loop()
 					          double DeltaEta_b1b2_sqr = TMath::Power( ( b1_eta - b2_eta ), 2); 
 					          double DeltaPhi_b1b2_sqr = TMath::Power( ( b1_phi - b2_phi ), 2); 
 					          double DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
-							     
-					          h_mb_jet_1->Fill(b1_mass, wt);
+						
+						 
+						  h_mb_jet_1->Fill(b1_mass, wt);
                                                   h_mb_jet_2->Fill(b2_mass, wt);
 					          h_pt_b_jet_1->Fill(b1_pt, wt);
                                                   h_pt_b_jet_2->Fill(b2_pt, wt);
@@ -1364,6 +1356,12 @@ void DemoAnalyzer::Loop()
                                                   h_phi_b_jet_1->Fill(b1_phi, wt);
                                                   h_phi_b_jet_2->Fill(b2_phi, wt);
                                                   //h_DR_b1b2->Fill(DR_b1b2, wt); 
+						 
+						  // filling h1>ZaZb histos
+						  h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                                                  h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
+                                                  h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
+                                                  h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
                                  
                                  
 				                  //========================================//
@@ -1409,8 +1407,9 @@ void DemoAnalyzer::Loop()
 		                 } // end if on m4l invariant mass selection
 		            } // end if mZb  
                   } // end if mZa
-                } // end if on 4 muons charge 
-              } // end if MuonLoose_size > 3
+	       } // end if on leading and subleading muons pT 
+            } // end if on 4 muons charge 
+         } // end if MuonLoose_size > 3
 		     		  
  
    } // end loop overall events
@@ -1418,6 +1417,52 @@ void DemoAnalyzer::Loop()
   // Efficiency = nSelectedEvents/nentries;
    
    cout << "***Analysis Loop Ends!***" << endl; 
+	
+   cout << " Total Number of Events is : " << nentries << " Events" << endl;
+   cout << "     " << endl;  
+   
+   cout << "================================================================================"    << endl;
+   cout << "                         Cut                             |  NEvents PASS Cut    |"   << endl;
+   cout << "================================================================================"    << endl;
+   cout << " number of muons/event > 3                               |   " <<  NEvents[0]        << endl;
+   cout << "================================================================================"    << endl;
+   cout << " 4 muon charge/event = 0                                 |   " <<  NEvents[1]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " leading, subleading muon pT > 20 & 10 GeV               |   " <<  NEvents[2]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mu1mu2 , mu3mu4 pairs charge/event = 0 for comb. 1234   |   " <<  NEvents[3]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " DeltaR(mu1mu2, mu3mu4) > 0.02 for comb. 1234            |   " <<  NEvents[4]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mass of mu1mu2 & mu3mu4/event > 4 GeV for comb. 1234    |   " <<  NEvents[5]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mu1mu3 , mu2mu4 pairs charge/event = 0 for comb. 1324   |   " <<  NEvents[6]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " DeltaR(mu1mu3, mu2mu4) > 0.02 for comb. 1324            |   " <<  NEvents[7]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mass of mu1mu3 & mu2mu4/event > 4 GeV for comb. 1324    |   " <<  NEvents[8]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mu1mu4 , mu2mu3 pairs charge/event = 0 for comb. 1423   |   " <<  NEvents[9]        << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " DeltaR(mu1mu4, mu2mu3) > 0.02 for comb. 1423            |   " <<  NEvents[10]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " mass of mu1mu4 & mu2mu3/event > 4 GeV for comb. 1423    |   " <<  NEvents[11]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " Za, Zb masses, Za > 40 GeV & Zb > 12 GeV                |   " <<  NEvents[12]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " invariant mass of 4Muons, in SR 115 ≤ m4l ≤ 135 GeV     |   " <<  NEvents[13]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " at least 2 b-jets/event  -  no cuts on b-jets           |   " <<  NEvents[14]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " DeltaR(b-jet,lepton) of ZZ candidates > 0.3             |   " <<  NEvents[15]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " b-jet pT > 20 GeV                                       |   " <<  NEvents[16]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " absolute b-jet Eta < 2.4                                |   " <<  NEvents[17]       << endl; 
+   cout << "================================================================================"    << endl;
+   cout << " at least 2 b-jets/event after applying above selections |   " <<  NEvents[18]       << endl; 
+   cout << "================================================================================"    << endl;
+   
    
    
   /* cout << " Total Number of Events = " << nentries 
