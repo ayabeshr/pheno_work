@@ -28,11 +28,12 @@ else:
 	open(mg_dir + "gghhbb4Mu.txt", 'w')
 	subprocess.run("ls")
 	
-tf.write("import model 2HDM_20210524 -modelname \n")
-tf.write("define j = g u1 u2 d1 d2 d3 u1bar u2bar d1bar d2bar d3bar \n")
+tf.write("import model 2HDM_20210524 --modelname \n")
+#tf.write("define j = g u1 u2 d1 d2 d3 u1bar u2bar d1bar d2bar d3bar \n")
 
 # Iterate over spc files in a given range
-for i in range(101, 501):
+for i in range(0, 2001);
+#for i in range(101, 501):
 #for i in range(101, 1000):
 #for i in range(1000, 2000):
 #for i in range(2000, 4000):
@@ -41,9 +42,9 @@ for i in range(101, 501):
 #for i in range(8000, 9583):				
 	sf = scan_dir + "/SPheno.spc.THDM__" + str(i) 
 	if(os.path.isfile(sf)):
-		tf.write("generate g g > h2 > h1 h1, h1 > d3 d3bar, (h1 > z z, z > e2bar e2, z > e2bar e2) \n")
+		tf.write("generate g g > h2 > h1 h1, h1 > d3 d3bar, (h1 > z > e2bar e2 e2bar e2) \n")  # syntax to apply on-shell and off-shell z
 		tf.write("output gg_hh_bb4Mu_20210801/gg_hh_bb4Mu_" + str(i) + "\n")
-		l = ["launch \n", "0 \n", "set nevents 10 \n", "set ebeam1 7000 \n", "set ebeam2 7000 \n"]
+		l = ["launch \n", "0 \n", "set nevents 10 \n", "set ebeam1 7000 \n", "set ebeam2 7000 \n", "set maxjetflavor 5 \n"]
 		tf.writelines(l)
 		tf.write(sf + " \n")
 		tf.write("0 \n")  
