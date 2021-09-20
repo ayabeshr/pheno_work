@@ -989,7 +989,7 @@ void DemoAnalyzer::Loop()
 		 dZ14 = fabs(mZ14 - mZ);
 		 dZ23 = fabs(mZ23 - mZ);
 		
-		/dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
+		dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
 		      
 		// Choose dZc of the least value bet dZc1, dZc2, dZc3 to be Za, Zb combination
 		      
