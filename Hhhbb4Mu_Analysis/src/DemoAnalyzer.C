@@ -594,9 +594,9 @@ void DemoAnalyzer::Loop()
        }
      //  cout << "end loop overall jets" << endl;
        
-       for ( int i = 0; i < v_jet_pt.size(); i++ ) { cout << "PT of Jets in GeV = " << v_jet_pt[i] << endl; }
+      /* for ( int i = 0; i < v_jet_pt.size(); i++ ) { cout << "PT of Jets in GeV = " << v_jet_pt[i] << endl; }
        for ( int i = 0; i < v_jet_bTag.size(); i++){ cout << "BTag Discriminator = " << v_jet_bTag[i] << endl; }
-       for ( int i = 0; i < v_jet_eta.size(); i++) { cout << "Eta of Jets = " << v_jet_eta[i] << endl; }
+       for ( int i = 0; i < v_jet_eta.size(); i++) { cout << "Eta of Jets = " << v_jet_eta[i] << endl; }  */
       
        // Loop over MET
        // cout << "start loop overall MET" << endl;
