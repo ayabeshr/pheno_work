@@ -8,13 +8,13 @@
 # (uses python2) open a terminal and do:   
 #
 #     cd /path/to/MG_directory                                                               
-#     python /path/to/run_MG5.py                                                             
+#     python /path/to/run_MG5_20210920.py                                                            
 #----------------------------------------------------                                                                                           
 # To run script in case of MG with versions >= 2.8.0 
 # (uses python3) open a terminal and do: 
 #                                                                                             
 #     cd /path/to/MG_directory                                                               
-#     python3 /path/to/run_MG5.py                                                            
+#     python3 /path/to/run_MG5_20210920.py                                                           
 #-----------------------------------------------------
 
 import os 
