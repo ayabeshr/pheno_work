@@ -1,6 +1,7 @@
 Hhhbb4Mu Analysis: 
 
-1- Studying 2HDM-typeI model, mainly expectation for second heavy neutral scalar Higgs production at CMS Phase2 upgrade with Lumimosity 3000 1/fb.
+1- Studying expectation for BSM second heavy neutral scalar Higgs production and decay into two SM neutral scalar Higgs with final state 2b-jets+4Muons at CMS Phase2 upgrade with Lumimosity 3000 1/fb.
+
 2- Signal and Background data files generated using MG5+Pythia8+Delphes.
  
  
@@ -19,5 +20,14 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
    ----------------------------------------
    
      Loose          0          1,3,5,7
-     Medium         1
+     Medium         1          2,3,6,7
      Tight          2          4,5,6,7
+
+   ========================================================
+    Bit Value       0    1    2    3    4    5    6    7
+   ======================================================== 
+    Binary form    000  001  010  011  100  101  110  111 
+   ========================================================
+   
+   
+   
