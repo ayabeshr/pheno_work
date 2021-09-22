@@ -28,5 +28,6 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
     Binary form    000  001  010  011  100  101  110  111 
    
    
-   
+3- Each jet has a certain bit value stored in a variable called Jet_BTag[] in 
+   Jet container in Delphes tree.  
    
