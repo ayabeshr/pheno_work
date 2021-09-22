@@ -15,19 +15,18 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
 2- Each BitNumber stores certain bit values, specifically defined in CMS Phase2
    Card as :
    
-   ----------------------------------------
+   
        WP       BitNumber    Bit Values
    ----------------------------------------
-   
      Loose          0          1,3,5,7
      Medium         1          2,3,6,7
      Tight          2          4,5,6,7
 
-   ========================================================
+   
     Bit Value       0    1    2    3    4    5    6    7
-   ======================================================== 
+   
     Binary form    000  001  010  011  100  101  110  111 
-   ========================================================
+   
    
    
    
