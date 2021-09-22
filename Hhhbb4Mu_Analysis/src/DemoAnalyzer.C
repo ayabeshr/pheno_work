@@ -1245,108 +1245,66 @@ void DemoAnalyzer::Loop()
 					      } // end if DR 
 				         } // end loop over vector elements 
                                    
-					 // store BTag scores for b-jets survived the above selections 
-					 vector<Int_t> v_BTag_scores; 
-					 v_BTag_scores. clear(); 
-								   
-					 cout << "......Start Final Selection on BTagScore......" << endl;
-								   
+					  
 					 // make sure that we still have at least 2 bjets after above selections
 					 if ( bjet_indx_AfterSel.size() > 1 ) {  
 									    
 					      NEvents[18]++;
 					      cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
-                                             // cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
+                                              // cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
 									    
-					      // save BTag scores for selected bjets
-					      for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) {  
-											
-						    int bjet_indx_final = bjet_indx_AfterSel[i];
-						    Int_t BTag_score = Jet_BTag[bjet_indx_final];
-                                                    
-						    v_BTag_scores.push_back(BTag_score);				    
+					      // Select the signal 2 b-jets as the two with highest pT, no scores in Delphes 
+					      int signal_bjet_1_indx = bjet_indx_AfterSel[0];
+                                              int signal_bjet_2_indx = bjet_indx_AfterSel[1];
+					      Float_t signal_bjet_1_pt = Jet_PT[signal_bjet_1_indx];
+					      Float_t signal_bjet_2_pt = Jet_PT[signal_bjet_2_indx];
+										    
+					      cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
+					           << " ) with Highest PT values " << signal_bjet_1_pt << ", " << signal_bjet_2_pt
+					           << " respectively!" << endl;					
 						    
-						    cout << "B-jet [" << bjet_indx_final << "] has BTag_Score = " << BTag_score << endl;
-										         
-					       } //end loop on bjet_indx_AfterSel.size()
-								        
-					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << " BTag_Scores = " << v_BTag_scores[i] << endl; }
-		                         
-					       // sort elements of BTagScores vector in descending order (starting with highest score)
-		                               sort(v_BTag_scores.begin(), v_BTag_scores.end(), greater<int>());
-		                         
-					       for ( Int_t i = 0; i < v_BTag_scores.size(); i++ ) { cout << "sorted BTag_Scores = " << v_BTag_scores[i] << endl; }  
-		                         
-		                                
-		                                // 5th Selection: on BTag Scores of b-jets (select 2 b-jets with highest BTag score)
-		                                
-						int max_BTag_score_b1 = v_BTag_scores[0];   // highest bTag score for 1st b-jet
-		                                int max2_BTag_score_b2 = v_BTag_scores[1];  // second highest bTag score for 2nd b-jet
-				    
-						// Get index of 2 b-jets with highest scores
-				                
-						Int_t btag, b_id, signal_bjet_1_indx, signal_bjet_2_indx;
-				                 
-					        for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) { 
-											
-						      b_id =  bjet_indx_AfterSel[i];
-						      btag =  Jet_BTag[b_id];
-									        
-						      if ( btag == max_BTag_score_b1 ) signal_bjet_1_indx = b_id; 
-				                          
-				                      else if ( btag == max2_BTag_score_b2 ) signal_bjet_2_indx = b_id;
-				                          
-				                      else { cout << "btag for bjet [" << b_id << "] doesn't match any of highest scores" << endl;}
-				                     
-					         } // end loop on bjet_indx_AfterSel
-							     
-					         cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
-						      << " ) with Highest BTag Scores " << max_BTag_score_b1 << ", " << max2_BTag_score_b2
-						      << " respectively!" << endl;
-							          
-							          
-						  // Set TLorentzVectors for selected 2 b-jets of signal
-					          b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
-							           Jet_Eta[signal_bjet_1_indx], 
-							           Jet_Phi[signal_bjet_1_indx], 
-							           Jet_Mass[signal_bjet_1_indx] );
+		                              // Set TLorentzVectors for selected 2 b-jets of signal
+					      b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
+							       Jet_Eta[signal_bjet_1_indx], 
+							       Jet_Phi[signal_bjet_1_indx], 
+							       Jet_Mass[signal_bjet_1_indx] );
 							                     
-						  b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
-							           Jet_Eta[signal_bjet_2_indx], 
-							           Jet_Phi[signal_bjet_2_indx], 
-							           Jet_Mass[signal_bjet_2_indx] );
+				              b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
+							       Jet_Eta[signal_bjet_2_indx], 
+							       Jet_Phi[signal_bjet_2_indx], 
+							       Jet_Mass[signal_bjet_2_indx] );
 							     
 							     
-					          double b1_mass =  b1.M();
-					          double b1_pt   =  b1.Pt();
-					          double b1_eta  =  b1.Eta();
-						  double b1_phi  =  b1.Phi();
+					      double b1_mass =  b1.M();
+					      double b1_pt   =  b1.Pt();
+					      double b1_eta  =  b1.Eta();
+			          	      double b1_phi  =  b1.Phi();
 							     
-					          double b2_mass =  b1.M();
-					          double b2_pt   =  b1.Pt();
-					          double b2_eta  =  b1.Eta();
-					          double b2_phi  =  b1.Phi();
+					      double b2_mass =  b1.M();
+				              double b2_pt   =  b1.Pt();
+					      double b2_eta  =  b1.Eta();
+				              double b2_phi  =  b1.Phi();
 							     
-					          double DeltaEta_b1b2_sqr = TMath::Power( ( b1_eta - b2_eta ), 2); 
-					          double DeltaPhi_b1b2_sqr = TMath::Power( ( b1_phi - b2_phi ), 2); 
-					          double DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
+					      double DeltaEta_b1b2_sqr = TMath::Power( ( b1_eta - b2_eta ), 2); 
+					      double DeltaPhi_b1b2_sqr = TMath::Power( ( b1_phi - b2_phi ), 2); 
+			                      double DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
 						
 						 
-						  h_mb_jet_1->Fill(b1_mass, wt);
-                                                  h_mb_jet_2->Fill(b2_mass, wt);
-					          h_pt_b_jet_1->Fill(b1_pt, wt);
-                                                  h_pt_b_jet_2->Fill(b2_pt, wt);
-                                                  h_eta_b_jet_1->Fill(b1_eta, wt);
-                                                  h_eta_b_jet_2->Fill(b2_eta, wt);
-                                                  h_phi_b_jet_1->Fill(b1_phi, wt);
-                                                  h_phi_b_jet_2->Fill(b2_phi, wt);
-                                                  //h_DR_b1b2->Fill(DR_b1b2, wt); 
+					      h_mb_jet_1->Fill(b1_mass, wt);
+                                              h_mb_jet_2->Fill(b2_mass, wt);
+					      h_pt_b_jet_1->Fill(b1_pt, wt);
+                                              h_pt_b_jet_2->Fill(b2_pt, wt);
+                                              h_eta_b_jet_1->Fill(b1_eta, wt);
+                                              h_eta_b_jet_2->Fill(b2_eta, wt);
+                                              h_phi_b_jet_1->Fill(b1_phi, wt);
+                                              h_phi_b_jet_2->Fill(b2_phi, wt);
+                                              //h_DR_b1b2->Fill(DR_b1b2, wt); 
 						 
-						  // filling h1>ZaZb histos
-						  h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
-                                                  h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
-                                                  h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
-                                                  h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
+				              // filling h1>ZaZb histos
+				              h_mh1_ZaZb->Fill(mh1_ZaZb, wt);
+                                              h_pt_h1_ZaZb->Fill(pt_h1_ZaZb, wt);
+                                              h_eta_h1_ZaZb->Fill(eta_h1_ZaZb, wt);
+                                              h_phi_h1_ZaZb->Fill(phi_h1_ZaZb, wt);
                                  
                                  
 				                  //========================================//
