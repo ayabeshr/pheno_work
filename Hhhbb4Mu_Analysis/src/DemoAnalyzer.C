@@ -480,7 +480,7 @@ void DemoAnalyzer::Loop()
    //TFile *indata = new TFile("/HEP_DATA/aya/gghhbb4M_offshellsyntax_20210911.root", "READ");  
    //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work/gghhbb4M_offshellsyntax_20210911.root", "READ");
    //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work/gghhbb4M_offshellsyntax_20210911.root", "READ");
-   //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/gghhbb4M_AllDiagrams_20210915.root", "READ");
+   TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/gghhbb4M_AllDiagrams_20210915.root", "READ");
    
    
    //================================================================================================//
@@ -494,7 +494,7 @@ void DemoAnalyzer::Loop()
    //TFile *input_file = new TFile("/run/media/Aya/LinuxSpace/MyWork_Final_Samples/TTbar_BG_14TeV_SMfull_CMS_PhaseII_0PU_GEN_pythia8/TTbar_BG_14TeV_SMfull_pythia8_CMS_PhaseII_0PU_GEN-SIM.root", "READ");
    
    // ZZ_4Mu
-   TFile *input_file = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/ZZto4Mu_BG_14TeV_SMfull_Pythia8_GEN/ZZto4MU_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN_SIM.root", "READ");
+   //TFile *input_file = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/ZZto4Mu_BG_14TeV_SMfull_Pythia8_GEN/ZZto4MU_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN_SIM.root", "READ");
    
    
    //================================================================================================//
@@ -517,9 +517,9 @@ void DemoAnalyzer::Loop()
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); 
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_2_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); // adding control region cuts
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_3_gghhbb4M_AllDiagrams_20210915.root", "RECREATE");   // tight b-jets
-   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_4_gghhbb4M_AllDiagrams_20210915.root", "RECREATE");   // add DR(ll)
+   TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_4_gghhbb4M_AllDiagrams_20210915.root", "RECREATE");   // add DR(ll)
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_weighted_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); 
-   TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/output_demo_ZZ4M_20210919.root", "RECREATE"); 
+   //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/output_demo_ZZ4M_20210919.root", "RECREATE"); 
    
    
    //------------------------WEIGHT Calculation---------------------------
@@ -536,8 +536,8 @@ void DemoAnalyzer::Loop()
    //float Lumi_mc = 10000./ 3.044e-05 ;     // gg_h_zz
    //float Lumi_mc = 5000./898225.;          // DY
    //float Lumi_mc = 1000000./7559.171362345;  // ttbar
-   float Lumi_mc = 1.e+06/ 12.16;              // ZZ4Mu  
-   //float Lumi_mc = 1.e+05/ 3.62e-05; // gghhbb4M_offshellsyntax_alldiagrams
+   //float Lumi_mc = 1.e+06/ 12.16;              // ZZ4Mu  
+   float Lumi_mc = 1.e+05/ 3.62e-05; // gghhbb4M_offshellsyntax_alldiagrams
     
    float wt = Lumi_data/Lumi_mc;
    //float wt = 1.;    // examine plots with unweighted events
@@ -565,38 +565,6 @@ void DemoAnalyzer::Loop()
        nb = fChain->GetEntry(jentry);   nbytes += nb;
        // if (Cut(ientry) < 0) continue;
        
-       // Loop overall Jets
-       // cout << "start loop overall jets" << endl;
-       // cout << "Jet size = " << Jet_size << endl;
-       
-       vector<Float_t> v_jet_pt;
-       vector<Float_t> v_jet_eta;
-       vector<UInt_t>  v_jet_bTag;
-       v_jet_pt.clear();
-       v_jet_eta.clear();
-       v_jet_bTag.clear();
-       
-       for (Int_t i = 0; i < Jet_size; i++){
-	 
-	    Float_t jet_pt = Jet_PT[i];
-	    Float_t jet_eta = Jet_Eta[i];
-	    UInt_t jet_bTag = Jet_BTag[i];
-			
-	    v_jet_pt.push_back(jet_pt);
-            v_jet_eta.push_back(jet_eta);   
-            v_jet_bTag.push_back(jet_bTag);      
-	        
-	    h_jets_size->Fill(i);
-            h_pt_allJets->Fill(Jet_PT[i], wt);
-	    h_eta_allJets->Fill(Jet_Eta[i], wt);
-	    h_phi_allJets->Fill(Jet_Phi[i], wt);
-	       
-       }
-     //  cout << "end loop overall jets" << endl;
-       
-      /* for ( int i = 0; i < v_jet_pt.size(); i++ ) { cout << "PT of Jets in GeV = " << v_jet_pt[i] << endl; }
-       for ( int i = 0; i < v_jet_bTag.size(); i++){ cout << "BTag Discriminator = " << v_jet_bTag[i] << endl; }
-       for ( int i = 0; i < v_jet_eta.size(); i++) { cout << "Eta of Jets = " << v_jet_eta[i] << endl; }  */
       
        // Loop over MET
        // cout << "start loop overall MET" << endl;
@@ -1160,37 +1128,54 @@ void DemoAnalyzer::Loop()
                                  vector<Int_t> bjet_indx;
                                  bjet_indx.clear();
             
-                                 // Loop overall jets
+                                 /// Loop overall jets
 		                 cout << "Jet_Size =  " << Jet_size << " for Event nb  " <<  jentry << endl;
                             
-                                 for ( Int_t i = 0; i < Jet_size; i++ ){
-					   
-                                       UInt_t jet_bTag = Jet_BTag[i];  // save BTag value for each jet
-                                  
-				       // 1st Selection: select loose B-jets WP with BTag values >= 4 (4, 5, 6, 7) stored at bit 0 in Delphes_Card
-                                      // if ( ( jet_bTag == 4 ) || ( jet_bTag > 4 ) ) {
-									 
-				       // 1st Selection: select Tight B-jets WP with BTag values 1, 3, 5, 7  stored at bit 2 in Delphes_Card
-				       if ( ( jet_bTag == 1 ) || ( jet_bTag == 3 ) || ( jet_bTag == 5 ) || ( jet_bTag == 7 ) ) {
-									 
-				             found_bjet = true;
-									 
-				             if ( found_bjet ){
-										 
-				    	          nbjets++;
-					          int bj_indx = i;
-					       
-					          bjet_indx.push_back(bj_indx);  // filling is sorted with order of highest pT at first element then decreases 
-					
-					         /* cout << "Jet [" << bj_indx
-                                                       << "]  has BTag discriminator = " << Jet_BTag[i]
-                                                       <<  " and Jet_PT = " << Jet_PT[i] <<  " GeV/C" << endl; */
-									 
-					    
-									 
-				             } // end if found_bjet
-					 } // end if jet_bTagS
-				  } // end loop overall jets
+                                 // Loop overall Jets
+                                 // cout << "start loop overall jets" << endl;
+                                 // cout << "Jet size = " << Jet_size << endl;
+       
+       
+                                 for (Int_t i = 0; i < Jet_size; i++){
+	                           
+			              int bj_indx = i;
+	                            
+	                              h_jets_size->Fill(i);
+                                      h_pt_allJets->Fill(Jet_PT[i], wt);
+	                              h_eta_allJets->Fill(Jet_Eta[i], wt);
+	                              h_phi_allJets->Fill(Jet_Phi[i], wt);
+			                    
+			              // save BTag bit value for each jet
+			              UInt_t jet_bTag = Jet_BTag[i];    
+                               
+                                      // Check whether a jet has passed the b-tagging criteria defined by the BitNumber = i,
+                                      // Loose WP b-jet BitNumber = 0, Medium WP b-jet BitNumber = 1, Tight WP b-jet BitNumber = 2 in CMS_PhaseII Delphes card, 
+                                 
+                                     /* Bool_t BtagOk = ( jet_bTag & (1 << 0) );    // for loose
+                                
+                                      cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
+                                           << ",   Is it considered as a Loose WP b-jet ?   Answer: " 
+                                           << BtagOk << endl; */ 
+                 
+                                      Bool_t BtagOk = ( jet_bTag & (1 << 2) );    // for tight 
+                                
+                                      cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
+                                           << ",   Is it considered as a Tight WP b-jet ?   Answer: " 
+                                           << BtagOk << endl; 
+                                     
+                                    /*Bool_t BtagOk = ( jet_bTag & (1 << 1) );    // for Medium
+                                
+                                      cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
+                                           << ",   Is it considered as a Med WP b-jet ?   Answer: " 
+                                           << BtagOk << endl;  */
+			
+			              if ( BtagOk == 1){  // jet assigned as tight WP b-jet
+									
+				          bjet_indx.push_back(bj_indx);
+					  nbjets++;
+									
+				      }  // end if BtagOk 
+	                          }  // end loop overall jets
 							 
 				  h_bjet_size->Fill(nbjets, wt);
 							 
