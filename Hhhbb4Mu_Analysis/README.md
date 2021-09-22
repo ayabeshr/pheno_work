@@ -17,7 +17,7 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
    
    
        WP       BitNumber    Bit Values
-   ----------------------------------------
+   
      Loose          0          1,3,5,7
      Medium         1          2,3,6,7
      Tight          2          4,5,6,7
