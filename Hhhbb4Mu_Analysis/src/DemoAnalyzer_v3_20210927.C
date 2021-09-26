@@ -124,6 +124,7 @@ void DemoAnalyzer::Loop()
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_weighted_gghhbb4M_AllDiagrams_20210915.root", "RECREATE"); 
    //TFile *op_file = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/output_demo_6_gghhbb4M_AllDiagrams_20210924.root","RECREATE");
    
+  
    //------------------------WEIGHT Calculation---------------------------
   
    float Lumi_data = 3.e+03;    // in 1/fb
@@ -142,14 +143,11 @@ void DemoAnalyzer::Loop()
    float Lumi_mc = 1.e+05/ 3.62e-05; // gghhbb4M_offshellsyntax_alldiagrams
    float wt = Lumi_data/Lumi_mc;
    //float wt = 1.;    // examine plots with unweighted events
+	
    
+   //----------------------END WEIGHT CALC------------------------------------ 
    
-   // Define vectors
-  /* vector<Float_t> gen_muon_pt;
-   vector<Float_t> gen_muon_eta;
-   vector<Float_t> gen_muon_phi;
-   vector<Int_t>   gen_muon_size;*/
-   
+   vector<Int_t> v_muon_idx; // saves muon index if fullfill Object Selection 
   
    // Declaring Tree Branches
    b_Gen_Muon     = treeI->Branch("Gen_Muons",          &genMuons);
@@ -167,6 +165,7 @@ void DemoAnalyzer::Loop()
    b_2nd_Higgs_Ofsignal = treeI->Branch("2nd_Higgs_OFSignal",     &smhiggs2  );
    b_BSM_Higgs_Ofsignal = treeI->Branch("Heavy_Higgs_OFSignal",   &heavyHiggs );
    
+	
    /*===================================================================================*/  
   /*------------------------------Looping over ALL Events-----------------------------*/
   /*==================================================================================*/ 
@@ -186,7 +185,7 @@ void DemoAnalyzer::Loop()
    {
       cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
 	  
-	  Long64_t ientry = LoadTree(jentry);
+      Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
@@ -256,13 +255,13 @@ void DemoAnalyzer::Loop()
 	        // Check for Muons
 	        if ( p_id == 13 ) { // pdg_id = 13 for Muon
 			 
-		       Float_t gen_mu_pt = Particle_PT[i];
-	           Float_t gen_mu_eta = Particle_Eta[i];
-		       Float_t gen_mu_phi = Particle_Phi[i];
+		    Float_t gen_mu_pt = Particle_PT[i];
+	            Float_t gen_mu_eta = Particle_Eta[i];
+		    Float_t gen_mu_phi = Particle_Phi[i];
 		       
-		       genMuons.gen_muon_pt.push_back(gen_mu_pt);
-		       genMuons.gen_muon_eta.push_back(gen_mu_eta);
-		       genMuons.gen_muon_phi.push_back(gen_mu_phi);
+		    genMuons.gen_muon_pt.push_back(gen_mu_pt);
+		    genMuons.gen_muon_eta.push_back(gen_mu_eta);
+		    genMuons.gen_muon_phi.push_back(gen_mu_phi);
 		       
 		      
 	        } // end if on id 13 	
@@ -274,9 +273,9 @@ void DemoAnalyzer::Loop()
 		     Float_t gen_b_eta = Particle_Eta[i];
 		     Float_t gen_b_phi = Particle_Phi[i]; 
 			
-			 gen_bjet.gen_bjet_pt.push_back(gen_b_pt);
-			 gen_bjet.gen_bjet_eta.push_back(gen_b_eta);
-			 gen_bjet.gen_bjet_phi.push_back(gen_b_phi);
+	             gen_bjet.gen_bjet_pt.push_back(gen_b_pt);
+	             gen_bjet.gen_bjet_eta.push_back(gen_b_eta);
+	             gen_bjet.gen_bjet_phi.push_back(gen_b_phi);
 			 
 			
 	         } // end if on id 5
@@ -288,13 +287,13 @@ void DemoAnalyzer::Loop()
       //------------Loop over Loose Muons--------------
       for (Int_t i = 0; i < MuonLoose_size; i++){
 		   
-		    Float_t muon_pt = MuonLoose_PT[i];
-			Float_t muon_eta = MuonLoose_Eta[i];
-			Float_t muon_phi = MuonLoose_Phi[i];
+           Float_t muon_pt = MuonLoose_PT[i];
+	   Float_t muon_eta = MuonLoose_Eta[i];
+	   Float_t muon_phi = MuonLoose_Phi[i];
 			
-			loose_mu.lmu_pt.push_back(muon_pt);
-			loose_mu.lmu_eta.push_back(muon_eta);
-			loose_mu.lmu_phi.push_back(muon_phi);
+	   loose_mu.lmu_pt.push_back(muon_pt);
+	   loose_mu.lmu_eta.push_back(muon_eta);
+	   loose_mu.lmu_phi.push_back(muon_phi);
 			
 		
        } 
@@ -302,53 +301,52 @@ void DemoAnalyzer::Loop()
       //----------------Loop over Jets-----------------
        for ( Int_t i = 0; i < Jet_size; i++ ){
 		   
-		    Float_t j_pt = MuonLoose_PT[i];
-			Float_t j_eta = MuonLoose_Eta[i];
-			Float_t j_phi = MuonLoose_Phi[i];
+	    Float_t j_pt = MuonLoose_PT[i];
+	    Float_t j_eta = MuonLoose_Eta[i];
+	    Float_t j_phi = MuonLoose_Phi[i];
 		   
-		    jets.jet_pt.push_back(j_pt);
-		    jets.jet_eta.push_back(j_eta);
-		    jets.jet_phi.push_back(j_phi);
+	    jets.jet_pt.push_back(j_pt);
+	    jets.jet_eta.push_back(j_eta);
+            jets.jet_phi.push_back(j_phi);
 		   
-		}
+	}
       
       //---------------Loop over MET----------------
        
       for (Int_t i = 0; i < MissingET_size; i++){
 		  
-	        Float_t missingET = MissingET_MET[i];
-	        Float_t MET_eta   = MissingET_Eta[i];
-	        Float_t MET_phi   = MissingET_Phi[i];
+	   Float_t missingET = MissingET_MET[i];
+	   Float_t MET_eta   = MissingET_Eta[i];
+	   Float_t MET_phi   = MissingET_Phi[i];
 	        
-	        met.met_MET.push_back(missingET);
-	        met.met_eta.push_back(MET_eta);
-	        met.met_phi.push_back(MET_phi);
+	   met.met_MET.push_back(missingET);
+	   met.met_eta.push_back(MET_eta);
+	   met.met_phi.push_back(MET_phi);
 	       
        }
        
         
           
-	   //=====================================================================//
+       //=====================================================================//
        //                        Start 4Muons , ZZ Selections                 //
        //=====================================================================//
 	      
-	    vector<Int_t> v_muon_idx; // saves muon index if fullfill Object Selection 
-	    v_muon_idx.clear();
-	    cout << "Original Number of Muons: " << MuonLoose_size << endl;
+	   v_muon_idx.clear();
+	   cout << "Original Number of Muons: " << MuonLoose_size << endl;
 	    
 	   for ( Int_t i = 0; i < MuonLoose_size; i++ ){
 			  
-		    float muonL_pt = MuonLoose_PT[i];
-		    float muonL_eta = fabs(MuonLoose_Eta[i]);
+	        float muonL_pt = MuonLoose_PT[i];
+                float muonL_eta = fabs(MuonLoose_Eta[i]);
 		     
-			// 1st Selection: on pT, eta of reconstructed Muons (Object_Selection) 
+		// 1st Selection: on pT, eta of reconstructed Muons (Object_Selection) 
 			
-			  if ( muonL_pt > 5. ){ 
+	        if ( muonL_pt > 5. ){ 
 				
-				if ( muonL_eta < 2.4 ) {
+		   if ( muonL_eta < 2.4 ) {
 					
-					int mu_idx = i;
-					v_muon_idx.push_back(mu_idx);
+		       int mu_idx = i;
+		       v_muon_idx.push_back(mu_idx);
 				  
 			       
 	            } //  end if muonL_eta < 2.4
@@ -360,9 +358,9 @@ void DemoAnalyzer::Loop()
         // 2nd Selection: on number of Muons per event
         if ( v_muon_idx.size() > 3 ){ // having at least 4 Muons per event 
 			
-			NEvents[0]++;
+	    NEvents[0]++;
 			  
-	        // TLorentzVector declarations 
+	    // TLorentzVector declarations 
             TLorentzVector mu1, mu2, mu3, mu4, Z12, Z34, Z13, Z24, Z14, Z23, Za, Zb, b1, b2, h1, h2, H;
       
             // Set Pt, eta, phi mass for 4 muons TLV
@@ -469,41 +467,42 @@ void DemoAnalyzer::Loop()
                    // 5th Selecion: on DeltaR(lepton,lepton) > 0.02   
                   // if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) && ( DR_mu13 > 0.02) && ( DR_mu24 > 0.02) && ( DR_mu14 > 0.02) && ( DR_mu23 > 0.02) ) {
 					   
-					 //  NEvents[3]++;
+			 //  NEvents[3]++;
 						
-		           // Start 4 muon combination 1234 
-		           // 5th Selection: on charge of each muon pair
-		           if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
+		    // Start 4 muon combination 1234 
+		    // 5th Selection: on charge of each muon pair
+		    if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
 				   
-                      if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
+                        if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
 						  
-					      NEvents[3]++;
-				          double m12 = (mu1 + mu2).M();
-					      double m34 = (mu3 + mu4).M(); 
+			    NEvents[3]++;
+		            double m12 = (mu1 + mu2).M();
+			    double m34 = (mu3 + mu4).M(); 
 						  
-						  // 6th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
-						 if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) ){
+			    // 6th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
+			    if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) ){
 						 
-						     NEvents[4]++;
-						  if (  ( m12 > 4.) &&  ( m34 > 4. ) ) { 
+				NEvents[4]++;
+				if (  ( m12 > 4.) &&  ( m34 > 4. ) ) { 
 							  
-						      NEvents[5]++;
-						      Z12 = mu1 + mu2;
-                              mZ12 = Z12.M();
-                              pt_Z12 = Z12.Pt();
-                              eta_Z12 = Z12.Eta();
-                              phi_Z12 = Z12.Phi();
+				    NEvents[5]++;
+				    Z12 = mu1 + mu2;
+                                    mZ12 = Z12.M();
+                                    pt_Z12 = Z12.Pt();
+                                    eta_Z12 = Z12.Eta();
+                                    phi_Z12 = Z12.Phi();
                              
-				              Z34 = mu3 + mu4;
-                              mZ34 = Z34.M();
-                              pt_Z34 = Z34.Pt();
-                              eta_Z34 = Z34.Eta();
-                              phi_Z34 = Z34.Phi();
+			            Z34 = mu3 + mu4;
+                                    mZ34 = Z34.M();
+                                    pt_Z34 = Z34.Pt();
+                                    eta_Z34 = Z34.Eta();
+                                    phi_Z34 = Z34.Phi();
 			          
-					      } // end if m12,m34
-			           }
-			              if (mZ12 > 0.) zmass.Z12_mass.push_back(mZ12);
-			              if (mZ34 > 0.) zmass.Z34_mass.push_back(mZ34);
+			          } // end if m12,m34
+			      } // end if DR
+			              
+			      if (mZ12 > 0.) zmass.Z12_mass.push_back(mZ12);
+			      if (mZ34 > 0.) zmass.Z34_mass.push_back(mZ34);
 			         
 		              } // end if on mu3,4 charge
 		           } // end if on mu1,2 charge
