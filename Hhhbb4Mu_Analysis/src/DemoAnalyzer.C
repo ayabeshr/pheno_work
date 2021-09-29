@@ -958,28 +958,15 @@ void DemoAnalyzer::Loop()
                                
                               // Check whether a jet has passed the b-tagging criteria defined by the BitNumber = i,
                               // Loose WP b-jet BitNumber = 0, Medium WP b-jet BitNumber = 1, Tight WP b-jet BitNumber = 2 in CMS_PhaseII Delphes card, 
-                                 
-                               /* Bool_t BtagOk = ( jet_bTag & (1 << 0) );    // for loose
-                                
-                                cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
-                                     << ",   Is it considered as a Loose WP b-jet ?   Answer: " 
-                                     << BtagOk << endl;  */
-                 
-                               Bool_t BtagOk = ( jet_bTag & (1 << 2) );    // for tight 
+                               
+                               Bool_t BtagOk = ( jet_bTag & (1 << 2) );    // 2 for tight 
                                 
                                cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
                                     << ",   Is it considered as a Tight WP b-jet ?   Answer: " 
                                     << BtagOk << ",  " << "BTag_Algo = " << jet_bTag_Algo 
                                     << ",   BTag_Physics = " << jet_bTag_Phys << endl;
-                                     
-                                
-                                     
-                               /* Bool_t BtagOk = ( jet_bTag & (1 << 1) );    // for Medium
-                                
-                                cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
-                                     << ",   Is it considered as a Med WP b-jet ?   Answer: " 
-                                     << BtagOk << endl;  */
-			
+                                    
+				 
 			        if ( BtagOk == 1){  // jet assigned as tight WP b-jet
 									
 				    bjet_indx.push_back(bj_indx);
@@ -1055,122 +1042,112 @@ void DemoAnalyzer::Loop()
 				  } // end if DR 
 	                      } // end loop over vector elements 
                                    
-                                // store BTag scores for b-jets survived the above selections 
-					             //vector<Int_t> v_BTag_scores; 
-								 //v_BTag_scores. clear(); 
-								   
-								 //cout << "......Start Final Selection on BTagScore......" << endl;
-								   
-					             // make sure that we still have at least 2 bjets after above selections
-					             if ( bjet_indx_AfterSel.size() > 1 ) {  
+                                
+		              // make sure that we still have at least 2 bjets after above selections
+			      if ( bjet_indx_AfterSel.size() > 1 ) {  
 									    
-									 NEvents[18]++;
-									 cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
-                                     // cout << "bjet indx = " << bjet_indx_AfterSel[0] << endl;
-									    
-						             // save BTag scores for selected bjets
-						        	 //for ( Int_t i = 0; i < bjet_indx_AfterSel.size(); i++ ) {  
-											
-									 // Select the signal 2 b-jets as the two with highest pT, no scores in Delphes 
-									 int signal_bjet_1_indx = bjet_indx_AfterSel[0];
-									 int signal_bjet_2_indx = bjet_indx_AfterSel[1];
-									 Float_t signal_bjet_1_pt = Jet_PT[signal_bjet_1_indx];
-									 Float_t signal_bjet_2_pt = Jet_PT[signal_bjet_2_indx];
+		                   NEvents[18]++;
+		                   cout << "bjet_indx_AfterSel size is : " <<  bjet_indx_AfterSel.size() << endl; 
+                                     
+				   // Select the signal 2 b-jets as the two with highest pT, no scores in Delphes 
+									
+				   int signal_bjet_1_indx = bjet_indx_AfterSel[0];
+				   int signal_bjet_2_indx = bjet_indx_AfterSel[1];
+				   Float_t signal_bjet_1_pt = Jet_PT[signal_bjet_1_indx];
+				   Float_t signal_bjet_2_pt = Jet_PT[signal_bjet_2_indx];
 										    
-									 cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
-							                 << " ) with Highest PT values " << signal_bjet_1_pt << ", " << signal_bjet_2_pt
-							                 << " respectively!" << endl;
+				   cout << "2 B-jets of signal are ( " << signal_bjet_1_indx << ", " << signal_bjet_2_indx 
+			                << " ) with Highest PT values " << signal_bjet_1_pt << ", " << signal_bjet_2_pt
+							                 << " GeV respectively!" << endl;
 							          
-							          
-							            // Set TLorentzVectors for selected 2 b-jets of signal
-							            b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
-							                             Jet_Eta[signal_bjet_1_indx], 
-							                             Jet_Phi[signal_bjet_1_indx], 
-							                             Jet_Mass[signal_bjet_1_indx] );
+				   // Set TLorentzVectors for selected 2 b-jets of signal
+				   b1.SetPtEtaPhiM( Jet_PT[signal_bjet_1_indx], 
+					            Jet_Eta[signal_bjet_1_indx], 
+						    Jet_Phi[signal_bjet_1_indx], 
+						    Jet_Mass[signal_bjet_1_indx] );
 							                     
-							            b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
-							                             Jet_Eta[signal_bjet_2_indx], 
-							                             Jet_Phi[signal_bjet_2_indx], 
-							                             Jet_Mass[signal_bjet_2_indx] );
+				   b2.SetPtEtaPhiM( Jet_PT[signal_bjet_2_indx], 
+						    Jet_Eta[signal_bjet_2_indx], 
+						    Jet_Phi[signal_bjet_2_indx], 
+						    Jet_Mass[signal_bjet_2_indx] );
 							     
 							     
-										Float_t bj1_mass =  b1.M();
-							            Float_t bj1_pt   =  b1.Pt();
-							            Float_t bj1_eta  =  b1.Eta();
-							            Float_t bj1_phi  =  b1.Phi();
+				    Float_t bj1_mass =  b1.M();
+				    Float_t bj1_pt   =  b1.Pt();
+			            Float_t bj1_eta  =  b1.Eta();
+				    Float_t bj1_phi  =  b1.Phi();
 							     
-							            Float_t bj2_mass =  b1.M();
-							            Float_t bj2_pt   =  b1.Pt();
-							            Float_t bj2_eta  =  b1.Eta();
-							            Float_t bj2_phi  =  b1.Phi();
+				    Float_t bj2_mass =  b1.M();
+				    Float_t bj2_pt   =  b1.Pt();
+			            Float_t bj2_eta  =  b1.Eta();
+		                    Float_t bj2_phi  =  b1.Phi();
 							     
-							            Float_t DeltaEta_b1b2_sqr = TMath::Power( ( bj1_eta - bj2_eta ), 2); 
-							            Float_t DeltaPhi_b1b2_sqr = TMath::Power( ( bj1_phi - bj2_phi ), 2); 
-							            Float_t DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
+				    Float_t DeltaEta_b1b2_sqr = TMath::Power( ( bj1_eta - bj2_eta ), 2); 
+				    Float_t DeltaPhi_b1b2_sqr = TMath::Power( ( bj1_phi - bj2_phi ), 2); 
+				    Float_t DR_b1b2 = TMath::Sqrt( DeltaEta_b1b2_sqr + DeltaPhi_b1b2_sqr );
 							     
-							            b1_sig.b1_mass.push_back(bj1_mass);
-							            b1_sig.b1_pt.push_back(bj1_pt);
-							            b1_sig.b1_eta.push_back(bj1_eta);
+				    b1_sig.b1_mass.push_back(bj1_mass);
+			            b1_sig.b1_pt.push_back(bj1_pt);
+			            b1_sig.b1_eta.push_back(bj1_eta);
 							            
-							            b2_sig.b2_mass.push_back(bj2_mass);
-							            b2_sig.b2_pt.push_back(bj2_pt);
-							            b2_sig.b2_eta.push_back(bj2_eta);
+		                    b2_sig.b2_mass.push_back(bj2_mass);
+				    b2_sig.b2_pt.push_back(bj2_pt);
+			            b2_sig.b2_eta.push_back(bj2_eta);
 							            
-							            smhiggs1.v_h1_mass.push_back(mh1_ZaZb);
-							            smhiggs1.v_h1_pt.push_back(pt_h1_ZaZb);
-							            smhiggs1.v_h1_eta.push_back(eta_h1_ZaZb);
+		                    smhiggs1.v_h1_mass.push_back(mh1_ZaZb);
+				    smhiggs1.v_h1_pt.push_back(pt_h1_ZaZb);
+			            smhiggs1.v_h1_eta.push_back(eta_h1_ZaZb);
                                  
-							            //========================================//
-		                                //       Reconstruct h2 from b1, b2       //
-		                                //========================================//
+				    //========================================//
+		                    //       Reconstruct h2 from b1, b2       //
+		                    //========================================//
 							     
-							            // TLorentzVector for 2nd SM higgs
-							            h2 = b1 + b2;
+	                            // TLorentzVector for 2nd SM higgs
+		                    h2 = b1 + b2;
 							     
-							            Float_t h2_b1b2_mass =  h2.M();
-							            Float_t h2_b1b2_pt   =  h2.Pt();
-							            Float_t h2_b1b2_eta  =  h2.Eta();
-							            Float_t h2_b1b2_phi  =  h2.Phi();
+				    Float_t h2_b1b2_mass =  h2.M();
+				    Float_t h2_b1b2_pt   =  h2.Pt();
+		                    Float_t h2_b1b2_eta  =  h2.Eta();
+				    Float_t h2_b1b2_phi  =  h2.Phi();
 							     
-							            smhiggs2.v_h2_mass.push_back(h2_b1b2_mass);
-							            smhiggs2.v_h2_pt.push_back(h2_b1b2_pt);
-							            smhiggs2.v_h2_eta.push_back(h2_b1b2_eta); 
+				    smhiggs2.v_h2_mass.push_back(h2_b1b2_mass);
+				    smhiggs2.v_h2_pt.push_back(h2_b1b2_pt);
+				    smhiggs2.v_h2_eta.push_back(h2_b1b2_eta); 
 							     
 							     
-                                        //======================================//
-		                                //                                       //
-		                                //      Reconstruct BSM H from SM h      // 
-		                                //               H -> h h                //
-		                                //                                       //
-		                                //=======================================//
+                                    //======================================//
+		                    //                                      //
+		                    //      Reconstruct BSM H from SM h     // 
+		                    //               H -> h h               //
+		                    //                                      //
+		                    //======================================//
                 
-                                        // TLorentzVector for BSM Heavy Higgs 
-                                        H = h1 + h2;
+                                    // TLorentzVector for BSM Heavy Higgs 
+                                    H = h1 + h2;
                                  
-                                        Float_t H_bb4Mu_mass =  H.M();
-                                        Float_t H_bb4Mu_pt   =  H.Pt();
-                                        Float_t H_bb4Mu_eta  =  H.Eta();
-                                        Float_t H_bb4Mu_phi  =  H.Phi(); 
+                                    Float_t H_bb4Mu_mass =  H.M();
+                                    Float_t H_bb4Mu_pt   =  H.Pt();
+                                    Float_t H_bb4Mu_eta  =  H.Eta();
+                                    Float_t H_bb4Mu_phi  =  H.Phi(); 
                                  
-                                        heavyHiggs.v_H_mass.push_back(H_bb4Mu_mass); 
-								        heavyHiggs.v_H_pt.push_back(H_bb4Mu_pt); 
-								        heavyHiggs.v_H_eta.push_back(H_bb4Mu_eta); 
+                                    heavyHiggs.v_H_mass.push_back(H_bb4Mu_mass); 
+				    heavyHiggs.v_H_pt.push_back(H_bb4Mu_pt); 
+				    heavyHiggs.v_H_eta.push_back(H_bb4Mu_eta); 
 								       
 								       
-		                         } // end if bjet_indx_AfterSel.size() > 1 
-				             } // end if nbjets > 1      
-		               //  } // end if on m4l invariant mass selection  
-		            } // end if mZb  
-                  } // end if mZa
-			     
-			    } // end if on leading and subleading muons pT 
-              } // end if on 4 muons charge 
-            } // end if MuonLoose_size > 3
+		              } // end if bjet_indx_AfterSel.size() > 1 
+		           } // end if nbjets > 1      
+		    //  } // end if on m4l invariant mass selection  
+                  } // end if mZb  
+               } // end if mZa
+	    } // end if on leading and subleading muons pT 
+        } // end if on 4 muons charge 
+   } // end if MuonLoose_size > 3
 		     		  
-   // sig_tree->SetWeight(wt);
-  //  ttbar_tree->SetWeight(wt);
+  //sig_tree->SetWeight(wt);
+  //ttbar_tree->SetWeight(wt);
     ZZ4Mu_tree->SetWeight(wt);
-   /* DY_tree->SetWeight(wt); 
+ /* DY_tree->SetWeight(wt); 
     ZZbb2Mu_tree->SetWeight(wt);  
     ZZ4b_tree->SetWeight(wt);       
     ZWpbbMuNL_tree->SetWeight(wt); 
@@ -1185,7 +1162,7 @@ void DemoAnalyzer::Loop()
     //sig_tree->Fill();
     //ttbar_tree->Fill();
     ZZ4Mu_tree->Fill();
-   /* DY_tree->Fill(); 
+  /*DY_tree->Fill(); 
     ZZbb2Mu_tree->Fill();  
     ZZ4b_tree->Fill();       
     ZWpbbMuNL_tree->Fill(); 
@@ -1269,34 +1246,34 @@ void DemoAnalyzer::Loop()
     smHbb_tree->Write();  */
    
    cout << "Writing output file! " << endl;
-   //sig->Write();
-  // ttbar->Write();
+ //out_sig->Write();
+// out_ttbar->Write();
    out_ZZ4Mu->Write();
-   /* DY->Write(); 
-    ZZbb2Mu->Write();  
-    ZZ4b->Write();       
-    ZWpbbMuNL->Write(); 
-    ZWp2MuMuNL->Write(); 
-    ZWmbbMuNL->Write();  
-    ZWm2MuMuNL->Write(); 
-    WW2Mu2NL->Write(); 
-    smHZZ4Mu->Write();  
-    smHbb->Write();  */
+ /*out_DY->Write(); 
+   out_ZZbb2Mu->Write();  
+   out_ZZ4b->Write();       
+   out_ZWpbbMuNL->Write(); 
+   out_ZWp2MuMuNL->Write(); 
+   out_ZWmbbMuNL->Write();  
+   out_ZWm2MuMuNL->Write(); 
+   out_WW2Mu2NL->Write(); 
+   out_smHZZ4Mu->Write();  
+   out_smHbb->Write();  */
     
    cout << "saving..." << endl;    
-   // sig->Close();   
-  // ttbar->Close();
+ //out_sig->Close();   
+ //out_ttbar->Close();
    out_ZZ4Mu->Close();
-   /* DY->Close(); 
-    ZZbb2Mu->Close();  
-    ZZ4b->Close();       
-    ZWpbbMuNL->Close(); 
-    ZWp2MuMuNL->Close(); 
-    ZWmbbMuNL->Close();  
-    ZWm2MuMuNL->Close(); 
-    WW2Mu2NL->Close(); 
-    smHZZ4Mu->Close();  
-    smHbb->Close();  */
+ /*out_DY->Close(); 
+   out_ZZbb2Mu->Close();  
+   out_ZZ4b->Close();       
+   out_ZWpbbMuNL->Close(); 
+   out_ZWp2MuMuNL->Close(); 
+   out_ZWmbbMuNL->Close();  
+   out_ZWm2MuMuNL->Close(); 
+   out_WW2Mu2NL->Close(); 
+   out_smHZZ4Mu->Close();  
+   out_smHbb->Close();  */
    
    cout << "---DONE---" << endl;
    cout << "ROOT file: " << out_ZZ4Mu << " has been created sucessfully!" << endl;
