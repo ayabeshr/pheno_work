@@ -717,13 +717,13 @@ void DemoAnalyzer::Loop()
 			   if (mZ13 > 0.) zmass.Z13_mass.push_back(mZ13);
 	                   if (mZ24 > 0.) zmass.Z24_mass.push_back(mZ24);
 			              
-					 } // end if on mu1,3 charge
-	              } // end if on mu2,4 charge
+	              } // end if on mu1,3 charge
+	          } // end if on mu2,4 charge
 		    
-		          dZ13 = fabs(mZ13 - mZ);
-		          dZ24 = fabs(mZ24 - mZ);
+		  dZ13 = fabs(mZ13 - mZ);
+                  dZ24 = fabs(mZ24 - mZ);
 		
-		          dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
+                  dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
 		      
 		         // Start 4 muon combination 1423 
 		         if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
