@@ -322,6 +322,8 @@ void DemoAnalyzer::Loop()
    Long64_t nentries = fChain->GetEntriesFast();
    cout << "nEvents = " << nentries << endl;
    vector<Int_t> v_muon_idx; // saves muon index if fullfill Object Selection 
+   vector<Int_t> bjet_indx;
+   vector<Int_t> bjet_indx_AfterSel;	
    //Long64_t nentries = 10;
    //Long64_t nentries = 1000;
    
@@ -718,186 +720,187 @@ void DemoAnalyzer::Loop()
 	                   if (mZ24 > 0.) zmass.Z24_mass.push_back(mZ24);
 			              
 	              } // end if on mu1,3 charge
-	          } // end if on mu2,4 charge
+	         } // end if on mu2,4 charge
 		    
-		  dZ13 = fabs(mZ13 - mZ);
-                  dZ24 = fabs(mZ24 - mZ);
+	         dZ13 = fabs(mZ13 - mZ);
+                 dZ24 = fabs(mZ24 - mZ);
 		
-                  dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
+                 dZc2 = ( dZ13 < dZ24 ) ? dZ13 : dZ24; 
 		      
-		         // Start 4 muon combination 1423 
-		         if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
+	         // Start 4 muon combination 1423 
+		 if ( MuonLoose_Charge[0] + MuonLoose_Charge[3] == 0){  // mu1, mu4
 				
-				    if ( MuonLoose_Charge[1] + MuonLoose_Charge[2] == 0){ // mu2, mu3
+		    if ( MuonLoose_Charge[1] + MuonLoose_Charge[2] == 0){ // mu2, mu3
 						
-					    NEvents[9]++;
-					    double m14 = (mu1 + mu4).M();
-						double m23 = (mu2 + mu3).M();
+			NEvents[9]++;
+			double m14 = (mu1 + mu4).M();
+			double m23 = (mu2 + mu3).M();
 						
-						if ( ( DR_mu14 > 0.02) && ( DR_mu23 > 0.02) ){
+			if ( ( DR_mu14 > 0.02) && ( DR_mu23 > 0.02) ){
 						 
-						     NEvents[10]++;
+			    NEvents[10]++;
 						   
-						if ( ( m14 > 4. ) && ( m23 > 4. ) ) {
+			    if ( ( m14 > 4. ) && ( m23 > 4. ) ) {
 							   
-							NEvents[11]++;
-					        Z14 = mu1 + mu4;
-			                mZ14 = Z14.M();
-			                pt_Z14 = Z14.Pt();
-			                eta_Z14 = Z14.Eta();
-			                phi_Z14 = Z14.Phi();
+				NEvents[11]++;
+			        Z14 = mu1 + mu4;
+			        mZ14 = Z14.M();
+			        pt_Z14 = Z14.Pt();
+			        eta_Z14 = Z14.Eta();
+			        phi_Z14 = Z14.Phi();
 			                   
-						    Z23 = mu2 + mu3;
-			                mZ23 = Z23.M();
-			                pt_Z23 = Z23.Pt();
-		                    eta_Z23 = Z23.Eta();
-			                phi_Z23 = Z23.Phi();
+				Z23 = mu2 + mu3;
+			        mZ23 = Z23.M();
+			        pt_Z23 = Z23.Pt();
+		                eta_Z23 = Z23.Eta();
+			        phi_Z23 = Z23.Phi();
 			                   
-						} // end if m14, m23
-					  }
-			            if (mZ14 > 0.) zmass.Z14_mass.push_back(mZ14);
-			            if (mZ23 > 0.) zmass.Z23_mass.push_back(mZ23);
+			    } // end if m14, m23
+		        } // end DR 14,23
+			          
+			if (mZ14 > 0.) zmass.Z14_mass.push_back(mZ14);
+		        if (mZ23 > 0.) zmass.Z23_mass.push_back(mZ23);
 			              
-					} // end if on mu1,4 charge
-		         } // end if on mu2,3 charge
+		     } // end if on mu1,4 charge
+		 } // end if on mu2,3 charge
 		    
-		         dZ14 = fabs(mZ14 - mZ);
-		         dZ23 = fabs(mZ23 - mZ);
+		 dZ14 = fabs(mZ14 - mZ);
+                 dZ23 = fabs(mZ23 - mZ);
 		
-		         dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
+		 dZc3 = ( dZ14 < dZ23 ) ? dZ14 : dZ23; 
 		      
                  // Choose dZc of the least value bet dZc1, dZc2, dZc3 to be Za, Zb combination
 		      
-		         if ( dZc1 < dZc2 && dZc1 < dZc3 ){  // dZc1 < dZc2, dZc3
+		 if ( dZc1 < dZc2 && dZc1 < dZc3 ){  // dZc1 < dZc2, dZc3
 			    
-			        if ( dZ12 < dZ34 ){
+	            if ( dZ12 < dZ34 ){
 					
-			            Za = Z12;
-			            mZa = mZ12;
+			Za = Z12;
+			mZa = mZ12;
                         ptZa = pt_Z12;
                         etaZa = eta_Z12;
                         phiZa = phi_Z12;
 					
-				        Zb = Z34;
-			            mZb = mZ34;
+		        Zb = Z34;
+			mZb = mZ34;
                         ptZb = pt_Z34;
                         etaZb = eta_Z34;
-			            phiZb = phi_Z34;
+		        phiZb = phi_Z34;
 					
-			        } 
+		     } 
 				
-			        else
-			        { 
-			            Za = Z34;
-			            mZa = mZ34;
-                        ptZa = pt_Z34;
-                        etaZa = eta_Z34;
-                        phiZa = phi_Z34;
+	             else
+	             { 
+			 Za = Z34;
+	                 mZa = mZ34;
+                         ptZa = pt_Z34;
+                         etaZa = eta_Z34;
+                         phiZa = phi_Z34;
                     
-			            Zb = Z12;
-			            mZb = mZ12;
-                        ptZb = pt_Z12;
-                        etaZb = eta_Z12;
-                        phiZb = phi_Z12;
+     	                 Zb = Z12;
+	                 mZb = mZ12;
+                         ptZb = pt_Z12;
+                         etaZb = eta_Z12;
+                         phiZb = phi_Z12;
 					
-			         } 
+     	              } 
 			
-		         } // end if dZc1   
+	         } // end if dZc1   
 			
-		         else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
+		 else if ( dZc2 < dZc1 && dZc2 < dZc3 ){  // dZc2 < dZc1, dZc3
 					 
-				     if ( dZ13 < dZ24 ){
+		          if ( dZ13 < dZ24 ){
 					
-				         Za = Z13;
-				         mZa = mZ13;
-                         ptZa = pt_Z13;
-                         etaZa = eta_Z13;
-                         phiZa = phi_Z13;
+			       Za = Z13;
+		               mZa = mZ13;
+                               ptZa = pt_Z13;
+                               etaZa = eta_Z13;
+                               phiZa = phi_Z13;
 					
-				         Zb = Z24;
-			             mZb = mZ24;
-                         ptZb = pt_Z24;
-                         etaZb = eta_Z24;
-                         phiZb = phi_Z24;
+		               Zb = Z24;
+		               mZb = mZ24;
+                               ptZb = pt_Z24;
+                               etaZb = eta_Z24;
+                               phiZb = phi_Z24;
                     
-				     }
+			   }
 				 
-				     else
-				     {      
-				         Za = Z24;
-				         mZa = mZ24;
-                         ptZa = pt_Z24;
-                         etaZa = eta_Z24;
-                         phiZa = phi_Z24;
+		           else
+	                   {      
+			       Za = Z24;
+			       mZa = mZ24;
+                               ptZa = pt_Z24;
+                               etaZa = eta_Z24;
+                               phiZa = phi_Z24;
 					
-				         Zb = Z13;
-				         mZb = mZ13;
-                         ptZb = pt_Z13;
-                         etaZb = eta_Z13;
-                         phiZb = phi_Z13;
+			       Zb = Z13;
+			       mZb = mZ13;
+                               ptZb = pt_Z13;
+                               etaZb = eta_Z13;
+                               phiZb = phi_Z13;
 					
-				     }
+			    }
 				
-			     } // end else if dZc2
+                 } // end else if dZc2
 		    
-		         else 
-			     {  // dZc3 < dZc1, dZc2
+		 else 
+	         {   // dZc3 < dZc1, dZc2
 					
-			        if ( dZ14 < dZ23 ){
+		     if ( dZ14 < dZ23 ){
 					
-			             Za = Z14;
-			             mZa = mZ14;
+			 Za = Z14;
+			 mZa = mZ14;
                          ptZa = pt_Z14;
                          etaZa = eta_Z14;
                          phiZa = phi_Z14;
 					
-			             Zb = Z23;
-			             mZb = mZ23;
+			 Zb = Z23;
+			 mZb = mZ23;
                          ptZb = pt_Z23;
                          etaZb = eta_Z23;
                          phiZb = phi_Z23;
 					
-		            }
+		     }
 				
-                    else
-		            {
-		                 Za = Z23;
-			             mZa = mZ23;
+                     else
+		     {
+		         Za = Z23;
+			 mZa = mZ23;
                          ptZa = pt_Z23;
                          etaZa = eta_Z23;
                          phiZa = phi_Z23;
 					
-			             Zb = Z14;
-			             mZb = mZ14;
+			 Zb = Z14;
+		         mZb = mZ14;
                          ptZb = pt_Z14;
                          etaZb = eta_Z14;
                          phiZb = phi_Z14;
 					
-		            }
+		     }
 				
-			      } // end else dZc3
+                  } // end else dZc3
 			
                   
                   // 6th Selection: on Za and Zb masses, Za > 40 GeV (closest to nomial Z mass) & Zb > 12 GeV
                   
                   if ( mZa > 40. && mZa < 120.){
 					  
-					 if ( mZb > 12. && mZb < 120. ){
+		     if ( mZb > 12. && mZb < 120. ){
 						 
-						 NEvents[12]++;
+			 NEvents[12]++;
 						 
-					     za_sig.Za_mass.push_back(mZa);
-					     za_sig.Za_pt.push_back(ptZa);
-					     za_sig.Za_eta.push_back(etaZa);
+			 za_sig.Za_mass.push_back(mZa);
+			 za_sig.Za_pt.push_back(ptZa);
+			 za_sig.Za_eta.push_back(etaZa);
 					     
-					     zb_sig.Zb_mass.push_back(mZb);
-					     zb_sig.Zb_pt.push_back(ptZb);
-					     zb_sig.Zb_eta.push_back(etaZb);
+			 zb_sig.Zb_mass.push_back(mZb);
+			 zb_sig.Zb_pt.push_back(ptZb);
+			 zb_sig.Zb_eta.push_back(etaZb);
 		            
 		            
-		                 //============================
-		                 // Reconstruct h1 from Za, Zb
-		                 //============================
+		         //============================
+		         // Reconstruct h1 from Za, Zb
+		         //============================
             
                          Float_t mh1_ZaZb, pt_h1_ZaZb, eta_h1_ZaZb, phi_h1_ZaZb;
                    
@@ -908,53 +911,53 @@ void DemoAnalyzer::Loop()
                          mh1_ZaZb = h1.M(); // get invariant mass of 4Muons 
                          
                          // 7th Selection: on invariant mass of 4Muons, in Signal Region 115 ≤ m4l ≤ 135 GeV  
-                        // if ( ( mh1_ZaZb >= 115. ) && ( mh1_ZaZb <= 135. ) ) {
+                         // if ( ( mh1_ZaZb >= 115. ) && ( mh1_ZaZb <= 135. ) ) {
 							 
-							// NEvents[13]++;
-                        // if ( ( mh1_ZaZb >= 115. ) && ( mh1_ZaZb <= 135. ) ) continue;
+			    // NEvents[13]++;
+                         // if ( ( mh1_ZaZb >= 115. ) && ( mh1_ZaZb <= 135. ) ) continue;
                          
                          // 8th Selection: on control region or side bands  m4l < 115 or m4l > 135 GeV
-						// if ( ( mh1_ZaZb < 115. ) || ( mh1_ZaZb > 135. ) ) continue;	
+			    // if ( ( mh1_ZaZb < 115. ) || ( mh1_ZaZb > 135. ) ) continue;	
 						  
-                             pt_h1_ZaZb = h1.Pt();
-                             eta_h1_ZaZb = h1.Eta();
-                             phi_h1_ZaZb = h1.Phi();
+                         pt_h1_ZaZb = h1.Pt();
+                         eta_h1_ZaZb = h1.Eta();
+                         phi_h1_ZaZb = h1.Phi();
             
                             
 					         
-					         /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                              ^                                         ^ 
-                              ^            Determine b1, b2             ^
-                              ^                                         ^
-                              ^              for h -> b1 b2             ^
-                              ^                                         ^ 
-                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+		       /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         ^                                         ^ 
+                         ^            Determine b1, b2             ^
+                         ^                                         ^
+                         ^              for h -> b1 b2             ^
+                         ^                                         ^ 
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
        
-                            bool found_bjet = false;
-                            int nbjets = 0;            // total nb of b-jets found per event
-                            vector<Int_t> bjet_indx;
-                            bjet_indx.clear();
+                         //bool found_bjet = false;
+                         int nbjets = 0;            // total nb of b-jets found per event
+                         
+                         bjet_indx.clear();
             
-                            // Loop overall jets
-		                    cout << "Jet_Size =  " << Jet_size << " for Event nb  " <<  jentry << endl;
+                         // Loop overall jets
+		         cout << "Jet_Size =  " << Jet_size << " for Event nb  " <<  jentry << endl;
                             
-                            // Loop overall Jets
-                            // cout << "start loop overall jets" << endl;
-                            // cout << "Jet size = " << Jet_size << endl;
+                         // Loop overall Jets
+                         // cout << "start loop overall jets" << endl;
+                         // cout << "Jet size = " << Jet_size << endl;
        
        
-                            for (Int_t i = 0; i < Jet_size; i++){
+                         for (Int_t i = 0; i < Jet_size; i++){
 	 
 	                            
-	                            int bj_indx = i;
+	                      int bj_indx = i;
 	                            
-			                    // save BTag bit value for each jet
-			                    UInt_t jet_bTag = Jet_BTag[i];
-			                    UInt_t jet_bTag_Algo = Jet_BTagAlgo[i];
-			                    UInt_t jet_bTag_Phys = Jet_BTagPhys[i];
+			      // save BTag bit value for each jet
+			      UInt_t jet_bTag = Jet_BTag[i];
+			      UInt_t jet_bTag_Algo = Jet_BTagAlgo[i];
+			      UInt_t jet_bTag_Phys = Jet_BTagPhys[i];
                                
-                                // Check whether a jet has passed the b-tagging criteria defined by the BitNumber = i,
-                                // Loose WP b-jet BitNumber = 0, Medium WP b-jet BitNumber = 1, Tight WP b-jet BitNumber = 2 in CMS_PhaseII Delphes card, 
+                              // Check whether a jet has passed the b-tagging criteria defined by the BitNumber = i,
+                              // Loose WP b-jet BitNumber = 0, Medium WP b-jet BitNumber = 1, Tight WP b-jet BitNumber = 2 in CMS_PhaseII Delphes card, 
                                  
                                /* Bool_t BtagOk = ( jet_bTag & (1 << 0) );    // for loose
                                 
@@ -964,10 +967,10 @@ void DemoAnalyzer::Loop()
                  
                                Bool_t BtagOk = ( jet_bTag & (1 << 2) );    // for tight 
                                 
-                                cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
-                                     << ",   Is it considered as a Tight WP b-jet ?   Answer: " 
-                                     << BtagOk << ",  " << "BTag_Algo = " << jet_bTag_Algo 
-                                     << ",   BTag_Physics = " << jet_bTag_Phys << endl;
+                               cout << "Jet [" << i << "] ,  BTag bit value = " << jet_bTag 
+                                    << ",   Is it considered as a Tight WP b-jet ?   Answer: " 
+                                    << BtagOk << ",  " << "BTag_Algo = " << jet_bTag_Algo 
+                                    << ",   BTag_Physics = " << jet_bTag_Phys << endl;
                                      
                                 
                                      
@@ -977,80 +980,80 @@ void DemoAnalyzer::Loop()
                                      << ",   Is it considered as a Med WP b-jet ?   Answer: " 
                                      << BtagOk << endl;  */
 			
-			                  if ( BtagOk == 1){  // jet assigned as tight WP b-jet
+			        if ( BtagOk == 1){  // jet assigned as tight WP b-jet
 									
-									bjet_indx.push_back(bj_indx);
-									nbjets++;
+				    bjet_indx.push_back(bj_indx);
+				    nbjets++;
 									
-								}  // end if BtagOk 
-	                        }  // end loop overall jets
+				}  // end if BtagOk 
+	                 }  // end loop overall jets
       
 					 
-							 	
-							 // 2nd Selection: on having at least 2 b-jets/event 
-							 if ( nbjets > 1 ){ 
+			 // 2nd Selection: on having at least 2 b-jets/event 
+		         if ( nbjets > 1 ){ 
 								 
-								 NEvents[14]++;
+			     NEvents[14]++;
 								 
-								 cout << "========================================" << endl;
-		 	                     cout << " number of b-jets/event =  " << nbjets    << endl;
-		                         cout << "========================================" << endl;
+			     cout << "========================================" << endl;
+		 	     cout << " number of b-jets/event =  " << nbjets    << endl;
+		             cout << "========================================" << endl;
 							 		 
-								 // save index of b-jets after applying series of selections
-								 vector<Int_t> bjet_indx_AfterSel;
-								 bjet_indx_AfterSel.clear();
+			     // save index of b-jets after applying series of selections
 								 
-								// for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { cout << "bjet index for v_element [" << i << "] is : "<< bjet_indx[i] << endl;}
-							    
-							     // Loop overall Loose b-jets/event 
-								 for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
+			     bjet_indx_AfterSel.clear();
+								 
+			     // Loop overall Loose b-jets/event 
+			     for ( Int_t i = 0; i < bjet_indx.size(); i++ ) { // loop over bjet_indx vector elements	
 									 
-									 int bj_indx_AfterSelec = bjet_indx[i];
-									 double bjet_pt = Jet_PT[bj_indx_AfterSelec];
-									 double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
-									 double abs_bjet_eta = fabs(Jet_Eta[bj_indx_AfterSelec]);
-									 double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
+				  int bj_indx_AfterSelec = bjet_indx[i];
+				  double bjet_pt = Jet_PT[bj_indx_AfterSelec];
+				  double bjet_eta = Jet_Eta[bj_indx_AfterSelec];
+				  double abs_bjet_eta = fabs(Jet_Eta[bj_indx_AfterSelec]);
+				  double bjet_phi = Jet_Phi[bj_indx_AfterSelec]; 
 									 
 					
-									 double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
-									 double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
-									 double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
-									 double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
-									 double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
-									 double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
-									 double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
-									 double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
+				  double DEta_b_mu1_sqr = TMath::Power((bjet_eta - eta_mu1), 2);
+				  double DEta_b_mu2_sqr = TMath::Power((bjet_eta - eta_mu2), 2);
+				  double DEta_b_mu3_sqr = TMath::Power((bjet_eta - eta_mu3), 2);
+				  double DEta_b_mu4_sqr = TMath::Power((bjet_eta - eta_mu4), 2);
+			          double DPhi_b_mu1_sqr = TMath::Power((bjet_phi - phi_mu1), 2);
+				  double DPhi_b_mu2_sqr = TMath::Power((bjet_phi - phi_mu2), 2);
+				  double DPhi_b_mu3_sqr = TMath::Power((bjet_phi - phi_mu3), 2);
+			          double DPhi_b_mu4_sqr = TMath::Power((bjet_phi - phi_mu4), 2);
 									 
 									 
-									 double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
-									 double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
-									 double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
-									 double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
+				  double DR_b_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
+				  double DR_b_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
+				  double DR_b_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
+				  double DR_b_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
                 
 									 
-									 // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
-									 if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
+				 // 3rd Selection: on DeltaR(b-jet,lepton) of ZZ candidates > 0.3
+				 if ( ( DR_b_mu1 > 0.3) && ( DR_b_mu2 > 0.3) && ( DR_b_mu3 > 0.3) && ( DR_b_mu4 > 0.3) ) {
 										 
-										 NEvents[15]++;
-										 cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
-										 // 4th Selection: on b-jet pT > 20 GeV
-										 if ( bjet_pt > 20.) {   
+				     NEvents[15]++;
+				     cout << "......Selection on DR between (bjet, lepton) DONE......"  << endl;
+										 
+				     // 4th Selection: on b-jet pT > 20 GeV
+				     if ( bjet_pt > 20.) {   
 											 
-											 NEvents[16]++;
-											 cout << "......Selection on bjet PT DONE......"  << endl;
-											 // 5th Selection on b-jet abs_eta < 2.4
-											 if ( abs_bjet_eta < 2.4) {
+					 NEvents[16]++;
+					 cout << "......Selection on bjet PT DONE......"  << endl;
+											 
+					 // 5th Selection on b-jet abs_eta < 2.4
+					 if ( abs_bjet_eta < 2.4) {
 												 
-												 NEvents[17]++;
-											     // save b-jet index for further selection 
-											     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
-											     cout << "......Selection on bjet abs Eta DONE......"  << endl;
-											} 
+					     NEvents[17]++;
+											     
+				             // save b-jet index for further selection 
+					     bjet_indx_AfterSel.push_back(bj_indx_AfterSelec);
+					     cout << "......Selection on bjet abs Eta DONE......"  << endl;
 											
-											 
-										 } // end if bjet_pt 	 
-								      } // end if DR 
-				                   } // end loop over vector elements 
+					 } // end if abs bjet eta
+											
+				      } // end if bjet_pt 	 
+				  } // end if DR 
+	                      } // end loop over vector elements 
                                    
                                 // store BTag scores for b-jets survived the above selections 
 					             //vector<Int_t> v_BTag_scores; 
