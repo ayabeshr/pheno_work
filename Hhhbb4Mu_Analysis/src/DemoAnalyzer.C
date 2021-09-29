@@ -1,9 +1,9 @@
 ////////////////////////////////////////////////////////
 //      To run macro in a ROOT session do:            //
-//     gSystem->Load("/path/to/libDelphes.so");       //
+//      gSystem->Load("/path/to/libDelphes.so");      //
 //     .L path/to/DemoAnalyzer.C                      //
-//     DemoAnalyzer e;                                //
-//     e.Loop();                                      //
+//      DemoAnalyzer e;                               //
+//      e.Loop();                                     //
 ////////////////////////////////////////////////////////
 
 
@@ -51,25 +51,25 @@ void DemoAnalyzer::Loop()
    Int_t NEvents[19]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};    // size = nb of selection cuts, each element referes to certain selection  
    
    
-   //================================================================================================//
-   //                                   DATASET SIGNAL H->hh->bb4Mu  NoPU                            //
-   //================================================================================================//  
+   //===========================================================================================================//
+   //                                           DATASET SIGNAL H->hh->bb4Mu  NoPU                               //
+   //===========================================================================================================//  
    
    //TFile *indata = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/analysis/gghhbb4M_AllDiagrams_20210915.root", "READ");
    
    
-   //================================================================================================//
-   //                                   DATASET Background 14 TeV                                    //
-   //================================================================================================// 
+   //===========================================================================================================//
+   //                                              DATASET Background 14 TeV                                    //
+   //===========================================================================================================// 
    
    //TFile* in_ttbar = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/TTbar_BG_14TeV_SMfull_CMS_PhaseII_0PU_GEN_pythia8/TTbar_BG_14TeV_SMfull_pythia8_CMS_PhaseII_0PU_GEN-SIM.root", "READ");
    TFile *in_ZZ4Mu = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/ZZto4Mu_BG_14TeV_SMfull_Pythia8_GEN/ZZto4MU_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN_SIM.root", "READ");
    //TFile *in_DY = new TFile("/media/aya/LinuxSpace/MyWork_Final_Samples/DY_BG_14TeV_SMfull_GEN/DY_BG_14TeV_SMfull_pythia8_CMSPhaseII-0PU_GEN-SIM.root", "READ");
    
    
-   //================================================================================================//
-   //                                         Output Root files                                      //
-   //================================================================================================//
+   //==========================================================================================================//
+   //                                               Output Root files                                          //
+   //==========================================================================================================//
    
  //TFile* sig        = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/final_analysis/output_demo_Hhhbb4M_BMP1.root" , "RECREATE");
  //TFile* ttbar      = new TFile("/media/aya/LinuxSpace/Pheno_Work_2/final_analysis/output_demo_ttbar.root"        , "RECREATE");
@@ -89,6 +89,7 @@ void DemoAnalyzer::Loop()
    
    //------------------------WEIGHT Calculation---------------------------
   
+   // PhaseII - Luminosity  
    float Lumi_data = 3.e+03;    // in 1/fb
 	
    //-----------------------------------//
@@ -111,9 +112,9 @@ void DemoAnalyzer::Loop()
    
    
   
-   //---------------------START Defining Tree Branches--------------------
+   //---------------------START TBranches DEFINITION--------------------
    
-  /* b_Gen_Muon           = sig_tree->Branch("Gen_Muons"           ,   &genMuons  );
+ /*b_Gen_Muon           = sig_tree->Branch("Gen_Muons"           ,   &genMuons  );
    b_Gen_Bjets          = sig_tree->Branch("Gen_BJets"           ,   &gen_bjet  );
    b_LooseMuons         = sig_tree->Branch("LooseMuons"          ,   &loose_mu  );
    b_Jets               = sig_tree->Branch("Jets"                ,   &jets      );
@@ -128,7 +129,7 @@ void DemoAnalyzer::Loop()
    b_2nd_Higgs_Ofsignal = sig_tree->Branch("2nd_Higgs_OFSignal"  ,   &smhiggs2  );
    b_BSM_Higgs_Ofsignal = sig_tree->Branch("Heavy_Higgs_OFSignal",   &heavyHiggs); */
    
-  /* b_Gen_Muon           = ttbar_tree->Branch("Gen_Muons"           ,   &genMuons  );
+ /*b_Gen_Muon           = ttbar_tree->Branch("Gen_Muons"           ,   &genMuons  );
    b_Gen_Bjets          = ttbar_tree->Branch("Gen_BJets"           ,   &gen_bjet  );
    b_LooseMuons         = ttbar_tree->Branch("LooseMuons"          ,   &loose_mu  );
    b_Jets               = ttbar_tree->Branch("Jets"                ,   &jets      );
@@ -159,7 +160,7 @@ void DemoAnalyzer::Loop()
    b_2nd_Higgs_Ofsignal = ZZ4Mu_tree->Branch("2nd_Higgs_OFSignal"  ,   &smhiggs2  );
    b_BSM_Higgs_Ofsignal = ZZ4Mu_tree->Branch("Heavy_Higgs_OFSignal",   &heavyHiggs); 
    
-  /* b_Gen_Muon           = DY_tree->Branch("Gen_Muons"           ,   &genMuons  );
+ /*b_Gen_Muon           = DY_tree->Branch("Gen_Muons"           ,   &genMuons  );
    b_Gen_Bjets          = DY_tree->Branch("Gen_BJets"           ,   &gen_bjet  );
    b_LooseMuons         = DY_tree->Branch("LooseMuons"          ,   &loose_mu  );
    b_Jets               = DY_tree->Branch("Jets"                ,   &jets      );
@@ -174,7 +175,7 @@ void DemoAnalyzer::Loop()
    b_2nd_Higgs_Ofsignal = DY_tree->Branch("2nd_Higgs_OFSignal"  ,   &smhiggs2  );
    b_BSM_Higgs_Ofsignal = DY_tree->Branch("Heavy_Higgs_OFSignal",   &heavyHiggs);  */
    
-  /* b_Gen_Muon           = ZZbb2Mu_tree->Branch("Gen_Muons"           ,   &genMuons  );
+ /*b_Gen_Muon           = ZZbb2Mu_tree->Branch("Gen_Muons"           ,   &genMuons  );
    b_Gen_Bjets          = ZZbb2Mu_tree->Branch("Gen_BJets"           ,   &gen_bjet  );
    b_LooseMuons         = ZZbb2Mu_tree->Branch("LooseMuons"          ,   &loose_mu  );
    b_Jets               = ZZbb2Mu_tree->Branch("Jets"                ,   &jets      );
@@ -189,7 +190,7 @@ void DemoAnalyzer::Loop()
    b_2nd_Higgs_Ofsignal = ZZbb2Mu_tree->Branch("2nd_Higgs_OFSignal"  ,   &smhiggs2  );
    b_BSM_Higgs_Ofsignal = ZZbb2Mu_tree->Branch("Heavy_Higgs_OFSignal",   &heavyHiggs);  */
    
-  /* b_Gen_Muon           = ZZ4b_tree->Branch("Gen_Muons"           ,   &genMuons  );
+/* b_Gen_Muon           = ZZ4b_tree->Branch("Gen_Muons"           ,   &genMuons  );
    b_Gen_Bjets          = ZZ4b_tree->Branch("Gen_BJets"           ,   &gen_bjet  );
    b_LooseMuons         = ZZ4b_tree->Branch("LooseMuons"          ,   &loose_mu  );
    b_Jets               = ZZ4b_tree->Branch("Jets"                ,   &jets      );
@@ -334,7 +335,7 @@ void DemoAnalyzer::Loop()
    {
       cout << "******START EVENT LOOP!******    ,    Event nb = " << jentry << endl; 
 	  
-	  Long64_t ientry = LoadTree(jentry);
+      Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
@@ -405,179 +406,179 @@ void DemoAnalyzer::Loop()
       
        //------------------------GEN PARTICLES------------------------------ 	 
 		 
-	   // Get Thresholds for pT, eta for generated objects 
+       // Get Thresholds for pT, eta for generated objects 
 	 
-	  // Looping overall Gen_Particles 	 
-	  for (Int_t i = 0; i < Particle_size; i++){
+       // Looping overall Gen_Particles 	 
+       for (Int_t i = 0; i < Particle_size; i++){
 		 
-	        // Get particle pdg id 
-	        int p_id = Particle_PID[i];
+	    // Get particle pdg id 
+	    int p_id = Particle_PID[i];
 		 
-	        // Check for Muons
-	        if ( p_id == 13 ) { // pdg_id = 13 for Muon
+	    // Check for Muons
+	    if ( p_id == 13 ) { // pdg_id = 13 for Muon
 			 
-		       Float_t gen_mu_pt = Particle_PT[i];
-	           Float_t gen_mu_eta = Particle_Eta[i];
-		       Float_t gen_mu_phi = Particle_Phi[i];
+		Float_t gen_mu_pt = Particle_PT[i];
+	        Float_t gen_mu_eta = Particle_Eta[i];
+                Float_t gen_mu_phi = Particle_Phi[i];
 		       
-		       genMuons.gen_muon_pt.push_back(gen_mu_pt);
-		       genMuons.gen_muon_eta.push_back(gen_mu_eta);
-		       genMuons.gen_muon_phi.push_back(gen_mu_phi);
+	        genMuons.gen_muon_pt.push_back(gen_mu_pt);
+	        genMuons.gen_muon_eta.push_back(gen_mu_eta);
+		genMuons.gen_muon_phi.push_back(gen_mu_phi);
 		       
 		      
-	        } // end if on id 13 	
+	    } // end if on id 13 	
 	     
-	        // Check for b quarks
-	        if ( p_id == 5 ) { // pdg_id = 5 for b quark 
+	    // Check for b quarks
+	    if ( p_id == 5 ) { // pdg_id = 5 for b quark 
 			 
-		     Float_t gen_b_pt = Particle_PT[i];
-		     Float_t gen_b_eta = Particle_Eta[i];
-		     Float_t gen_b_phi = Particle_Phi[i]; 
+	        Float_t gen_b_pt = Particle_PT[i];
+	        Float_t gen_b_eta = Particle_Eta[i];
+		Float_t gen_b_phi = Particle_Phi[i]; 
 			
-			 gen_bjet.gen_bjet_pt.push_back(gen_b_pt);
-			 gen_bjet.gen_bjet_eta.push_back(gen_b_eta);
-			 gen_bjet.gen_bjet_phi.push_back(gen_b_phi);
+	        gen_bjet.gen_bjet_pt.push_back(gen_b_pt);
+	        gen_bjet.gen_bjet_eta.push_back(gen_b_eta);
+	        gen_bjet.gen_bjet_phi.push_back(gen_b_phi);
 			 
 			
-	         } // end if on id 5
+	    } // end if on id 5
 		 
-           } // end loop over gen particles    
+      } // end loop over gen particles    
            
        
       
       //------------Loop over Loose Muons--------------
       for (Int_t i = 0; i < MuonLoose_size; i++){
 		   
-		    Float_t muon_pt = MuonLoose_PT[i];
-			Float_t muon_eta = MuonLoose_Eta[i];
-			Float_t muon_phi = MuonLoose_Phi[i];
+           Float_t muon_pt = MuonLoose_PT[i];
+	   Float_t muon_eta = MuonLoose_Eta[i];
+	   Float_t muon_phi = MuonLoose_Phi[i];
 			
-			loose_mu.lmu_pt.push_back(muon_pt);
-			loose_mu.lmu_eta.push_back(muon_eta);
-			loose_mu.lmu_phi.push_back(muon_phi);
+	   loose_mu.lmu_pt.push_back(muon_pt);
+	   loose_mu.lmu_eta.push_back(muon_eta);
+           loose_mu.lmu_phi.push_back(muon_phi);
 			
 		
        } 
       
       //----------------Loop over Jets-----------------
-       for ( Int_t i = 0; i < Jet_size; i++ ){
+      for ( Int_t i = 0; i < Jet_size; i++ ){
 		   
-		    Float_t j_pt = MuonLoose_PT[i];
-			Float_t j_eta = MuonLoose_Eta[i];
-			Float_t j_phi = MuonLoose_Phi[i];
+	   Float_t j_pt = MuonLoose_PT[i];
+	   Float_t j_eta = MuonLoose_Eta[i];
+	   Float_t j_phi = MuonLoose_Phi[i];
 		   
-		    jets.jet_pt.push_back(j_pt);
-		    jets.jet_eta.push_back(j_eta);
-		    jets.jet_phi.push_back(j_phi);
+           jets.jet_pt.push_back(j_pt);
+	   jets.jet_eta.push_back(j_eta);
+	   jets.jet_phi.push_back(j_phi);
 		   
-		}
+      }
       
       //---------------Loop over MET----------------
        
       for (Int_t i = 0; i < MissingET_size; i++){
 		  
-	        Float_t missingET = MissingET_MET[i];
-	        Float_t MET_eta   = MissingET_Eta[i];
-	        Float_t MET_phi   = MissingET_Phi[i];
+	   Float_t missingET = MissingET_MET[i];
+	   Float_t MET_eta   = MissingET_Eta[i];
+	   Float_t MET_phi   = MissingET_Phi[i];
 	        
-	        met.met_MET.push_back(missingET);
-	        met.met_eta.push_back(MET_eta);
-	        met.met_phi.push_back(MET_phi);
+	   met.met_MET.push_back(missingET);
+	   met.met_eta.push_back(MET_eta);
+	   met.met_phi.push_back(MET_phi);
 	       
        }
        
         
           
-	   //=====================================================================//
+       //=====================================================================//
        //                        Start 4Muons , ZZ Selections                 //
        //=====================================================================//
 	      
 	    
-	    v_muon_idx.clear();
-	    cout << "Original Number of Muons: " << MuonLoose_size << endl;
+       v_muon_idx.clear();
+       cout << "Original Number of Muons: " << MuonLoose_size << endl;
 	    
-	   for ( Int_t i = 0; i < MuonLoose_size; i++ ){
+       for ( Int_t i = 0; i < MuonLoose_size; i++ ){
 			  
-		    float muonL_pt = MuonLoose_PT[i];
-		    float muonL_eta = fabs(MuonLoose_Eta[i]);
+            float muonL_pt = MuonLoose_PT[i];
+	    float muonL_eta = fabs(MuonLoose_Eta[i]);
 		     
-			// 1st Selection: on pT, eta of reconstructed Muons (Object_Selection) 
+	    // 1st Selection: on pT, eta of reconstructed Muons (Object_Selection) 
 			
-			  if ( muonL_pt > 5. ){ 
+	    if ( muonL_pt > 5. ){ 
 				
-				if ( muonL_eta < 2.4 ) {
+		if ( muonL_eta < 2.4 ) {
 					
-					int mu_idx = i;
-					v_muon_idx.push_back(mu_idx);
+		    int mu_idx = i;
+		    v_muon_idx.push_back(mu_idx);
 				  
 			       
-	            } //  end if muonL_eta < 2.4
+	        } //  end if muonL_eta < 2.4
             } // end if muonL_pt > 5
         } // end loop overall loose muons		       
          
       //  cout << "Number of Muons after Object Selection: " << v_muon_idx.size() << endl;
         
-        // 2nd Selection: on number of Muons per event
-        if ( v_muon_idx.size() > 3 ){ // having at least 4 Muons per event 
+      // 2nd Selection: on number of Muons per event
+      if ( v_muon_idx.size() > 3 ){ // having at least 4 Muons per event 
 			
-			NEvents[0]++;
+	   NEvents[0]++;
 			  
-	        // TLorentzVector declarations 
-            TLorentzVector mu1, mu2, mu3, mu4, Z12, Z34, Z13, Z24, Z14, Z23, Za, Zb, b1, b2, h1, h2, H;
+	   // TLorentzVector declarations 
+           TLorentzVector mu1, mu2, mu3, mu4, Z12, Z34, Z13, Z24, Z14, Z23, Za, Zb, b1, b2, h1, h2, H;
       
-            // Set Pt, eta, phi mass for 4 muons TLV
-            double muon_mass = 0.105658375;  // in GeV
-            //double m_mu1, m_mu2, m_mu3, m_mu4;
-            Float_t pt_mu1, pt_mu2, pt_mu3, pt_mu4;
-            Float_t eta_mu1, eta_mu2, eta_mu3, eta_mu4;
-            Float_t phi_mu1, phi_mu2, phi_mu3, phi_mu4;
+           // Set Pt, eta, phi mass for 4 muons TLV
+           double muon_mass = 0.105658375;  // in GeV
+           //double m_mu1, m_mu2, m_mu3, m_mu4;
+           Float_t pt_mu1, pt_mu2, pt_mu3, pt_mu4;
+           Float_t eta_mu1, eta_mu2, eta_mu3, eta_mu4;
+           Float_t phi_mu1, phi_mu2, phi_mu3, phi_mu4;
       
-            // Initialize variables
-            pt_mu1 = -9999.; pt_mu2 = -9999.; pt_mu3 = -9999.; pt_mu4 = -9999.;
-            eta_mu1 = -9999.; eta_mu2 = -9999.; eta_mu3 = -9999.; eta_mu4 = -9999.;
-            phi_mu1 = -9999.; phi_mu2 = -9999.; phi_mu3 = -9999.; phi_mu4 = -9999.;
+           // Initialize variables
+           pt_mu1 = -9999.; pt_mu2 = -9999.; pt_mu3 = -9999.; pt_mu4 = -9999.;
+           eta_mu1 = -9999.; eta_mu2 = -9999.; eta_mu3 = -9999.; eta_mu4 = -9999.;
+           phi_mu1 = -9999.; phi_mu2 = -9999.; phi_mu3 = -9999.; phi_mu4 = -9999.;
                 
-            int mu1_idx = v_muon_idx[0];
-            int mu2_idx = v_muon_idx[1];
-            int mu3_idx = v_muon_idx[2];
-            int mu4_idx = v_muon_idx[3];
+	   int mu1_idx = v_muon_idx[0];
+           int mu2_idx = v_muon_idx[1];
+           int mu3_idx = v_muon_idx[2];
+           int mu4_idx = v_muon_idx[3];
       
-            // In Delphes tree Muon_PT branch pT are sorted from highest to least one
-            mu1.SetPtEtaPhiM(MuonLoose_PT[mu1_idx], MuonLoose_Eta[mu1_idx], MuonLoose_Phi[mu1_idx], muon_mass); 
-            mu2.SetPtEtaPhiM(MuonLoose_PT[mu2_idx], MuonLoose_Eta[mu2_idx], MuonLoose_Phi[mu2_idx], muon_mass);
-            mu3.SetPtEtaPhiM(MuonLoose_PT[mu3_idx], MuonLoose_Eta[mu3_idx], MuonLoose_Phi[mu3_idx], muon_mass);
-            mu4.SetPtEtaPhiM(MuonLoose_PT[mu4_idx], MuonLoose_Eta[mu4_idx], MuonLoose_Phi[mu4_idx], muon_mass);  
+           // In Delphes tree Muon_PT branch pT are sorted from highest to least one
+           mu1.SetPtEtaPhiM(MuonLoose_PT[mu1_idx], MuonLoose_Eta[mu1_idx], MuonLoose_Phi[mu1_idx], muon_mass); 
+           mu2.SetPtEtaPhiM(MuonLoose_PT[mu2_idx], MuonLoose_Eta[mu2_idx], MuonLoose_Phi[mu2_idx], muon_mass);
+           mu3.SetPtEtaPhiM(MuonLoose_PT[mu3_idx], MuonLoose_Eta[mu3_idx], MuonLoose_Phi[mu3_idx], muon_mass);
+           mu4.SetPtEtaPhiM(MuonLoose_PT[mu4_idx], MuonLoose_Eta[mu4_idx], MuonLoose_Phi[mu4_idx], muon_mass);  
       
-            // Leading Muon > 20 GeV (Muon with highest pT)
-            pt_mu1 = mu1.Pt();
-            eta_mu1 = mu1.Eta();
-            phi_mu1 = mu1.Phi();
+           // Leading Muon > 20 GeV (Muon with highest pT)
+           pt_mu1 = mu1.Pt();
+           eta_mu1 = mu1.Eta();
+           phi_mu1 = mu1.Phi();
                 
-            // subleading Muon > 10 GeV (Muon with second-highest pT)    
-            pt_mu2 = mu2.Pt();
-            eta_mu2 = mu2.Eta();
-            phi_mu2 = mu2.Phi();
+           // subleading Muon > 10 GeV (Muon with second-highest pT)    
+           pt_mu2 = mu2.Pt();
+           eta_mu2 = mu2.Eta();
+           phi_mu2 = mu2.Phi();
                 
-            pt_mu3 = mu3.Pt();
-            eta_mu3 = mu3.Eta();
-            phi_mu3 = mu3.Phi();
+           pt_mu3 = mu3.Pt();
+	   eta_mu3 = mu3.Eta();
+           phi_mu3 = mu3.Phi();
                 
-            pt_mu4 = mu2.Pt();
-            eta_mu4 = mu2.Eta();
-            phi_mu4 = mu2.Phi();
+           pt_mu4 = mu2.Pt();
+           eta_mu4 = mu2.Eta();
+           phi_mu4 = mu2.Phi();
             
-            four_muons.muon1_pt.push_back(pt_mu1);
-            four_muons.muon2_pt.push_back(pt_mu2);
-            four_muons.muon3_pt.push_back(pt_mu3);
-            four_muons.muon4_pt.push_back(pt_mu4);
-            four_muons.muon1_eta.push_back(eta_mu1);
-            four_muons.muon2_eta.push_back(eta_mu2);
-            four_muons.muon3_eta.push_back(eta_mu3);
-            four_muons.muon4_eta.push_back(eta_mu4);
-            four_muons.muon1_phi.push_back(phi_mu1);
-            four_muons.muon2_phi.push_back(phi_mu2);
-            four_muons.muon3_phi.push_back(phi_mu3);
-            four_muons.muon4_phi.push_back(phi_mu4);    
+           four_muons.muon1_pt.push_back(pt_mu1);
+           four_muons.muon2_pt.push_back(pt_mu2);
+           four_muons.muon3_pt.push_back(pt_mu3);
+           four_muons.muon4_pt.push_back(pt_mu4);
+           four_muons.muon1_eta.push_back(eta_mu1);
+           four_muons.muon2_eta.push_back(eta_mu2);
+           four_muons.muon3_eta.push_back(eta_mu3);
+           four_muons.muon4_eta.push_back(eta_mu4);
+           four_muons.muon1_phi.push_back(phi_mu1);
+           four_muons.muon2_phi.push_back(phi_mu2);
+	   four_muons.muon3_phi.push_back(phi_mu3);
+           four_muons.muon4_phi.push_back(phi_mu4);    
                 
               
             // Calculate DR bet each 2 muons for all possible combinations 1234, 1324, 1423
@@ -638,86 +639,83 @@ void DemoAnalyzer::Loop()
 
                    NEvents[2]++;
                    
-                   // 5th Selecion: on DeltaR(lepton,lepton) > 0.02   
-                  // if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) && ( DR_mu13 > 0.02) && ( DR_mu24 > 0.02) && ( DR_mu14 > 0.02) && ( DR_mu23 > 0.02) ) {
-					   
-					 //  NEvents[3]++;
-						
-		           // Start 4 muon combination 1234 
-		           // 5th Selection: on charge of each muon pair
-		           if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
+		   // Start 4 muon combination 1234 
+		   // 5th Selection: on charge of each muon pair
+		   if ( MuonLoose_Charge[0] + MuonLoose_Charge[1] == 0){  // mu1, mu2 
 				   
                       if ( MuonLoose_Charge[2] + MuonLoose_Charge[3] == 0){  // mu3, mu4 
 						  
-					      NEvents[3]++;
-				          double m12 = (mu1 + mu2).M();
-					      double m34 = (mu3 + mu4).M(); 
+			  NEvents[3]++;
+		          double m12 = (mu1 + mu2).M();
+      		          double m34 = (mu3 + mu4).M(); 
 						  
-						  // 6th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
-						 if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) ){
+		          // 6th Selection: on mass of each oppositely charged muon pairs should be mll > 4 GeV  
+			  if ( ( DR_mu12 > 0.02) && ( DR_mu34 > 0.02) ){
 						 
-						     NEvents[4]++;
-						  if (  ( m12 > 4.) &&  ( m34 > 4. ) ) { 
+			      NEvents[4]++;
+			      if (  ( m12 > 4.) &&  ( m34 > 4. ) ) { 
 							  
-						      NEvents[5]++;
-						      Z12 = mu1 + mu2;
-                              mZ12 = Z12.M();
-                              pt_Z12 = Z12.Pt();
-                              eta_Z12 = Z12.Eta();
-                              phi_Z12 = Z12.Phi();
+			          NEvents[5]++;
+				  Z12 = mu1 + mu2;
+                                  mZ12 = Z12.M();
+                                  pt_Z12 = Z12.Pt();
+                                  eta_Z12 = Z12.Eta();
+                                  phi_Z12 = Z12.Phi();
                              
-				              Z34 = mu3 + mu4;
-                              mZ34 = Z34.M();
-                              pt_Z34 = Z34.Pt();
-                              eta_Z34 = Z34.Eta();
-                              phi_Z34 = Z34.Phi();
+				  Z34 = mu3 + mu4;
+                                  mZ34 = Z34.M();
+                                  pt_Z34 = Z34.Pt();
+                                  eta_Z34 = Z34.Eta();
+                                  phi_Z34 = Z34.Phi();
 			          
-					      } // end if m12,m34
-			           }
-			              if (mZ12 > 0.) zmass.Z12_mass.push_back(mZ12);
-			              if (mZ34 > 0.) zmass.Z34_mass.push_back(mZ34);
+			       } // end if m12,m34
+		           } // end DR 12,34
+			   
+			   if (mZ12 > 0.) zmass.Z12_mass.push_back(mZ12);
+			   if (mZ34 > 0.) zmass.Z34_mass.push_back(mZ34);
 			         
-		              } // end if on mu3,4 charge
-		           } // end if on mu1,2 charge
+		      } // end if on mu3,4 charge
+		  } // end if on mu1,2 charge
 		  
-		           dZ12 = fabs(mZ12 - mZ);
-		           dZ34 = fabs(mZ34 - mZ);
+		  dZ12 = fabs(mZ12 - mZ);
+                  dZ34 = fabs(mZ34 - mZ);
 		    
-		           // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
-		           dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
+		  // condition ? result_if_true : result_if_false  -> syntax for using ? conditional operator 
+		  dZc1 = ( dZ12 < dZ34 ) ? dZ12 : dZ34;
 		          
-		          // Start 4 muon combination 1324 
-		          if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
+		  // Start 4 muon combination 1324 
+		  if ( MuonLoose_Charge[0] + MuonLoose_Charge[2] == 0){  // mu1, mu3
 					
-					 if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
+		     if ( MuonLoose_Charge[1] + MuonLoose_Charge[3] == 0){ // mu2, mu4
 					   
-					     NEvents[6]++;
-					     double m13 = (mu1 + mu3).M();
-						 double m24 = (mu2 + mu4).M();
+			  NEvents[6]++;
+			  double m13 = (mu1 + mu3).M();
+			  double m24 = (mu2 + mu4).M();
 						 
-						 if ( ( DR_mu13 > 0.02) && ( DR_mu24 > 0.02) ){
+			  if ( ( DR_mu13 > 0.02) && ( DR_mu24 > 0.02) ){
 						 
-						     NEvents[7]++;
+	   		       NEvents[7]++;
 						   
-						 if ( ( m13 > 4.) && ( m24 > 4. ) ) {  // mll > 4 GeV
+			       if ( ( m13 > 4.) && ( m24 > 4. ) ) {  // mll > 4 GeV
 							   
-					           NEvents[8]++;
-			                   Z13 = mu1 + mu3;
-			                   mZ13 = Z13.M();
-			                   pt_Z13 = Z13.Pt();
-                               eta_Z13 = Z13.Eta();
-                               phi_Z13 = Z13.Phi();
+			           NEvents[8]++;
+			           Z13 = mu1 + mu3;
+			           mZ13 = Z13.M();
+			           pt_Z13 = Z13.Pt();
+                                   eta_Z13 = Z13.Eta();
+                                   phi_Z13 = Z13.Phi();
                                
-			                   Z24 = mu2 + mu4;
-			                   mZ24 = Z24.M();
-			                   pt_Z24 = Z24.Pt();
-                               eta_Z24 = Z24.Eta();
-                               phi_Z24 = Z24.Phi();
+			           Z24 = mu2 + mu4;
+			           mZ24 = Z24.M();
+			           pt_Z24 = Z24.Pt();
+                                   eta_Z24 = Z24.Eta();
+                                   phi_Z24 = Z24.Phi();
                                
-						 } // end if m13, m24 
-					   }
-			             if (mZ13 > 0.) zmass.Z13_mass.push_back(mZ13);
-			             if (mZ24 > 0.) zmass.Z24_mass.push_back(mZ24);
+				} // end if m13, m24 
+			   }// end DR 13,24
+			             
+			   if (mZ13 > 0.) zmass.Z13_mass.push_back(mZ13);
+	                   if (mZ24 > 0.) zmass.Z24_mass.push_back(mZ24);
 			              
 					 } // end if on mu1,3 charge
 	              } // end if on mu2,4 charge
