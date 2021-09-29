@@ -95,6 +95,27 @@ DeltaR_Muons drMuons;
 
 ///////////////////////////////////////////////////////
 
+struct FourMuons{
+	
+   vector<Float_t> muon1_pt;
+   vector<Float_t> muon2_pt;
+   vector<Float_t> muon3_pt;
+   vector<Float_t> muon4_pt;
+   vector<Float_t> muon1_eta;	
+   vector<Float_t> muon2_eta;
+   vector<Float_t> muon3_eta;	
+   vector<Float_t> muon4_eta;	
+   vector<Float_t> muon1_phi;
+   vector<Float_t> muon2_phi;
+   vector<Float_t> muon3_phi;
+   vector<Float_t> muon4_phi;	
+	
+};
+FourMuons four_muons;
+
+
+///////////////////////////////////////////////////////
+
 struct ZmassCombinations{
 	
    vector<Float_t> Z12_mass;
@@ -191,13 +212,27 @@ BSM_HiggsOfSignal heavyHiggs;
 
 //////////////////////////////////////////////////////////
 
-TTree* treeI   = new TTree("output_demo_Hhhbb4M_BMP1", "output_demo_Hhhbb4M_BMP1");
+
+TTree* sig_tree        = new TTree("output_demo_Hhhbb4M_BMP1", "output_demo_Hhhbb4M_BMP1");
+TTree* ttbar_tree      = new TTree("output_demo_ttbar", "output_demo_ttbar");
+TTree* ZZ4Mu_tree      = new TTree("output_demo_ZZ4Mu", "output_demo_ZZ4Mu");
+TTree* DY_tree         = new TTree("output_demo_DY", "output_demo_DY");
+TTree* ZZbb2Mu_tree    = new TTree("output_demo_ZZbb2Mu", "output_demo_ZZbb2Mu");
+TTree* ZZ4b_tree       = new TTree("output_demo_ZZ4b", "output_demo_ZZ4b");
+TTree* ZWpbbMuNL_tree  = new TTree("output_demo_ZWpbbMuNL", "output_demo_ZWpbbMuNL");
+TTree* ZWp2MuMuNL_tree = new TTree("output_demo_ZWpbbMuNL", "output_demo_ZWpbbMuNL");
+TTree* ZWmbbMuNL_tree  = new TTree("output_demo_ZWmbbMuNL", "output_demo_ZWmbbMuNL");
+TTree* ZWm2MuMuNL_tree = new TTree("output_demo_ZWmbbMuNL", "output_demo_ZWmbbMuNL"); 
+TTree* WW2Mu2NL_tree   = new TTree("output_demo_WW2Mu2NL", "output_demo_WW2Mu2NL"); 
+TTree* smHZZ4Mu_tree   = new TTree("output_demo_smHZZ4Mu", "output_demo_smHZZ4Mu"); 
+TTree* smHbb_tree      = new TTree("output_demo_smHbb", "output_demo_smHbb"); 
 
 TBranch*   b_Gen_Muon;
 TBranch*   b_Gen_Bjets;
 TBranch*   b_LooseMuons;
 TBranch*   b_Jets;
 TBranch*   b_MET;
+TBranch*   b_4Muons;
 TBranch*   b_deltaR_muons;
 TBranch*   b_Zmass_comb;
 TBranch*   b_Za_signal;
