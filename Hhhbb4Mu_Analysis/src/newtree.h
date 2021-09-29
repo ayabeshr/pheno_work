@@ -1,6 +1,6 @@
 //============================================
 //  Header file defining Tree and branches
-//           for Hhhbb4M
+//       for Hhhbb4M and Backgrounds
 //============================================
 
 #ifndef newtree_h
