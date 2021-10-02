@@ -46,3 +46,5 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
 4- Bit value stored in a variable called Jet_BTag[] for each jet in 
    Jet container in Delphes tree.  
    
+   
+5- Selection of certain WP B-jets for doing analysis mainly depends on BitNUmber value selection.
