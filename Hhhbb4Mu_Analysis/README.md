@@ -21,13 +21,28 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
      Loose          0          1,3,5,7
      Medium         1          2,3,6,7
      Tight          2          4,5,6,7
-
-   
+     
+     
     Bit Value       0    1    2    3    4    5    6    7
    
     Binary form    000  001  010  011  100  101  110  111 
    
-   
-3- Each jet has a certain bit value stored in a variable called Jet_BTag[] in 
+
+
+3- Each bit value is flagged to a certain WP or many.
+
+      Bit_Value       WP_Loose        WP_Medium         WP_Tight
+      
+         0              NOT              NOT               NOT
+         1            FLAGGED            NOT               NOT 
+         2              NOT            FLAGGED             NOT
+         3            FLAGGED          FLAGGED             NOT
+         4              NOT              NOT             FLAGGED
+         5            FLAGGED            NOT             FLAGGED
+         6              NOT            FLAGGED           FLAGGED
+         7            FLAGGED          FLAGGED           FLAGGED
+         
+         
+4- Bit value stored in a variable called Jet_BTag[] for each jet in 
    Jet container in Delphes tree.  
    
