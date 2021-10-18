@@ -9,9 +9,6 @@ from matplotlib import pyplot as plt
 
 # Define CSV file 
 df = pd.read_csv("/home/aya/Desktop/Pheno_Work/analysis/data_plots/Xsection_Test_20211019.csv")
-#df = pd.read_csv("/home/aya/Downloads/Xsection_Test_20210719 - Sheet1(3).csv")
-# plot data from file 
-#m12_xsc = dfl.plot("Mvalue", "X-section(pb)", marker = "o", color = "red", linestyle = "")
 
 # Xsection Vs M12
 xsc_Vsm12 = df.plot(x = "mbreaking", y = "new_xsc(pb)", marker = "o", color = "blue", label =  "$\sigma (pb)$ \n at tree-level", linestyle="")
