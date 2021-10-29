@@ -1,6 +1,6 @@
 Hhhbb4Mu Analysis: 
 
-1- Studying expectation for BSM second heavy CP even neutral Higgs production and decay into two SM like Higgs in the final state 2b-jets+4Muons at tree level via ggF for CMS Phase2 upgrade with Lumimosity 3000 1/fb . The Heavy Higgs mass to be investigated is ~ 400 GeV, due to a parameter space scan study performed on Z2 breaking symmetry parameter M12 of 2HDM-typeI model, which has obvious effect on heavy Higgs mass. Such that for high values of M12 we got lower masses for heavy Higgs. 
+1- Studying expectation for BSM second heavy CP even neutral Higgs production and decay into two SM like Higgs in the final state 2b-jets+4Muons at tree level via ggF for CMS Phase2 upgrade with Lumimosity 3000 1/fb . The Heavy Higgs mass to be investigated is ~ 400 GeV, due to a parameter space scan study performed on Z2 symmetry breaking parameter M12 of 2HDM-typeI model, which has obvious effect on heavy Higgs mass. Such that for high values of M12 we got lower masses for heavy Higgs. 
 
 
 2- Signal and Background samples are generated using MG5+Pythia8+Delphes.
