@@ -98,8 +98,8 @@ if (os.path.exists(samples)):     # check if samples configuration file really e
 
                 input_file = ru.TFile(sample_path, "READ")
 		tr = input_file.Get(intree)
-                leaf = ru.TLeaf()
-                leaf = tr.GetLeaf("LooseMuons", "lmu_pt")
+                #leaf = ru.TLeaf()
+                #leaf = tr.GetLeaf("LooseMuons", "lmu_pt")
                 #leaf.SetAddress()
 
                 for entry in tr:
