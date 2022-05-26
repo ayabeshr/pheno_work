@@ -13,7 +13,7 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
    for e.g; BitNumber=0 (default) means stored in 1st position, BitNumber=1 
    stored in 2nd position, and so on.....
    
-2- Each BitNumber stores certain bit values, specifically defined in CMS Phase2
+2- Each BitNumber stores certain bit values known as Jet_BTag, specifically defined in CMS Phase2
    Card as :
    
    
