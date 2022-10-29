@@ -32,16 +32,16 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
 
 3- Each bit value is flagged to a certain WP or many.
 
-      Bit_Value       WP_Loose        WP_Medium         WP_Tight
+      Bit_Value       WP_Loose        WP_Medium         WP_Tight         IsJet        IsB-jet              
       
-         0              NOT              NOT               NOT
-         1            FLAGGED            NOT               NOT 
-         2              NOT            FLAGGED             NOT
-         3            FLAGGED          FLAGGED             NOT
-         4              NOT              NOT             FLAGGED
-         5            FLAGGED            NOT             FLAGGED
-         6              NOT            FLAGGED           FLAGGED
-         7            FLAGGED          FLAGGED           FLAGGED
+         0              NOT              NOT               NOT            NO            NO (u,d,S,c)
+         1            FLAGGED            NOT               NOT            YES           NO (u,d,s,c)
+         2              NOT            FLAGGED             NOT            YES           NO (u,d,s,c)
+         3            FLAGGED          FLAGGED             NOT            YES           NO (u,d,s,c)  
+         4              NOT              NOT             FLAGGED          YES           YES
+         5            FLAGGED            NOT             FLAGGED          YES           YES
+         6              NOT            FLAGGED           FLAGGED          YES           YES
+         7            FLAGGED          FLAGGED           FLAGGED          YES           YES
          
          
 4- Bit value stored in a variable called Jet_BTag[] for each jet in 
