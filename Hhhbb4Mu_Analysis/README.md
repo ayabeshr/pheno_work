@@ -34,10 +34,10 @@ BTagging in CMS Phase2 Delphes Simulation Cards:
 
       Bit_Value       WP_Loose        WP_Medium         WP_Tight         IsJet        IsB-jet              
       
-         0              NOT              NOT               NOT            NO            NO (u,d,S,c)
-         1            FLAGGED            NOT               NOT            YES           NO (u,d,s,c)
-         2              NOT            FLAGGED             NOT            YES           NO (u,d,s,c)
-         3            FLAGGED          FLAGGED             NOT            YES           NO (u,d,s,c)  
+         0              NOT              NOT               NOT            YES           NO (u,d,s)
+         1            FLAGGED            NOT               NOT            YES           NO (c)
+         2              NOT            FLAGGED             NOT            YES           NO (c)
+         3            FLAGGED          FLAGGED             NOT            YES           NO (c)  
          4              NOT              NOT             FLAGGED          YES           YES
          5            FLAGGED            NOT             FLAGGED          YES           YES
          6              NOT            FLAGGED           FLAGGED          YES           YES
