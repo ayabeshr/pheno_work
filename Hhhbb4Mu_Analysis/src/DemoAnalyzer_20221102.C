@@ -2170,26 +2170,26 @@ void DemoAnalyzer::Loop()
 			   
 			for (Int_t i = 0; i < Jet_size; i++) {   // loop over jets
 			
-				Float_t jet_pt  = Jet_PT[i]; 
-		        Float_t jet_eta = Jet_Eta[i]; 
-				Float_t jet_phi = Jet_Phi[i];
+			    Float_t jet_pt  = Jet_PT[i]; 
+		            Float_t jet_eta = Jet_Eta[i]; 
+			    Float_t jet_phi = Jet_Phi[i];
 				
-				double DEta_b_mu1_sqr = TMath::Power(( jet_eta - lep1[1] ), 2);         // b is not really b its jet no time for modification
+			    double DEta_b_mu1_sqr = TMath::Power(( jet_eta - lep1[1] ), 2);         // b is not really b its jet no time for modification
 		 	    double DEta_b_mu2_sqr = TMath::Power(( jet_eta - lep2[1] ), 2);
-		        double DEta_b_mu3_sqr = TMath::Power(( jet_eta - lep3[1] ), 2);
+		            double DEta_b_mu3_sqr = TMath::Power(( jet_eta - lep3[1] ), 2);
 			    double DEta_b_mu4_sqr = TMath::Power(( jet_eta - lep4[1] ), 2);
 				
-				double DPhi_b_mu1_sqr = TMath::Power(( jet_phi - lep1[2]), 2);
+			    double DPhi_b_mu1_sqr = TMath::Power(( jet_phi - lep1[2]), 2);
 			    double DPhi_b_mu2_sqr = TMath::Power(( jet_phi - lep2[2]), 2);
-		        double DPhi_b_mu3_sqr = TMath::Power(( jet_phi - lep3[2]), 2);
-		        double DPhi_b_mu4_sqr = TMath::Power(( jet_phi - lep4[2]), 2);
+		            double DPhi_b_mu3_sqr = TMath::Power(( jet_phi - lep3[2]), 2);
+		            double DPhi_b_mu4_sqr = TMath::Power(( jet_phi - lep4[2]), 2);
 				
-				double DR_j_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
-		        double DR_j_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
-	       	    double DR_j_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
+		  	    double DR_j_mu1 = TMath::Sqrt( DEta_b_mu1_sqr + DPhi_b_mu1_sqr );
+		            double DR_j_mu2 = TMath::Sqrt( DEta_b_mu2_sqr + DPhi_b_mu2_sqr );
+	       	            double DR_j_mu3 = TMath::Sqrt( DEta_b_mu3_sqr + DPhi_b_mu3_sqr );
 			    double DR_j_mu4 = TMath::Sqrt( DEta_b_mu4_sqr + DPhi_b_mu4_sqr );
 				
-				if ( (jet_pt > 20.) && (abs(jet_eta) < 2.8) ) {
+			    if ( (jet_pt > 20.) && (abs(jet_eta) < 2.8) ) {
 		  
 		           // apply cut on DR & lepton
 				   if ( ( DR_j_mu1 > 0.4 ) && ( DR_j_mu2 > 0.4 )
